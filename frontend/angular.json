@@ -1,0 +1,26 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "projects": {
+    "solari": {
+      "projectType": "application",
+      "root": "",
+      "sourceRoot": "src",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:application",
+          "options": {
+            "browser": "src/main.ts",
+            "index": "src/index.html",
+            "tsConfig": "tsconfig.json",
+            "styles": ["src/styles.css"],
+            "outputPath": "dist/solari",
+            "budgets": [{"type":"initial","maximumWarning":"600kB","maximumError":"900kB"}]
+          }
+        },
+        "serve": {"builder":"@angular/build:dev-server","options":{"buildTarget":"solari:build"}}
+      }
+    }
+  },
+  "cli": {"analytics": false}
+}

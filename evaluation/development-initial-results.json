@@ -1,0 +1,595 @@
+{
+  "timestamp": "2026-10-18T04:53:29.887013+00:00",
+  "split": "development",
+  "hardware": {
+    "os": "Windows-10-10.0.26200-SP0",
+    "cpu": "Intel64 Family 6 Model 186 Stepping 2, GenuineIntel",
+    "logical_cpus": 20,
+    "python": "3.11.9",
+    "torch_threads": 4
+  },
+  "versions": {
+    "numpy": "1.26.4",
+    "scikit-learn": "1.6.1",
+    "sentence-transformers": "3.4.1",
+    "torch": "2.6.0",
+    "transformers": "4.48.3"
+  },
+  "model": "sentence-transformers/all-MiniLM-L6-v2",
+  "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+  "dataset_sha256": "b9ebbe875f313dea5c988b56e810f00540978532baae100861061c5f02b2c95a",
+  "cases_sha256": "cce755503a57d0548ab729566cc8b5212564b4a48fb4d8d6c72c4210600f4594",
+  "thresholds": {
+    "keyword": 0.25,
+    "semantic": 0.5
+  },
+  "modes": {
+    "keyword": {
+      "status": "measured",
+      "precision_at_3": 0.3333333333333333,
+      "recall_at_3": 0.9166666666666666,
+      "mrr": 1.0,
+      "no_match_correct_rejections": 3,
+      "no_match_false_acceptances": 0,
+      "no_match_count": 3,
+      "positive_false_rejections": 0,
+      "positive_count": 6,
+      "warm_latency_ms": {
+        "median": 0.31620002118870616,
+        "p95": 0.6076999707147479,
+        "sample_count": 45
+      },
+      "cases": [
+        {
+          "id": "dev-duplicate",
+          "expected": [
+            "T-1303"
+          ],
+          "returned": [
+            "T-1303"
+          ],
+          "outcome": "matches",
+          "precision_at_3": 0.3333333333333333,
+          "recall_at_3": 1.0,
+          "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "T-1303",
+              "keyword": 0.5210962053650766,
+              "semantic": null,
+              "fusion": null
+            }
+          ]
+        },
+        {
+          "id": "dev-chart",
+          "expected": [
+            "T-1201"
+          ],
+          "returned": [
+            "T-1201"
+          ],
+          "outcome": "matches",
+          "precision_at_3": 0.3333333333333333,
+          "recall_at_3": 1.0,
+          "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "T-1201",
+              "keyword": 0.5723993687652534,
+              "semantic": null,
+              "fusion": null
+            }
+          ]
+        },
+        {
+          "id": "dev-lockout",
+          "expected": [
+            "T-1004"
+          ],
+          "returned": [
+            "T-1004"
+          ],
+          "outcome": "matches",
+          "precision_at_3": 0.3333333333333333,
+          "recall_at_3": 1.0,
+          "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "T-1004",
+              "keyword": 0.4771256926172909,
+              "semantic": null,
+              "fusion": null
+            }
+          ]
+        },
+        {
+          "id": "dev-export",
+          "expected": [
+            "T-1402"
+          ],
+          "returned": [
+            "T-1402"
+          ],
+          "outcome": "matches",
+          "precision_at_3": 0.3333333333333333,
+          "recall_at_3": 1.0,
+          "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "T-1402",
+              "keyword": 0.5758514173593137,
+              "semantic": null,
+              "fusion": null
+            }
+          ]
+        },
+        {
+          "id": "dev-permissions",
+          "expected": [
+            "T-1503"
+          ],
+          "returned": [
+            "T-1503"
+          ],
+          "outcome": "matches",
+          "precision_at_3": 0.3333333333333333,
+          "recall_at_3": 1.0,
+          "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "T-1503",
+              "keyword": 0.3750491095159901,
+              "semantic": null,
+              "fusion": null
+            }
+          ]
+        },
+        {
+          "id": "dev-latest-data",
+          "expected": [
+            "T-1104",
+            "T-1401"
+          ],
+          "returned": [
+            "T-1104"
+          ],
+          "outcome": "matches",
+          "precision_at_3": 0.3333333333333333,
+          "recall_at_3": 0.5,
+          "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "T-1104",
+              "keyword": 0.393508146679115,
+              "semantic": null,
+              "fusion": null
+            }
+          ]
+        },
+        {
+          "id": "dev-new-integration",
+          "expected": [],
+          "returned": [],
+          "outcome": "no_reliable_match",
+          "precision_at_3": null,
+          "recall_at_3": null,
+          "reciprocal_rank": null,
+          "scores": []
+        },
+        {
+          "id": "dev-unrelated",
+          "expected": [],
+          "returned": [],
+          "outcome": "no_reliable_match",
+          "precision_at_3": null,
+          "recall_at_3": null,
+          "reciprocal_rank": null,
+          "scores": []
+        },
+        {
+          "id": "dev-printer",
+          "expected": [],
+          "returned": [],
+          "outcome": "no_reliable_match",
+          "precision_at_3": null,
+          "recall_at_3": null,
+          "reciprocal_rank": null,
+          "scores": []
+        }
+      ]
+    },
+    "semantic": {
+      "status": "measured",
+      "precision_at_3": 0.38888888888888884,
+      "recall_at_3": 1.0,
+      "mrr": 1.0,
+      "no_match_correct_rejections": 3,
+      "no_match_false_acceptances": 0,
+      "no_match_count": 3,
+      "positive_false_rejections": 0,
+      "positive_count": 6,
+      "warm_latency_ms": {
+        "median": 12.263999960850924,
+        "p95": 18.371500016655773,
+        "sample_count": 45
+      },
+      "cases": [
+        {
+          "id": "dev-duplicate",
+          "expected": [
+            "T-1303"
+          ],
+          "returned": [
+            "T-1303"
+          ],
+          "outcome": "matches",
+          "precision_at_3": 0.3333333333333333,
+          "recall_at_3": 1.0,
+          "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "T-1303",
+              "keyword": 0.5210962053650766,
+              "semantic": 0.8922790288925171,
+              "fusion": null
+            }
+          ]
+        },
+        {
+          "id": "dev-chart",
+          "expected": [
+            "T-1201"
+          ],
+          "returned": [
+            "T-1201"
+          ],
+          "outcome": "matches",
+          "precision_at_3": 0.3333333333333333,
+          "recall_at_3": 1.0,
+          "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "T-1201",
+              "keyword": 0.5723993687652534,
+              "semantic": 0.85566645860672,
+              "fusion": null
+            }
+          ]
+        },
+        {
+          "id": "dev-lockout",
+          "expected": [
+            "T-1004"
+          ],
+          "returned": [
+            "T-1004",
+            "T-1001",
+            "T-1502"
+          ],
+          "outcome": "matches",
+          "precision_at_3": 0.3333333333333333,
+          "recall_at_3": 1.0,
+          "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "T-1004",
+              "keyword": 0.4771256926172909,
+              "semantic": 0.7936382293701172,
+              "fusion": null
+            },
+            {
+              "id": "T-1001",
+              "keyword": 0.10657924335274917,
+              "semantic": 0.6480687856674194,
+              "fusion": null
+            },
+            {
+              "id": "T-1502",
+              "keyword": 0.03961417613945171,
+              "semantic": 0.5498841404914856,
+              "fusion": null
+            }
+          ]
+        },
+        {
+          "id": "dev-export",
+          "expected": [
+            "T-1402"
+          ],
+          "returned": [
+            "T-1402"
+          ],
+          "outcome": "matches",
+          "precision_at_3": 0.3333333333333333,
+          "recall_at_3": 1.0,
+          "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "T-1402",
+              "keyword": 0.5758514173593137,
+              "semantic": 0.9039580821990967,
+              "fusion": null
+            }
+          ]
+        },
+        {
+          "id": "dev-permissions",
+          "expected": [
+            "T-1503"
+          ],
+          "returned": [
+            "T-1503"
+          ],
+          "outcome": "matches",
+          "precision_at_3": 0.3333333333333333,
+          "recall_at_3": 1.0,
+          "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "T-1503",
+              "keyword": 0.3750491095159901,
+              "semantic": 0.7245656251907349,
+              "fusion": null
+            }
+          ]
+        },
+        {
+          "id": "dev-latest-data",
+          "expected": [
+            "T-1104",
+            "T-1401"
+          ],
+          "returned": [
+            "T-1104",
+            "T-1401"
+          ],
+          "outcome": "matches",
+          "precision_at_3": 0.6666666666666666,
+          "recall_at_3": 1.0,
+          "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "T-1104",
+              "keyword": 0.393508146679115,
+              "semantic": 0.7787860631942749,
+              "fusion": null
+            },
+            {
+              "id": "T-1401",
+              "keyword": 0.21585937327658988,
+              "semantic": 0.7455613017082214,
+              "fusion": null
+            }
+          ]
+        },
+        {
+          "id": "dev-new-integration",
+          "expected": [],
+          "returned": [],
+          "outcome": "no_reliable_match",
+          "precision_at_3": null,
+          "recall_at_3": null,
+          "reciprocal_rank": null,
+          "scores": []
+        },
+        {
+          "id": "dev-unrelated",
+          "expected": [],
+          "returned": [],
+          "outcome": "no_reliable_match",
+          "precision_at_3": null,
+          "recall_at_3": null,
+          "reciprocal_rank": null,
+          "scores": []
+        },
+        {
+          "id": "dev-printer",
+          "expected": [],
+          "returned": [],
+          "outcome": "no_reliable_match",
+          "precision_at_3": null,
+          "recall_at_3": null,
+          "reciprocal_rank": null,
+          "scores": []
+        }
+      ]
+    },
+    "hybrid": {
+      "status": "measured",
+      "precision_at_3": 0.38888888888888884,
+      "recall_at_3": 1.0,
+      "mrr": 1.0,
+      "no_match_correct_rejections": 3,
+      "no_match_false_acceptances": 0,
+      "no_match_count": 3,
+      "positive_false_rejections": 0,
+      "positive_count": 6,
+      "warm_latency_ms": {
+        "median": 10.5665999581106,
+        "p95": 19.939200021326542,
+        "sample_count": 45
+      },
+      "cases": [
+        {
+          "id": "dev-duplicate",
+          "expected": [
+            "T-1303"
+          ],
+          "returned": [
+            "T-1303"
+          ],
+          "outcome": "matches",
+          "precision_at_3": 0.3333333333333333,
+          "recall_at_3": 1.0,
+          "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "T-1303",
+              "keyword": 0.5210962053650766,
+              "semantic": 0.8922790288925171,
+              "fusion": 0.03278688524590164
+            }
+          ]
+        },
+        {
+          "id": "dev-chart",
+          "expected": [
+            "T-1201"
+          ],
+          "returned": [
+            "T-1201"
+          ],
+          "outcome": "matches",
+          "precision_at_3": 0.3333333333333333,
+          "recall_at_3": 1.0,
+          "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "T-1201",
+              "keyword": 0.5723993687652534,
+              "semantic": 0.85566645860672,
+              "fusion": 0.03278688524590164
+            }
+          ]
+        },
+        {
+          "id": "dev-lockout",
+          "expected": [
+            "T-1004"
+          ],
+          "returned": [
+            "T-1004",
+            "T-1001",
+            "T-1502"
+          ],
+          "outcome": "matches",
+          "precision_at_3": 0.3333333333333333,
+          "recall_at_3": 1.0,
+          "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "T-1004",
+              "keyword": 0.4771256926172909,
+              "semantic": 0.7936382293701172,
+              "fusion": 0.03278688524590164
+            },
+            {
+              "id": "T-1001",
+              "keyword": 0.10657924335274917,
+              "semantic": 0.6480687856674194,
+              "fusion": 0.03200204813108039
+            },
+            {
+              "id": "T-1502",
+              "keyword": 0.03961417613945171,
+              "semantic": 0.5498841404914856,
+              "fusion": 0.029386529386529386
+            }
+          ]
+        },
+        {
+          "id": "dev-export",
+          "expected": [
+            "T-1402"
+          ],
+          "returned": [
+            "T-1402"
+          ],
+          "outcome": "matches",
+          "precision_at_3": 0.3333333333333333,
+          "recall_at_3": 1.0,
+          "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "T-1402",
+              "keyword": 0.5758514173593137,
+              "semantic": 0.9039580821990967,
+              "fusion": 0.03278688524590164
+            }
+          ]
+        },
+        {
+          "id": "dev-permissions",
+          "expected": [
+            "T-1503"
+          ],
+          "returned": [
+            "T-1503"
+          ],
+          "outcome": "matches",
+          "precision_at_3": 0.3333333333333333,
+          "recall_at_3": 1.0,
+          "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "T-1503",
+              "keyword": 0.3750491095159901,
+              "semantic": 0.7245656251907349,
+              "fusion": 0.03278688524590164
+            }
+          ]
+        },
+        {
+          "id": "dev-latest-data",
+          "expected": [
+            "T-1104",
+            "T-1401"
+          ],
+          "returned": [
+            "T-1104",
+            "T-1401"
+          ],
+          "outcome": "matches",
+          "precision_at_3": 0.6666666666666666,
+          "recall_at_3": 1.0,
+          "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "T-1104",
+              "keyword": 0.393508146679115,
+              "semantic": 0.7787860631942749,
+              "fusion": 0.03278688524590164
+            },
+            {
+              "id": "T-1401",
+              "keyword": 0.21585937327658988,
+              "semantic": 0.7455613017082214,
+              "fusion": 0.03225806451612903
+            }
+          ]
+        },
+        {
+          "id": "dev-new-integration",
+          "expected": [],
+          "returned": [],
+          "outcome": "no_reliable_match",
+          "precision_at_3": null,
+          "recall_at_3": null,
+          "reciprocal_rank": null,
+          "scores": []
+        },
+        {
+          "id": "dev-unrelated",
+          "expected": [],
+          "returned": [],
+          "outcome": "no_reliable_match",
+          "precision_at_3": null,
+          "recall_at_3": null,
+          "reciprocal_rank": null,
+          "scores": []
+        },
+        {
+          "id": "dev-printer",
+          "expected": [],
+          "returned": [],
+          "outcome": "no_reliable_match",
+          "precision_at_3": null,
+          "recall_at_3": null,
+          "reciprocal_rank": null,
+          "scores": []
+        }
+      ]
+    }
+  }
+}

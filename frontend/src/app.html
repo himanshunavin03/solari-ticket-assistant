@@ -1,0 +1,30 @@
+<header><a class="brand" href="/" aria-label="Solari Analytics home"><span class="sun">✳</span> solari<span class="brand-sub">ANALYTICS</span></a><span class="workspace">Support workspace <span class="avatar" aria-label="Support agent">SA</span></span></header>
+<main>
+  <div class="eyebrow">KNOWLEDGE, CONNECTED</div>
+  <div class="heading"><div><h1>A familiar issue.<br>A faster way forward.</h1><p>Find how your team resolved similar tickets.<br>Give every conversation a head start.</p></div><div class="connection"><span class="dot" [class.offline]="ready() === 'Service unavailable'"></span>{{ready()}}<small>{{count()}} historical tickets</small></div></div>
+  @if (degraded()) {<div class="notice" role="status">Semantic search is unavailable. Keyword search is available; semantic and hybrid requests require the model service.</div>}
+  <div class="workspace-grid">
+    <section class="panel compose" aria-labelledby="new-ticket"><div class="panel-title"><span class="step">01</span><h2 id="new-ticket">The incoming ticket</h2></div><p class="muted">Start with what the customer is experiencing.</p>
+      <label for="example">Try an example <span class="optional">OPTIONAL</span></label><select id="example" [(ngModel)]="example" (ngModelChange)="chooseExample()"><option value="">Choose a sample ticket</option>@for (e of examples(); track e.ticket_id) {<option [value]="e.ticket_id">{{e.subject}}</option>}</select>
+      <div class="divider"><span>OR ADD YOUR OWN</span></div>
+      <form (ngSubmit)="search()" novalidate>
+        <label for="subject">Subject</label><input id="subject" name="subject" [(ngModel)]="subject" (ngModelChange)="changed()" maxlength="300" placeholder="A short summary of the issue" required>
+        <label for="description">Description</label><textarea id="description" name="description" [(ngModel)]="description" (ngModelChange)="changed()" maxlength="10000" rows="7" placeholder="What happened? Include symptoms, error messages, and relevant context." required></textarea>
+        <label for="mode">Search approach</label><select id="mode" name="mode" [(ngModel)]="mode" (ngModelChange)="changed()"><option value="hybrid">Hybrid · keywords + meaning</option><option value="semantic">Semantic · meaning</option><option value="keyword">Keyword · exact terms</option></select>
+        <div class="actions"><button type="submit" class="primary">{{loading() ? 'Searching…' : 'Find similar tickets'}} <span aria-hidden="true">↗</span></button><button type="button" class="clear" (click)="reset()">Clear</button></div>
+      </form><p class="privacy">Original resolutions. Always yours to review.</p>
+    </section>
+    <section class="results" aria-labelledby="matches" [attr.aria-busy]="loading()"><div class="results-heading"><div class="panel-title"><span class="step">02</span><h2 id="matches">Relevant history</h2></div><span class="pill">UP TO 3 MATCHES</span></div>
+      <div aria-live="polite">
+        @if (error()) {<div class="notice error" role="alert">{{error()}}</div>}
+        @if (loading()) {<div class="empty"><div class="orbit spinning" aria-hidden="true">✳</div><h3>Connecting the dots</h3><p>Looking through your team's historical tickets…</p></div>}
+        @else if (result(); as response) {
+          @if (response.outcome === 'no_reliable_match') {<div class="empty"><div class="orbit" aria-hidden="true">◇</div><h3>No reliable historical match</h3><p>The available history does not offer enough evidence.<br>Investigate this issue directly or add more context.</p></div>}
+          @else {<p class="results-note">Similar symptoms, documented resolutions. Review before applying.</p>@for (m of response.matches; track m.ticket.ticket_id; let i = $index) {
+            <article class="match"><div class="match-meta"><span>{{m.ticket.ticket_id}} <span class="category">{{m.ticket.category}}</span></span><span class="rank">{{i === 0 ? 'Closest match' : 'Related history'}}</span></div><h3>{{m.ticket.subject}}</h3><div class="tags">@for (tag of m.ticket.tags; track tag) {<span>{{tag}}</span>}</div><div class="resolution"><h4>ORIGINAL RESOLUTION</h4><p>{{m.ticket.resolution_notes}}</p></div><details><summary>View original description</summary><p>{{m.ticket.description}}</p></details><details class="technical"><summary>Relevance evidence & technical details</summary><p>Keyword cosine: {{m.keyword_score.toFixed(3)}}<br>Semantic cosine: {{m.semantic_score === null ? 'not run' : m.semantic_score.toFixed(3)}}<br>Fusion ranking value: {{m.fusion_score === null ? 'not used' : m.fusion_score.toFixed(5)}}<br>{{response.evidence_note}}</p></details></article>
+          }}
+        } @else if (!error()) {<div class="empty"><div class="orbit" aria-hidden="true">⌕</div><h3>Your team's experience,<br>ready when you need it.</h3><p>Add a ticket to discover relevant past issues<br>and the resolutions that helped.</p><span class="empty-caption">SEARCH HISTORY. FIND CONTEXT. MOVE FORWARD.</span></div>}
+      </div>
+    </section>
+  </div><footer>Built for thoughtful support.<span>Solari Analytics · Ticket Similarity Assistant</span></footer>
+</main>

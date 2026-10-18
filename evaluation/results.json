@@ -1,0 +1,742 @@
+{
+  "timestamp": "2026-10-18T04:56:03.374371+00:00",
+  "split": "held_out",
+  "hardware": {
+    "os": "Windows-10-10.0.26200-SP0",
+    "cpu": "Intel64 Family 6 Model 186 Stepping 2, GenuineIntel",
+    "logical_cpus": 20,
+    "python": "3.11.9",
+    "torch_threads": 4
+  },
+  "versions": {
+    "numpy": "1.26.4",
+    "scikit-learn": "1.6.1",
+    "sentence-transformers": "3.4.1",
+    "torch": "2.6.0",
+    "transformers": "4.48.3"
+  },
+  "model": "sentence-transformers/all-MiniLM-L6-v2",
+  "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+  "dataset_sha256": "b9ebbe875f313dea5c988b56e810f00540978532baae100861061c5f02b2c95a",
+  "cases_sha256": "cce755503a57d0548ab729566cc8b5212564b4a48fb4d8d6c72c4210600f4594",
+  "thresholds": {
+    "keyword": 0.25,
+    "semantic": 0.7
+  },
+  "modes": {
+    "keyword": {
+      "status": "measured",
+      "precision_at_3": 0.3333333333333333,
+      "recall_at_3": 1.0,
+      "mrr": 1.0,
+      "no_match_correct_rejections": 2,
+      "no_match_false_acceptances": 2,
+      "no_match_count": 4,
+      "positive_false_rejections": 0,
+      "positive_count": 8,
+      "warm_latency_ms": {
+        "median": 0.3017000271938741,
+        "p95": 0.34769997000694275,
+        "sample_count": 60
+      },
+      "cases": [
+        {
+          "id": "test-rate-limit",
+          "expected": [
+            "T-1702"
+          ],
+          "returned": [
+            "T-1702"
+          ],
+          "outcome": "matches",
+          "precision_at_3": 0.3333333333333333,
+          "recall_at_3": 1.0,
+          "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "T-1702",
+              "keyword": 0.3339356716319666,
+              "semantic": null,
+              "fusion": null
+            }
+          ]
+        },
+        {
+          "id": "test-hubspot",
+          "expected": [
+            "T-1105"
+          ],
+          "returned": [
+            "T-1105"
+          ],
+          "outcome": "matches",
+          "precision_at_3": 0.3333333333333333,
+          "recall_at_3": 1.0,
+          "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "T-1105",
+              "keyword": 0.33276275315410125,
+              "semantic": null,
+              "fusion": null
+            }
+          ]
+        },
+        {
+          "id": "test-sso",
+          "expected": [
+            "T-1002"
+          ],
+          "returned": [
+            "T-1002"
+          ],
+          "outcome": "matches",
+          "precision_at_3": 0.3333333333333333,
+          "recall_at_3": 1.0,
+          "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "T-1002",
+              "keyword": 0.41812284845139297,
+              "semantic": null,
+              "fusion": null
+            }
+          ]
+        },
+        {
+          "id": "test-filter",
+          "expected": [
+            "T-1204"
+          ],
+          "returned": [
+            "T-1204"
+          ],
+          "outcome": "matches",
+          "precision_at_3": 0.3333333333333333,
+          "recall_at_3": 1.0,
+          "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "T-1204",
+              "keyword": 0.5035214882108925,
+              "semantic": null,
+              "fusion": null
+            }
+          ]
+        },
+        {
+          "id": "test-queue",
+          "expected": [
+            "T-1604"
+          ],
+          "returned": [
+            "T-1604"
+          ],
+          "outcome": "matches",
+          "precision_at_3": 0.3333333333333333,
+          "recall_at_3": 1.0,
+          "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "T-1604",
+              "keyword": 0.5468395978588173,
+              "semantic": null,
+              "fusion": null
+            }
+          ]
+        },
+        {
+          "id": "test-key",
+          "expected": [
+            "T-1705"
+          ],
+          "returned": [
+            "T-1705"
+          ],
+          "outcome": "matches",
+          "precision_at_3": 0.3333333333333333,
+          "recall_at_3": 1.0,
+          "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "T-1705",
+              "keyword": 0.5791957474476466,
+              "semantic": null,
+              "fusion": null
+            }
+          ]
+        },
+        {
+          "id": "test-seats",
+          "expected": [
+            "T-1301"
+          ],
+          "returned": [
+            "T-1301"
+          ],
+          "outcome": "matches",
+          "precision_at_3": 0.3333333333333333,
+          "recall_at_3": 1.0,
+          "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "T-1301",
+              "keyword": 0.3813864427588546,
+              "semantic": null,
+              "fusion": null
+            }
+          ]
+        },
+        {
+          "id": "test-export-access",
+          "expected": [
+            "T-1405"
+          ],
+          "returned": [
+            "T-1405"
+          ],
+          "outcome": "matches",
+          "precision_at_3": 0.3333333333333333,
+          "recall_at_3": 1.0,
+          "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "T-1405",
+              "keyword": 0.6387729988475354,
+              "semantic": null,
+              "fusion": null
+            }
+          ]
+        },
+        {
+          "id": "test-snowflake",
+          "expected": [],
+          "returned": [
+            "T-1105"
+          ],
+          "outcome": "matches",
+          "precision_at_3": null,
+          "recall_at_3": null,
+          "reciprocal_rank": null,
+          "scores": [
+            {
+              "id": "T-1105",
+              "keyword": 0.34255446188303174,
+              "semantic": null,
+              "fusion": null
+            }
+          ]
+        },
+        {
+          "id": "test-aquarium",
+          "expected": [],
+          "returned": [],
+          "outcome": "no_reliable_match",
+          "precision_at_3": null,
+          "recall_at_3": null,
+          "reciprocal_rank": null,
+          "scores": []
+        },
+        {
+          "id": "test-mobile",
+          "expected": [],
+          "returned": [],
+          "outcome": "no_reliable_match",
+          "precision_at_3": null,
+          "recall_at_3": null,
+          "reciprocal_rank": null,
+          "scores": []
+        },
+        {
+          "id": "test-reset-email",
+          "expected": [],
+          "returned": [
+            "T-1001"
+          ],
+          "outcome": "matches",
+          "precision_at_3": null,
+          "recall_at_3": null,
+          "reciprocal_rank": null,
+          "scores": [
+            {
+              "id": "T-1001",
+              "keyword": 0.3364160066747382,
+              "semantic": null,
+              "fusion": null
+            }
+          ]
+        }
+      ]
+    },
+    "semantic": {
+      "status": "measured",
+      "precision_at_3": 0.29166666666666663,
+      "recall_at_3": 0.875,
+      "mrr": 0.875,
+      "no_match_correct_rejections": 3,
+      "no_match_false_acceptances": 1,
+      "no_match_count": 4,
+      "positive_false_rejections": 1,
+      "positive_count": 8,
+      "warm_latency_ms": {
+        "median": 9.018099983222783,
+        "p95": 14.24260000931099,
+        "sample_count": 60
+      },
+      "cases": [
+        {
+          "id": "test-rate-limit",
+          "expected": [
+            "T-1702"
+          ],
+          "returned": [],
+          "outcome": "no_reliable_match",
+          "precision_at_3": 0.0,
+          "recall_at_3": 0.0,
+          "reciprocal_rank": 0,
+          "scores": []
+        },
+        {
+          "id": "test-hubspot",
+          "expected": [
+            "T-1105"
+          ],
+          "returned": [
+            "T-1105"
+          ],
+          "outcome": "matches",
+          "precision_at_3": 0.3333333333333333,
+          "recall_at_3": 1.0,
+          "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "T-1105",
+              "keyword": 0.33276275315410125,
+              "semantic": 0.8945022821426392,
+              "fusion": null
+            }
+          ]
+        },
+        {
+          "id": "test-sso",
+          "expected": [
+            "T-1002"
+          ],
+          "returned": [
+            "T-1002"
+          ],
+          "outcome": "matches",
+          "precision_at_3": 0.3333333333333333,
+          "recall_at_3": 1.0,
+          "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "T-1002",
+              "keyword": 0.41812284845139297,
+              "semantic": 0.8721190690994263,
+              "fusion": null
+            }
+          ]
+        },
+        {
+          "id": "test-filter",
+          "expected": [
+            "T-1204"
+          ],
+          "returned": [
+            "T-1204"
+          ],
+          "outcome": "matches",
+          "precision_at_3": 0.3333333333333333,
+          "recall_at_3": 1.0,
+          "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "T-1204",
+              "keyword": 0.5035214882108925,
+              "semantic": 0.8268505334854126,
+              "fusion": null
+            }
+          ]
+        },
+        {
+          "id": "test-queue",
+          "expected": [
+            "T-1604"
+          ],
+          "returned": [
+            "T-1604"
+          ],
+          "outcome": "matches",
+          "precision_at_3": 0.3333333333333333,
+          "recall_at_3": 1.0,
+          "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "T-1604",
+              "keyword": 0.5468395978588173,
+              "semantic": 0.7387553453445435,
+              "fusion": null
+            }
+          ]
+        },
+        {
+          "id": "test-key",
+          "expected": [
+            "T-1705"
+          ],
+          "returned": [
+            "T-1705"
+          ],
+          "outcome": "matches",
+          "precision_at_3": 0.3333333333333333,
+          "recall_at_3": 1.0,
+          "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "T-1705",
+              "keyword": 0.5791957474476466,
+              "semantic": 0.748918890953064,
+              "fusion": null
+            }
+          ]
+        },
+        {
+          "id": "test-seats",
+          "expected": [
+            "T-1301"
+          ],
+          "returned": [
+            "T-1301"
+          ],
+          "outcome": "matches",
+          "precision_at_3": 0.3333333333333333,
+          "recall_at_3": 1.0,
+          "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "T-1301",
+              "keyword": 0.3813864427588546,
+              "semantic": 0.8337884545326233,
+              "fusion": null
+            }
+          ]
+        },
+        {
+          "id": "test-export-access",
+          "expected": [
+            "T-1405"
+          ],
+          "returned": [
+            "T-1405"
+          ],
+          "outcome": "matches",
+          "precision_at_3": 0.3333333333333333,
+          "recall_at_3": 1.0,
+          "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "T-1405",
+              "keyword": 0.6387729988475354,
+              "semantic": 0.8575566411018372,
+              "fusion": null
+            }
+          ]
+        },
+        {
+          "id": "test-snowflake",
+          "expected": [],
+          "returned": [],
+          "outcome": "no_reliable_match",
+          "precision_at_3": null,
+          "recall_at_3": null,
+          "reciprocal_rank": null,
+          "scores": []
+        },
+        {
+          "id": "test-aquarium",
+          "expected": [],
+          "returned": [],
+          "outcome": "no_reliable_match",
+          "precision_at_3": null,
+          "recall_at_3": null,
+          "reciprocal_rank": null,
+          "scores": []
+        },
+        {
+          "id": "test-mobile",
+          "expected": [],
+          "returned": [],
+          "outcome": "no_reliable_match",
+          "precision_at_3": null,
+          "recall_at_3": null,
+          "reciprocal_rank": null,
+          "scores": []
+        },
+        {
+          "id": "test-reset-email",
+          "expected": [],
+          "returned": [
+            "T-1001"
+          ],
+          "outcome": "matches",
+          "precision_at_3": null,
+          "recall_at_3": null,
+          "reciprocal_rank": null,
+          "scores": [
+            {
+              "id": "T-1001",
+              "keyword": 0.3364160066747382,
+              "semantic": 0.7112417817115784,
+              "fusion": null
+            }
+          ]
+        }
+      ]
+    },
+    "hybrid": {
+      "status": "measured",
+      "precision_at_3": 0.3333333333333333,
+      "recall_at_3": 1.0,
+      "mrr": 1.0,
+      "no_match_correct_rejections": 2,
+      "no_match_false_acceptances": 2,
+      "no_match_count": 4,
+      "positive_false_rejections": 0,
+      "positive_count": 8,
+      "warm_latency_ms": {
+        "median": 9.540450002532452,
+        "p95": 13.087600003927946,
+        "sample_count": 60
+      },
+      "cases": [
+        {
+          "id": "test-rate-limit",
+          "expected": [
+            "T-1702"
+          ],
+          "returned": [
+            "T-1702"
+          ],
+          "outcome": "matches",
+          "precision_at_3": 0.3333333333333333,
+          "recall_at_3": 1.0,
+          "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "T-1702",
+              "keyword": 0.3339356716319666,
+              "semantic": 0.6492605805397034,
+              "fusion": 0.03278688524590164
+            }
+          ]
+        },
+        {
+          "id": "test-hubspot",
+          "expected": [
+            "T-1105"
+          ],
+          "returned": [
+            "T-1105"
+          ],
+          "outcome": "matches",
+          "precision_at_3": 0.3333333333333333,
+          "recall_at_3": 1.0,
+          "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "T-1105",
+              "keyword": 0.33276275315410125,
+              "semantic": 0.8945022821426392,
+              "fusion": 0.03278688524590164
+            }
+          ]
+        },
+        {
+          "id": "test-sso",
+          "expected": [
+            "T-1002"
+          ],
+          "returned": [
+            "T-1002"
+          ],
+          "outcome": "matches",
+          "precision_at_3": 0.3333333333333333,
+          "recall_at_3": 1.0,
+          "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "T-1002",
+              "keyword": 0.41812284845139297,
+              "semantic": 0.8721190690994263,
+              "fusion": 0.03278688524590164
+            }
+          ]
+        },
+        {
+          "id": "test-filter",
+          "expected": [
+            "T-1204"
+          ],
+          "returned": [
+            "T-1204"
+          ],
+          "outcome": "matches",
+          "precision_at_3": 0.3333333333333333,
+          "recall_at_3": 1.0,
+          "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "T-1204",
+              "keyword": 0.5035214882108925,
+              "semantic": 0.8268505334854126,
+              "fusion": 0.03278688524590164
+            }
+          ]
+        },
+        {
+          "id": "test-queue",
+          "expected": [
+            "T-1604"
+          ],
+          "returned": [
+            "T-1604"
+          ],
+          "outcome": "matches",
+          "precision_at_3": 0.3333333333333333,
+          "recall_at_3": 1.0,
+          "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "T-1604",
+              "keyword": 0.5468395978588173,
+              "semantic": 0.7387553453445435,
+              "fusion": 0.03278688524590164
+            }
+          ]
+        },
+        {
+          "id": "test-key",
+          "expected": [
+            "T-1705"
+          ],
+          "returned": [
+            "T-1705"
+          ],
+          "outcome": "matches",
+          "precision_at_3": 0.3333333333333333,
+          "recall_at_3": 1.0,
+          "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "T-1705",
+              "keyword": 0.5791957474476466,
+              "semantic": 0.748918890953064,
+              "fusion": 0.03278688524590164
+            }
+          ]
+        },
+        {
+          "id": "test-seats",
+          "expected": [
+            "T-1301"
+          ],
+          "returned": [
+            "T-1301"
+          ],
+          "outcome": "matches",
+          "precision_at_3": 0.3333333333333333,
+          "recall_at_3": 1.0,
+          "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "T-1301",
+              "keyword": 0.3813864427588546,
+              "semantic": 0.8337884545326233,
+              "fusion": 0.03278688524590164
+            }
+          ]
+        },
+        {
+          "id": "test-export-access",
+          "expected": [
+            "T-1405"
+          ],
+          "returned": [
+            "T-1405"
+          ],
+          "outcome": "matches",
+          "precision_at_3": 0.3333333333333333,
+          "recall_at_3": 1.0,
+          "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "T-1405",
+              "keyword": 0.6387729988475354,
+              "semantic": 0.8575566411018372,
+              "fusion": 0.03278688524590164
+            }
+          ]
+        },
+        {
+          "id": "test-snowflake",
+          "expected": [],
+          "returned": [
+            "T-1105"
+          ],
+          "outcome": "matches",
+          "precision_at_3": null,
+          "recall_at_3": null,
+          "reciprocal_rank": null,
+          "scores": [
+            {
+              "id": "T-1105",
+              "keyword": 0.34255446188303174,
+              "semantic": 0.4858843982219696,
+              "fusion": 0.03278688524590164
+            }
+          ]
+        },
+        {
+          "id": "test-aquarium",
+          "expected": [],
+          "returned": [],
+          "outcome": "no_reliable_match",
+          "precision_at_3": null,
+          "recall_at_3": null,
+          "reciprocal_rank": null,
+          "scores": []
+        },
+        {
+          "id": "test-mobile",
+          "expected": [],
+          "returned": [],
+          "outcome": "no_reliable_match",
+          "precision_at_3": null,
+          "recall_at_3": null,
+          "reciprocal_rank": null,
+          "scores": []
+        },
+        {
+          "id": "test-reset-email",
+          "expected": [],
+          "returned": [
+            "T-1001"
+          ],
+          "outcome": "matches",
+          "precision_at_3": null,
+          "recall_at_3": null,
+          "reciprocal_rank": null,
+          "scores": [
+            {
+              "id": "T-1001",
+              "keyword": 0.3364160066747382,
+              "semantic": 0.7112417817115784,
+              "fusion": 0.03278688524590164
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
