@@ -20,6 +20,7 @@ def package():
     paths.extend(ROOT/'frontend'/p for p in FRONTEND_FILES)
     required = ['README.md','SOLUTION_DESIGN.md','frontend/package-lock.json','evaluation/results.json',
         'evaluation/release-results.json','evaluation/release-freeze.json','requirements-py310-resolved.txt','scripts/preflight.ps1',
+        'evaluation/precedent-regression-results.json','evaluation/data-quality-report.json','docs/LAUNCHPAD_RUNBOOK.md',
         'case-study-1-support-ticket-similarity/starter_kit/data/tickets.json']
     names = {p.relative_to(ROOT).as_posix() for p in paths}
     if not set(required) <= names: raise RuntimeError('Missing required submission artifacts')

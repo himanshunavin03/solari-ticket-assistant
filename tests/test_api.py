@@ -20,10 +20,10 @@ def test_search_contract(client):
     assert response.status_code == 200
     result = response.json()
     assert result['active_mode'] == 'keyword' and result['degraded']
-    assert result['outcome'] == 'no_reliable_match'
-    assert result['related_history'][0]['semantic_score'] is None
-    assert 'resolution_notes' not in result['related_history'][0]['ticket']
-    assert not result['matches']
+    assert result['outcome'] == 'historical_precedents'
+    assert result['matches'][0]['semantic_score'] is None
+    assert result['matches'][0]['ticket']['resolution_notes']
+    assert result['matches'][0]['applicability'] == 'unverified'
 
 
 @pytest.mark.parametrize('patch', [{'subject':' '}, {'top_k':11}, {'mode':'invalid'}, {'description':None}])
@@ -44,7 +44,7 @@ def test_unavailable_not_no_match(client):
 def test_no_match_is_success(client):
     response = client.post('/api/search', json={'subject':'zqxwvv', 'description':'qqqzz', 'mode':'keyword'})
     assert response.status_code == 200
-    assert response.json()['outcome'] == 'no_reliable_match'
+    assert response.json()['outcome'] == 'no_relevant_history'
     assert response.json()['matches'] == []
 
 

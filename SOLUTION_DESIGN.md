@@ -1,48 +1,46 @@
 # Solari Analytics — solution design
 
-## Problem and assumptions
+## Problem and scope
 
-Support agents need relevant precedent and the original resolution, so they can investigate efficiently and avoid inconsistent advice. This prototype searches 40 supplied synthetic historical tickets using an incoming subject and description. Similarity means the same observable issue or a closely related failure mechanism, rather than simply the same product category. A retrieved resolution is evidence for an agent to review, never an automatically generated fix.
+A support agent needs useful historical precedent and its original resolution to investigate an incoming issue. Similar text is not proof that the same root cause or fix applies. This local prototype searches 40 supplied synthetic English tickets and labels **every displayed historical resolution as applicability unverified**. It generates no answers and applies no fixes.
 
-Assumptions: English text; one local support workspace; static history; CPU inference; no authentication or real customer data; three suggestions by default. Approximately 150 incoming tickets/day does not by itself specify concurrency or history size. Warm interactive latency is measured locally, with no production SLA claim. Customers must confirm their latency target, permission model, history size, taxonomy, and feedback process before deployment. The deadline is October 20, 2026 EOD; its timezone remains unspecified. The assignment expects about 3–4 focused hours and prioritizes a complete, small core flow.
+Assumptions: one local workspace, static history, CPU-only inference, three suggestions, no real customer data/authentication. Approximately 150 incoming tickets/day does not establish concurrency or latency requirements. Customer permissions, history size, expected response time and review workflow need confirmation before deployment. Deadline: October 20, 2026 EOD, timezone unspecified; assignment expectation approximately 3–4 focused hours.
 
 ## Architecture
 
 ```mermaid
 flowchart LR
-  A[Angular agent workspace] -->|typed JSON HTTP| B[FastAPI thread-pool handlers]
-  C[Validated supplied JSON] --> D[TF-IDF matrix]
-  C --> E[Normalized historical embeddings]
-  F[Pinned MiniLM CPU model] --> E
-  G[Safe NPY cache] <--> E
-  B --> D
-  B --> F
-  D --> H[Keyword cosine ranking]
-  E --> I[Semantic cosine ranking]
-  H --> J[Reciprocal rank fusion]
-  I --> J
-  J --> K[Evidence gate and stable ordering]
-  K --> A
+  UI[Angular agent workspace] --> API[FastAPI typed search]
+  JSON[Strictly validated original JSON] --> KW[TF-IDF cosine]
+  JSON --> EMB[Pinned MiniLM whole-ticket and clause vectors]
+  EMB <--> CACHE[Safe versioned NPY cache]
+  KW --> RANK[Keyword / semantic / RRF ranking]
+  EMB --> RANK
+  API --> RANK
+  RANK --> REVIEW[Relevant precedent / weak related metadata / no history]
+  REVIEW --> UI
 ```
 
-The API validates every historical record and fails startup on malformed data or duplicate IDs. It indexes subject plus description, keeping original resolutions out of retrieval queries and evaluation inputs. TF-IDF uses word unigrams/bigrams and preserves technical tokens/numbers. ID order breaks score ties deterministically. Zero-evidence keyword candidates receive no fusion rank.
+API validation distinguishes invalid input (422), unavailable service/capability (503), retrieved precedent, weak/conflicting related history and no relevant history (200). Synchronous handlers move blocking inference off the async event loop; the CPU model loads once, with a lock for encoding. CORS allows only documented local origins; default logs exclude incoming ticket text.
 
-MiniLM is small, pretrained, and CPU-friendly. The exact model repository revision is pinned in `backend/retrieval.py`. It is loaded once, with normalized historical whole-ticket and clause embeddings reused from a non-pickle NumPy cache. Dataset bytes, model ID/revision, and preprocessing version determine the cache key; revised clause layout invalidates earlier caches. MiniLM truncates at 256 wordpieces, so long individual clauses still lose context. Model download is an explicit prerequisite; offline reuse is supported after pre-download.
+TF-IDF and MiniLM index subject+description; resolution notes remain original evidence, never retrieval-query text. Hybrid retains RRF with constant 60, stable ID ties and no contribution from zero keyword evidence. MiniLM is unchanged, pretrained, CPU-friendly and revision-pinned. Normalized historical whole-ticket/clause vectors use non-pickle NumPy caches keyed by dataset bytes, model/revision and preprocessing version. Startup validates shape/norm; revised preprocessing invalidates older cache entries. Offline reuse requires prior dependency/model provisioning.
 
-Hybrid retains RRF with rank constant 60, not a sum of incompatible raw similarities. The reviewed keyword-OR-semantic gate confused topical similarity with symptom evidence. The revised policy first ranks candidates, then distinguishes **supported history** from **potentially related context**. Topic similarity alone cannot display a resolution: related results contain metadata without resolution notes. Keyword-only search deliberately offers only this context, including in degraded mode; its zero supported recall is a feature restriction, not proof of better retrieval.
+## Focused corrections and evidence policy
 
-Support requires overall cosine ≥0.65 and each retained description clause to match some candidate subject/description clause at ≥0.45. A generic shared ≥3-digit technical identifier can alternatively corroborate a result when overall and identifier-clause cosines are both ≥0.60, preserving explicit HTTP-error matches despite poorly aligned incidental wording. Generic English clause splitting uses no product names, ticket IDs or example strings; short fragments below four words are discarded, with whole-text fallback. More than eight query clauses causes abstention rather than approval of truncated context. These are explainable heuristics, not entailment or calibrated probabilities. A clause can still have similar words and a different mechanism; negation, short fragments and shared numeric identifiers remain risks.
+The old four-word filter discarded critical short failure clauses. The splitter now keeps every nonempty fragment containing letters/digits, including short negations and symptoms, and ignores only punctuation/empty fragments. Periods inside dotted identifiers remain intact. Original stored/displayed text is unchanged. All retained clauses count toward the eight-clause limit; excess context abstains rather than approving truncation. Individual embeddings still truncate at 256 wordpieces.
 
-Model failure leaves keyword search available with an explicit degraded indicator. Semantic/hybrid requests return 503; they never silently turn into keyword searches. The UI selects keyword when readiness reports degradation. Invalid input (422), unavailable service (503), and successful no-match (200) are separate outcomes. Blocking inference runs in synchronous FastAPI handlers off the async event loop; a model lock limits simultaneous encoding on this small CPU application.
+Keyword mode is again useful without the model. Displaying precedent requires whole-ticket TF-IDF cosine >=0.25 and each query clause to have >=0.50 IDF-weighted meaningful-token coverage against historical clauses. Unknown tokens remain in the denominator; negation/contractions are preserved. Function-word filtering affects only this scoring feature. Keyword is conservative, not an entailment test, and never bypasses semantic/hybrid policy through the old OR gate.
 
-Angular provides a restrained, responsive workspace with examples, original resolution notes, descriptions, tags, loading, errors, and no-match states. AbortController and a request-generation guard prevent older responses from replacing new searches or reset state. A local dev proxy keeps API requests on the same frontend origin. CORS allows only the two documented local development origins.
+Semantic/hybrid retain the existing whole-ticket/clause and shared technical-identifier heuristics, now operating on preserved short clauses. Their scores do not verify mechanism agreement either. API `historical-precedent-v1` returns original resolution notes with applicability unverified; weak/conflicting `related_history` withholds notes. Explicit keyword-only degradation remains useful, while semantic/hybrid fail with 503 if unavailable.
 
-## Trade-offs and next investment
+Angular shows the uncertainty notice beside original resolutions, separate related-history details, no-history/loading/error states, examples, accessible labels and responsive layout. AbortController plus a sequence guard protects edits/reset/new requests from stale results.
 
-JSON and in-memory indexes fit 40 tickets and make the case reproducible without infrastructure. They require restart on data changes and do not implement concurrent index updates or distributed search. TF-IDF gives inspectable exact-term matches; embeddings handle paraphrases but can confuse topical similarity with issue equivalence. RRF is scale-independent but can promote weak lexical neighbors; the gate trades recall for fewer misleading resolutions. See `evaluation/README.md` for measured comparisons and limitations.
+## Data quality, compatibility and limits
 
-Backend installation, real inference and tests passed on actual Windows Python 3.10.11 and 3.11.9. This is not original Launchpad/Python 3.10.0 validation. Angular 20.3 still requires an additional compatible Node runtime; the existing checksum-verified project-local Node 22.23.2 bootstrap leaves the system Node untouched. Windows preflight verifies dependencies, real embedding generation, HTTP readiness/capabilities and frontend build; Launchpad policy/network restrictions still require manual verification there.
+Required fields/types and duplicate IDs fail validation. Duplicate subject+description content is separately inspected using whitespace/casefold only and reported without deleting legitimate repeated incidents. No imputation or outlier model is appropriate; preserve negation, error codes, IDs and original data.
 
-Original evaluation artifacts are preserved. The old held-out cases are now exposed regression evidence. Intermediate fresh sets also became exposed during iteration; final release cases and policy hashes were frozen before final scoring. Regression hybrid false acceptances improve 2→0 with Recall@3/MRR retained at 1.0; frozen release results improve 2→0 with Recall@3/MRR retained at .875, one false rejection, and greater warm latency. Development loses some supported multi-issue recall, and broad paraphrases can remain related-only. Earlier newly worded missing-mail and SMS-recovery cases still illustrate false acceptance risks. See `evaluation/README.md` for per-mode counts, latency and provenance. No policy tuning followed release outcomes.
+Backend tests ran on actual Windows Python 3.10.11 and 3.11.9, not original Launchpad 3.10.0. Angular requires additional project-local Node 22.23.2 because supplied Node 20.10.0 is incompatible. Existing checksum bootstrap leaves system runtimes intact. Preflight checks versions/dependencies, real embeddings, HTTP readiness/capabilities and frontend build; actual sandbox restrictions remain manual verification.
 
-AI-authored synthetic labels are not independent human review or evidence of production accuracy, throughput, or calibrated abstention. Real agents should label representative queries before further tuning. Next investments: relevance feedback, better abstention, access-filtered indexing, monitoring and load tests. Real customer permissions, tenant isolation, retention controls, authentication and redacted observability are required before private data use; supplied tickets have no tenant identifiers. No training, database, paid service, or generative LLM is justified here.
+All previous evaluation artifacts are preserved, but previous release/inspected cases are now exposed regressions. Current metrics measure displayed unverified precedent relevance, not the old supported-resolution definition. Real-model tests confirm the short missing-email clause changes retrieval; this does not prove general correctness. Keyword recalls only 2/8 original and 3/8 previous-release positives, illustrating the cost of conservative lexical context. No thresholds were tuned until every example passed. One short login-failure regression also displays an irrelevant extra precedent despite retrieving the correct one. AI-authored synthetic labels still need independent agent review.
+
+JSON/in-memory indexes avoid infrastructure but require restart on data changes. Real deployment requires authentication, tenant isolation, access-filtered indexes, retention controls, representative labels and realistic load tests. More data/budget should first fund relevance feedback, robust mechanism/negation evaluation and measured abstention, not speculative databases, new models or generation. See evaluation/validation docs for actual commands, failures and limitations.

@@ -10,16 +10,13 @@ from typing import Literal
 import numpy as np
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from sklearn.feature_extraction.text import TfidfVectorizer
-from backend.evidence import POLICY_VERSION, MAX_CLAUSES, evidence_level, split_clauses, technical_identifiers
+from backend.evidence import POLICY_VERSION, MAX_CLAUSES, evidence_level, split_clauses, technical_identifiers, keyword_clause_coverage
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / 'case-study-1-support-ticket-similarity/starter_kit/data'
 MODEL_ID = 'sentence-transformers/all-MiniLM-L6-v2'
 MODEL_REVISION = '1110a243fdf4706b3f48f1d95db1a4f5529b4d41'
-PREPROCESSING = 'subject-description-v1+' + POLICY_VERSION
-# Evidence gates are finalized using development examples only; see evaluation/README.md.
-KEYWORD_THRESHOLD = 0.25
-SEMANTIC_THRESHOLD = 0.70
+PREPROCESSING = 'subject-description-v1+' + POLICY_VERSION + '+identifier-boundaries-v1'
 Mode = Literal['keyword', 'semantic', 'hybrid']
 
 
@@ -64,6 +61,8 @@ class Match(BaseModel):
     clause_coverage: float | None = None
     identifier_coverage: float | None = None
     evidence_reason: str = ''
+    applicability: Literal['unverified'] = 'unverified'
+    lexical_clause_coverage: float | None = None
 
 
 class TicketSummary(BaseModel):
@@ -82,13 +81,14 @@ class RelatedHistory(BaseModel):
 
 
 class SearchResponse(BaseModel):
-    outcome: Literal['matches', 'no_reliable_match']
+    outcome: Literal['historical_precedents', 'related_history_only', 'no_relevant_history']
     requested_mode: Mode
     active_mode: Mode
     degraded: bool
     matches: list[Match]
     related_history: list[RelatedHistory] = Field(default_factory=list)
     policy_version: str = POLICY_VERSION
+    result_semantics: str = 'historical-precedent-v1'
     evidence_note: str
 
 
@@ -103,6 +103,15 @@ def load_tickets(path: Path) -> list[Ticket]:
         return tickets
     except (ValueError, OSError) as exc:
         raise ValueError(f'Invalid historical dataset {path.name}: {exc}') from exc
+
+
+def duplicate_content_groups(tickets: list[Ticket]) -> list[list[str]]:
+    """Flag normalized subject+description repeats for inspection; never deduplicate."""
+    groups = {}
+    for ticket in tickets:
+        key = tuple(' '.join(value.split()).casefold() for value in (ticket.subject, ticket.description))
+        groups.setdefault(key, []).append(ticket.ticket_id)
+    return sorted(sorted(ids) for ids in groups.values() if len(ids)>1)
 
 
 def cache_key(dataset_bytes: bytes, model_id=MODEL_ID, revision=MODEL_REVISION, preprocessing=PREPROCESSING):
@@ -139,6 +148,7 @@ class Retriever:
         self.vectorizer = TfidfVectorizer(lowercase=True, ngram_range=(1, 2), sublinear_tf=True,
             token_pattern=r'(?u)\b[\w][\w.\-]*\b')
         self.matrix = self.vectorizer.fit_transform(self.texts)
+        self.idf = {term:float(self.vectorizer.idf_[i]) for term,i in self.vectorizer.vocabulary_.items() if ' ' not in term}
         self.model = None
         self.embeddings = None
         self.semantic_failure = None
@@ -191,34 +201,37 @@ class Retriever:
         coverage = None
         identifier_coverage = [None] * len(self.tickets)
         parts = split_clauses(request.description)
-        complete_context = len(parts) <= MAX_CLAUSES
+        complete_context = 0 < len(parts) <= MAX_CLAUSES
+        lexical_coverage = [keyword_clause_coverage(parts[:MAX_CLAUSES], historical, self.idf)
+            for historical in self.history_clauses] if request.mode=='keyword' else [None]*len(self.tickets)
         if request.mode != 'keyword':
             with self.lock:
                 query = self.model.encode([text] + parts[:MAX_CLAUSES], normalize_embeddings=True, convert_to_numpy=True)
             semantic = (self.embeddings @ query[0]).clip(-1, 1)
             clause_scores = query[1:] @ self.clause_embeddings.T
-            coverage = np.array([clause_scores[:, start:end].max(axis=1).min()
+            coverage = np.array([clause_scores[:, start:end].max(axis=1).min() if len(parts)>0 and end>start else 0.0
                 for start, end in self.clause_ranges])
             for i, (start, end) in enumerate(self.clause_ranges):
                 shared = technical_identifiers(text) & technical_identifiers(self.texts[i])
                 anchored = [j for j, part in enumerate(parts[:MAX_CLAUSES]) if technical_identifiers(part) & shared]
-                if anchored:
+                if anchored and end>start:
                     identifier_coverage[i] = float(clause_scores[anchored, start:end].max(axis=1).min())
         fusion = reciprocal_rank_fusion(keyword, semantic, self.tickets) if request.mode == 'hybrid' else None
         scores = keyword if request.mode == 'keyword' else semantic if request.mode == 'semantic' else fusion
         decisions = [evidence_level(float(keyword[i]), float(semantic[i]) if semantic is not None else None,
-            float(coverage[i]) if coverage is not None else None, complete_context, identifier_coverage[i]) for i in range(len(self.tickets))]
+            float(coverage[i]) if coverage is not None else None, complete_context, identifier_coverage[i], lexical_coverage[i]) for i in range(len(self.tickets))]
         order = stable_order(scores, self.tickets)
-        ranking = [i for i in order if decisions[i][0] == 'supported'][:request.top_k]
+        ranking = [i for i in order if decisions[i][0] == 'precedent'][:request.top_k]
         related = [i for i in order if decisions[i][0] == 'related'][:request.top_k]
-        return SearchResponse(outcome='matches' if ranking else 'no_reliable_match',
+        return SearchResponse(outcome='historical_precedents' if ranking else 'related_history_only' if related else 'no_relevant_history',
             requested_mode=request.mode, active_mode=request.mode, degraded=self.model is None,
             matches=[Match(ticket=self.tickets[i], keyword_score=float(keyword[i]),
                 semantic_score=float(semantic[i]) if semantic is not None else None,
                 fusion_score=float(fusion[i]) if fusion is not None else None,
-                clause_coverage=float(coverage[i]), identifier_coverage=identifier_coverage[i], evidence_reason=decisions[i][1]) for i in ranking],
+                clause_coverage=float(coverage[i]) if coverage is not None else None, identifier_coverage=identifier_coverage[i],
+                lexical_clause_coverage=lexical_coverage[i], evidence_reason=decisions[i][1]) for i in ranking],
             related_history=[RelatedHistory(ticket=TicketSummary(**self.tickets[i].model_dump()),
                 keyword_score=float(keyword[i]), semantic_score=float(semantic[i]) if semantic is not None else None,
                 clause_coverage=float(coverage[i]) if coverage is not None else None,
                 evidence_reason=decisions[i][1]) for i in related],
-            evidence_note='Supported history still requires agent review. Related topics are not resolution evidence. Scores are not probabilities.')
+            evidence_note='Historical precedent for agent review only. Applicability is unverified; no root cause or fix is confirmed. Scores are not probabilities.')

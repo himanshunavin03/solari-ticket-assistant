@@ -1,0 +1,12 @@
+{
+  "classification": "Targeted, exposed regression; no untouched test claims.",
+  "cases": [
+    {"id":"short-email-contradiction","subject":"Password reset issue","description":"The customer completed the password reset successfully but email never arrives.","relevant_ids":[],"rationale":"Short failure clause contradicts a completed reset interpretation; no email delivery incident."},
+    {"id":"short-still-fails","subject":"Password reset issue","description":"The customer completed the password reset successfully but login still fails.","relevant_ids":["T-1001"],"rationale":"Post-reset login failure is relevant precedent for review, without proven root cause."},
+    {"id":"short-denied","subject":"New team member sees no dashboards","description":"The new teammate can sign in but dashboard access denied.","relevant_ids":["T-1501"],"rationale":"Successful sign-in with unavailable dashboards suggests permission-related precedent."},
+    {"id":"keyword-billing","subject":"Duplicate charges","description":"Two identical monthly charges","relevant_ids":["T-1303"],"rationale":"Exact duplicate billing precedent should remain useful without a model."},
+    {"id":"keyword-429","subject":"API returns 429 rate limit","description":"Integration started receiving 429 errors","relevant_ids":["T-1702"],"rationale":"Explicit error-code and integration precedent; applicability remains unverified."},
+    {"id":"empty-fragments","subject":"!!!","description":"... ; !!!","relevant_ids":[],"rationale":"Punctuation supplies no usable issue description."},
+    {"id":"contrasting-access","subject":"Password reset issue","description":"The password reset completed but access denied.","relevant_ids":[],"rationale":"Ambiguous denial mechanism; a successful reset does not establish incorrect-password incident."}
+  ]
+}

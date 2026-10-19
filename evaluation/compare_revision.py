@@ -34,6 +34,8 @@ def metrics(rows, samples):
 
 
 def run(split, repetitions=5):
+    if revised.POLICY_VERSION!='clause-coverage-v4':
+        raise RuntimeError('Historical v4 harness/result semantics are frozen. Use python -m evaluation.review_precedents for the current regression.')
     case_path=ROOT/'evaluation/revision-cases.json'
     freeze=json.loads((ROOT/'evaluation/revision-freeze.json').read_text())
     if text_sha(case_path)!=freeze['cases_sha256']:

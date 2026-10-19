@@ -1,3 +1,42 @@
+# Focused short-clause / keyword correction — current validation
+
+Actual start: clean user commit `319fb5f49bc2bae59042fd32732528a4ec19aca3`. Previous uncommitted-state and test-count descriptions below are historical. No framework, model or dependency was added. Original supplied data and tracked earlier evaluation JSON/cases are unchanged.
+
+## Test-first failures and corrections
+
+Before changing behavior, `pytest tests/test_focused_corrections.py -q` ran on Python 3.10.11: **15 failed**, reproducing lost short clauses, punctuation-only fallback, dotted-identifier splitting, bypassed clause count, absent keyword note-bearing workflow, and absent duplicate-content inspection. The actual pinned model showed the reset-rejection resolution after dropping the literal missing-email failure clause. After the focused changes all 15 passed. A later expanded identifier invariant caught conjunction splitting inside `HTTP-429-and-retry` (one isolated failure before correction); connector boundaries were restricted to avoid embedded identifier components. No product-specific rule or relevance-threshold tuning was added.
+
+Current preprocessing retains every nonempty alphanumeric clause/negation, preserves dotted/hyphenated identifiers and original displayed text, and counts short clauses toward the cap. Cache preprocessing includes the identifier-boundary version. Keyword precedent requires whole-query plus per-clause lexical relevance, not the old OR gate. Every note-bearing result is explicitly unverified applicability in all modes.
+
+## Actual checks
+
+| Command/check | Actual outcome |
+| --- | --- |
+| `.venv310/Scripts/python -m pytest -q` | **62 passed** on actual Windows **Python 3.10.11**, including real-model integration and new test-first regressions; one nonfatal Starlette/AnyIO deprecation warning. |
+| `.venv/Scripts/python -m pytest -q` | **62 passed** on **Python 3.11.9**; same warning. |
+| Frontend `npm run typecheck`, `npm run build` | Passed. Initial bundle **177.49 kB**, estimated transfer **49.47 kB**. |
+| `SOLARI_TEST_PYTHON=.venv310/Scripts/python.exe`; frontend `npm run test:e2e` | **7 passed**. Real full and keyword-only backends: useful billing/429, missing-email/Snowflake, short contradiction, real degraded keyword notes plus unavailable hybrid, no history, validation/failure, stale responses, mobile/reset. Test-owned servers stopped. |
+| Windows PowerShell `scripts/preflight.ps1 -Python .venv310/Scripts/python.exe` with explicit local Node PATH | Passed selected/active versions, exact packages, pip check/npm ls, actual offline (1,384) embedding, HTTP readiness with keyword/semantic/hybrid, cleanup and frontend typecheck/build. |
+| `python -m scripts.inspect_data` | Strict validation succeeded: **40 records**, **no duplicate-content groups**. Inspection only collapses whitespace/casefold to flag repeat content; tests confirm legitimate repeated incidents remain separate and negation is not removed. |
+| `python -m evaluation.review_precedents` | Real-model current-definition regression completed; all prior inspected sets are exposed. Original keyword precedent Recall@3 .25, prior-release .375; semantic/hybrid 1.0 on these small sets. No irrelevant resolution presentations on these labeled negatives, not a production claim. Full current outcomes/scores/latency in new JSON. |
+| Python compileall | Passed on final source: `.venv310/Scripts/python -m compileall -q backend scripts evaluation tests`. |
+| Preservation diff against `319fb5f` for original supplied directory and tracked `evaluation/*.json` | Passed; original data/results remain unchanged. |
+
+Final ZIP inspection/reproducibility and exact handoff are recorded in PROJECT_STATUS.md. Numbered Windows commands: `docs/LAUNCHPAD_RUNBOOK.md`. A tool-call quoting error and one documentation patch context mismatch were corrected without application changes; neither is a passing application check.
+
+## Semantics, failures and unverified scope
+
+New API outcomes: historical_precedents, related_history_only, no_relevant_history; unavailable service remains a distinct 503 and invalid input 422. Notes are original **historical precedent for review**, never verified root cause/fix. Earlier supported-resolution metrics are not equivalent; legacy result writers refuse this policy rather than overwrite earlier artifacts. Initial current-definition timing run is retained separately; final report refresh follows browser cleanup. No tuning was done to eliminate all failures.
+
+Remaining measured failure: the targeted `short-still-fails` query displays correct T-1001 **and extra irrelevant T-1004** in semantic/hybrid (1/4 positive queries with an irrelevant extra precedent). Recall@3/MRR of 1.0 therefore does not mean every displayed note is relevant. No policy tuning was performed to remove this observed failure.
+
+Actual quality trade-off: conservative keyword coverage abstains on many valid paraphrases (6/8 original positives and 5/8 prior-release positives). Short generic clauses and mechanism/negation/identifier ambiguity remain limitations despite passing target regressions. AI-authored synthetic labels require independent human review. Keeping a clause alone is not retrieval correctness; actual-model and browser tests verify the reported example, not every possible phrase.
+
+Actual host runtimes remain Python **3.10.11/3.11.9**, venv pip **25.0.1**, Node **22.23.2**, npm **10.9.8**, Windows PowerShell **5.1.26100.9711**, Git **2.50.1.windows.1**. Angular/direct dependency pins and project-local bootstrap are unchanged. **Original Launchpad Python 3.10.0/pip 21.2.3/Node 20.10.0/npm 10.2.3/Git 2.43.0.windows.1 has not run here**; additional local Node permission/network and exact Python patch remain manual checks. No system runtime replacement, Conda, imputation, Isolation Forest, production security/load/tenant certification, commit, push, upload or submission.
+
+---
+
+# Historical validation records (preserved)
 # October 19 revision — current validation
 
 Reviewed baseline: `0dbf77d1e9e8ceac1b9130a66c7049f34fbce6f7`, clean at start; no newer implementation fixes existed. All original supplied materials and original evaluation cases/results remain unchanged. The section below the separator preserves October 17 historical checks, not current behavior.

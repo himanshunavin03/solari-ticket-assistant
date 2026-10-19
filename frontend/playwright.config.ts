@@ -4,6 +4,8 @@ export default defineConfig({
   webServer: [
     {command:`"${process.env['SOLARI_TEST_PYTHON'] || '.venv\\Scripts\\python.exe'}" -m uvicorn backend.app:app --host 127.0.0.1 --port 8000 --no-access-log`, cwd:'..', url:'http://127.0.0.1:8000/api/health', timeout:180000, reuseExistingServer:false,
       env:{SOLARI_OFFLINE:'1'}},
-    {command:'npm start', url:'http://127.0.0.1:4200', timeout:90000, reuseExistingServer:false}
+    {command:'npm start', url:'http://127.0.0.1:4200', timeout:90000, reuseExistingServer:false},
+    {command:`"${process.env['SOLARI_TEST_PYTHON'] || '.venv\\Scripts\\python.exe'}" -m uvicorn backend.app:app --host 127.0.0.1 --port 8001 --no-access-log`, cwd:'..', url:'http://127.0.0.1:8001/api/health', timeout:90000, reuseExistingServer:false,
+      env:{SOLARI_OFFLINE:'1',SOLARI_KEYWORD_ONLY:'1'}}
   ]
 });

@@ -30,7 +30,7 @@ def test_issue_level_no_match_without_leaking_related_resolutions(real_model):
     examples=json.loads((DATA/'new_tickets_example.json').read_text())['new_tickets']
     for example in [examples[0],examples[3]]:
         response=real_model.search(SearchRequest(subject=example['subject'],description=example['description'],mode='hybrid'))
-        assert response.outcome=='no_reliable_match'
+        assert response.outcome=='related_history_only'
         assert not response.matches
         assert response.related_history
         assert all('resolution_notes' not in m.ticket.model_dump() for m in response.related_history)

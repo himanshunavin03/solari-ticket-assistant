@@ -1,0 +1,7 @@
+{
+  "dataset_sha256": "b9ebbe875f313dea5c988b56e810f00540978532baae100861061c5f02b2c95a",
+  "record_count": 40,
+  "duplicate_content_groups": [],
+  "inspection_normalization": "Whitespace collapse and casefold of subject+description only; no punctuation/negation removal.",
+  "action": "Report only. Repeated incidents remain separate with original text and IDs; nothing deleted or imputed."
+}

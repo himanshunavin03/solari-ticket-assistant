@@ -4,9 +4,9 @@ import {FormsModule} from '@angular/forms';
 
 type Mode = 'keyword' | 'semantic' | 'hybrid';
 interface Example {ticket_id: string; subject: string; description: string}
-interface Match {ticket: Example & {category: string; tags: string[]; resolution_notes: string}; keyword_score: number; semantic_score: number | null; fusion_score: number | null; clause_coverage: number | null; evidence_reason: string}
+interface Match {ticket: Example & {category: string; tags: string[]; resolution_notes: string}; keyword_score: number; semantic_score: number | null; fusion_score: number | null; clause_coverage: number | null; lexical_clause_coverage: number | null; applicability: 'unverified'; evidence_reason: string}
 interface Related {ticket: {ticket_id: string; subject: string; category: string; tags: string[]}; evidence_reason: string}
-interface Result {outcome: 'matches' | 'no_reliable_match'; matches: Match[]; related_history?: Related[]; degraded: boolean; active_mode: Mode; evidence_note: string}
+interface Result {outcome: 'historical_precedents' | 'related_history_only' | 'no_relevant_history'; matches: Match[]; related_history?: Related[]; degraded: boolean; active_mode: Mode; evidence_note: string}
 
 @Component({selector: 'app-root', standalone: true, imports: [FormsModule], templateUrl: './app.html'})
 export class App implements OnInit {
