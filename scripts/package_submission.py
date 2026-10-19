@@ -7,7 +7,7 @@ from backend.retrieval import ROOT
 
 DIRECTORIES = ['backend', 'tests', 'scripts', 'evaluation', 'docs', '.github', 'case-study-1-support-ticket-similarity']
 ROOT_FILES = ['README.md', 'SOLUTION_DESIGN.md', 'AGENTS.md', 'PROJECT_STATUS.md', 'requirements.txt',
-    'requirements-resolved.txt', 'pytest.ini', '.gitignore']
+    'requirements-resolved.txt', 'requirements-py310-resolved.txt', 'pytest.ini', '.gitignore']
 FRONTEND_FILES = ['package.json','package-lock.json','angular.json','tsconfig.json','proxy.json','playwright.config.ts']
 SKIP = {'__MACOSX','__pycache__','.pytest_cache','node_modules','.angular','dist','.git','.venv','.cache'}
 
@@ -19,6 +19,7 @@ def package():
             and p.suffix in {'.py','.json','.md','.txt','.ps1','.ts','.html','.css'})
     paths.extend(ROOT/'frontend'/p for p in FRONTEND_FILES)
     required = ['README.md','SOLUTION_DESIGN.md','frontend/package-lock.json','evaluation/results.json',
+        'evaluation/release-results.json','evaluation/release-freeze.json','requirements-py310-resolved.txt','scripts/preflight.ps1',
         'case-study-1-support-ticket-similarity/starter_kit/data/tickets.json']
     names = {p.relative_to(ROOT).as_posix() for p in paths}
     if not set(required) <= names: raise RuntimeError('Missing required submission artifacts')

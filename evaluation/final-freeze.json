@@ -1,0 +1,7 @@
+{
+  "frozen_at": "2026-10-19T17:18:56.406917+00:00",
+  "cases_sha256": "d2954b208955393710a44f067973cd9c948a13187185a14b1eaebe7ab6f81f40",
+  "policy_sha256": "56fd59a07447fb89ac84f16be625cf15c092cf2ec1677d17ad4b548023e31c14",
+  "retrieval_sha256": "1d3a06c741cacbb6bda3d88b63159f4882860a4c1bef40d37760c49220be085f",
+  "note": "Final cases frozen before first v3 run. Earlier fresh v2 cases are exposed. No policy tuning permitted on final outcomes."
+}

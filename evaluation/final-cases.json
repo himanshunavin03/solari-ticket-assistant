@@ -1,0 +1,86 @@
+{
+  "fresh": [
+    {
+      "id": "final-429",
+      "subject": "API request quota errors",
+      "description": "Our routine API polling now returns HTTP 429 rate-limit errors despite no increase in the normal workload.",
+      "relevant_ids": [
+        "T-1702"
+      ],
+      "rationale": "Same normal-load rate limiting incident; explicit error identifier."
+    },
+    {
+      "id": "final-payments",
+      "subject": "Monthly subscription payment repeated",
+      "description": "A customer sees two identical monthly subscription charges posted to their credit card.",
+      "relevant_ids": [
+        "T-1303"
+      ],
+      "rationale": "Duplicate charge rather than incorrect amount."
+    },
+    {
+      "id": "final-filter",
+      "subject": "Date selection leaves graph unchanged",
+      "description": "After selecting a custom date range, the chart still displays the original default date interval.",
+      "relevant_ids": [
+        "T-1204"
+      ],
+      "rationale": "Stale filter selection, not slow processing."
+    },
+    {
+      "id": "final-permission",
+      "subject": "Cannot export as viewer",
+      "description": "An account with the viewer role has a disabled export button and cannot download a report.",
+      "relevant_ids": [
+        "T-1405"
+      ],
+      "rationale": "Explicit export permission restriction."
+    },
+    {
+      "id": "final-custom-role",
+      "subject": "Role configuration reverts",
+      "description": "After saving dashboard permissions on a custom role the settings revert to their earlier values.",
+      "relevant_ids": [
+        "T-1504"
+      ],
+      "rationale": "Custom role save failure."
+    },
+    {
+      "id": "final-duplicate-data",
+      "subject": "Repeated accounts after manual synchronization",
+      "description": "After manually triggering a new sync, duplicate entries for the same accounts appeared in the dashboard.",
+      "relevant_ids": [
+        "T-1103"
+      ],
+      "rationale": "Duplicate records following re-sync, not card charges."
+    },
+    {
+      "id": "final-email-link",
+      "subject": "Password email is not arriving",
+      "description": "The recovery form accepted my email address but no password reset message has reached my inbox or spam folder.",
+      "relevant_ids": [],
+      "rationale": "Reset delivery unrepresented; contrasts with post-reset rejection."
+    },
+    {
+      "id": "final-unfamiliar",
+      "subject": "New Oracle connector times out",
+      "description": "A newly configured Oracle warehouse connector cannot complete its first connection handshake and reports a timeout.",
+      "relevant_ids": [],
+      "rationale": "No Oracle connector or transport handshake precedent."
+    },
+    {
+      "id": "final-invoice-file",
+      "subject": "Downloaded invoice document corrupted",
+      "description": "The billing invoice PDF downloads successfully but cannot be opened because the document is corrupted.",
+      "relevant_ids": [],
+      "rationale": "No corrupted invoice document incident; PDF report timeout differs."
+    },
+    {
+      "id": "final-browser-crash",
+      "subject": "Browser tab crashes during login",
+      "description": "The browser tab crashes entirely before authentication finishes. There is no server error or password rejection.",
+      "relevant_ids": [],
+      "rationale": "No browser crash login mechanism in history."
+    }
+  ]
+}

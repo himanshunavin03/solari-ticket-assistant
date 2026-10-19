@@ -1,3 +1,46 @@
+# October 19 revision — current validation
+
+Reviewed baseline: `0dbf77d1e9e8ceac1b9130a66c7049f34fbce6f7`, clean at start; no newer implementation fixes existed. All original supplied materials and original evaluation cases/results remain unchanged. The section below the separator preserves October 17 historical checks, not current behavior.
+
+## Actual runtimes and compatibility
+
+Windows x64; actual **Python 3.10.11** provisioned from the official `python` NuGet package into `.runtime/python310/tools`, following the Python Windows documentation's CI/runtime route. It created `.venv310`; pip upgraded inside that venv from 23.0.1 to **25.0.1**. No Conda, system Python replacement, or PATH change to system installation. Installed `requirements.txt` successfully, including a real CPU Torch wheel. `requirements-py310-resolved.txt` records actual transitives (SciPy 1.15.3). **Python 3.11.9** in existing `.venv` also verified. The original Launchpad **Python 3.10.0 / pip 21.2.3** environment was not accessible or executed; exact patch/sandbox validation remains manual.
+
+Frontend: **Node 22.23.2, npm 10.9.8**, Angular runtime/compiler **20.3.34**, CLI/build **20.3.40**, TypeScript **5.9.2**, RxJS **7.8.2**, tslib **2.8.1**, Playwright **1.56.1**. Git host **2.50.1.windows.1**. Angular was not downgraded; original Node 20.10.0 is insufficient. Existing `.runtime/node-v22.23.2-win-x64` bootstrap retained; explicit local PATH selection was used for preflight/build. No Launchpad installation-policy failure is invented: this machine allowed the runtime route, and actual Launchpad restrictions remain unknown.
+
+## Commands actually run and results
+
+| Command | Result |
+| --- | --- |
+| `.runtime/python310/tools/python.exe --version`; `... -m venv .venv310` | Python 3.10.11; local venv created. |
+| `.venv310/Scripts/python -m pip install --upgrade pip==25.0.1`; `... -m pip install -r requirements.txt`; `... -m pip check` | Installed successfully; no broken requirements. |
+| `SOLARI_OFFLINE=1`, then `.venv310/Scripts/python -m scripts.download_model` | Actual pinned CPU MiniLM produced normalized (1,384) embedding; no mock. |
+| `.venv310/Scripts/python -m pytest -q` | **46 passed**, one nonfatal Starlette/AnyIO deprecation warning. Includes deterministic policy boundaries/identifier guards, original-result protection, metric denominators, real billing/429 and both supplied no-match regressions. |
+| `.venv/Scripts/python -m pytest -q` | **46 passed** on Python 3.11.9; same nonfatal warning. |
+| `.venv310/Scripts/python -m compileall -q backend scripts evaluation tests` | Passed syntax compilation. |
+| `./scripts/preflight.ps1 -Python ./.venv310/Scripts/python.exe` | Passed active runtime reporting, exact package/dependency checks, real offline embedding, owned HTTP server readiness with keyword/semantic/hybrid, cleanup, npm dependency check, frontend typecheck/build. Repeated with project-local Node explicitly first on PATH; passed. |
+| `powershell.exe -NoProfile -File scripts/preflight.ps1 -Python .venv310/Scripts/python.exe` | Full preflight passed under Windows PowerShell **5.1.26100.9711**, with local Node PATH, real Python 3.10.11/model/readiness/build and cleanup. Existing-runtime Node bootstrap path also passed there; basic parsing added for download compatibility. This is not a fresh-download or original Launchpad certification. |
+| `npm run typecheck`; `npm run build` (through preflight, frontend) | Passed; final initial bundle **177.30 kB**, estimated transfer **49.44 kB**. |
+| `npm audit --audit-level=low` (frontend) | Zero reported vulnerabilities. Existing manifest and lockfile unchanged. |
+| `SOLARI_TEST_PYTHON=.venv310\Scripts\python.exe`, `npm run test:e2e` (frontend) | **6 passed**, real Python 3.10.11 API. Billing, HTTP 429, Snowflake/missing-email no-match with withheld resolutions, unrelated no-match, clear/mobile, failures/validation, stale responses, simulated degradation. Test-owned servers stopped. |
+| `.venv310/Scripts/python -m evaluation.compare_revision --split development/regression/release` (three commands) | All modes measured against exact reviewed baseline. Original/earlier results preserved. Source/case hashes frozen before release evaluation; no tuning afterward. Final regression/release latency rerun after browser server cleanup. See evaluation README and release JSON for full results. |
+| `git diff --exit-code 0dbf77d1e9e8ceac1b9130a66c7049f34fbce6f7 -- case-study-1-support-ticket-similarity evaluation/results.json evaluation/cases.json evaluation/development-results.json evaluation/development-initial-results.json evaluation/development-evidence.json` | Passed; originals unchanged. |
+
+Snapshot comparison: exposed regression hybrid false acceptances **2→0**, false rejections **0→0**, Recall@3/MRR **1→1**. Release set hybrid false acceptances **2→0**, false rejections **1→1**, Recall@3/MRR **.875→.875**; candidate recall 1.0. Supported and related context are measured separately. Keyword now provides related metadata only, so its zero supported recall is a deliberate capability restriction, not an accuracy win.
+
+## Failures, recovery and unverified limits
+
+- First revised coverage policy rejected valid original HTTP 429 despite fixing both supplied false acceptances. Added a generic shared numeric identifier signal. Initial corroboration cutoff .65 still failed two real-model assertions: overall cosine .649 and identifier clause .608. Chose .60 corroboration using the already-exposed regression, verified both tests, then froze a new release set before scoring V4. No specific HTTP code, product, ticket ID or example text rule.
+- Intermediate fresh sets became exposed through those iterations. Their reports and policy functions remain preserved; they are **not** untouched final tests. Final release set was frozen separately, but all labels are still AI-authored by the same implementer, not independent human judgments.
+- Remaining observed failures: release widget-overlap is related-only (false rejection); development broad rate-limit paraphrase is related-only, and one secondary multi-issue sync ticket loses supported recall. Intermediate reports record falsely accepted SMS recovery as two-factor delivery and a newly phrased reset-email query. Passing the two original target examples does not solve those whole failure classes.
+- A PowerShell metrics display command had a parser error from piping a foreach statement directly; assigned its result and reran successfully. A documentation patch context mismatch was corrected after reading the actual file. Neither altered model/evaluation outcomes.
+- No original Launchpad, Python 3.10.0 exact patch, Firefox/Safari/physical mobile, production load/security/tenant isolation, calibrated abstention, or independent support-agent review verified. Additional Node download and script execution must be permitted in Launchpad. If blocked, preflight/bootstrap surfaces the concrete runtime/HTTP/TLS/execution error; no such Launchpad error was observed here.
+
+Packaging verification is recorded in PROJECT_STATUS.md and artifacts/manifest.json after the final documentation refresh. No commit, push, upload or submission performed.
+
+---
+
+# Historical October 17 validation (preserved)
 # Actual validation record
 
 Executed on Windows, October 17, 2026 (America/Edmonton). This records actual commands and outcomes, not a suggested test plan. The supplied Python 3.10.0/Node 20.10.0 sandbox was not run. See `README.md` for target setup and remaining manual verification.

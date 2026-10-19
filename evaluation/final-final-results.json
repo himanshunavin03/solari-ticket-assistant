@@ -1,0 +1,895 @@
+{
+  "timestamp": "2026-10-19T17:19:20.840313+00:00",
+  "split": "final",
+  "reviewed_commit": "0dbf77d1e9e8ceac1b9130a66c7049f34fbce6f7",
+  "cases_sha256": "d2954b208955393710a44f067973cd9c948a13187185a14b1eaebe7ab6f81f40",
+  "policy_sha256": "56fd59a07447fb89ac84f16be625cf15c092cf2ec1677d17ad4b548023e31c14",
+  "hardware": {
+    "os": "Windows-10-10.0.26200-SP0",
+    "cpu": "Intel64 Family 6 Model 186 Stepping 2, GenuineIntel",
+    "logical_cpus": 20,
+    "python": "3.11.9",
+    "torch_threads": 4
+  },
+  "versions": {
+    "numpy": "1.26.4",
+    "scikit-learn": "1.6.1",
+    "sentence-transformers": "3.4.1",
+    "torch": "2.6.0",
+    "transformers": "4.48.3"
+  },
+  "model": "sentence-transformers/all-MiniLM-L6-v2",
+  "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+  "policies": {
+    "baseline": {
+      "keyword": {
+        "metrics": {
+          "positive_count": 6,
+          "negative_count": 4,
+          "false_acceptances": 1,
+          "false_rejections": 0,
+          "wrong_resolution_on_positive": 1,
+          "recall_at_3": 1.0,
+          "mrr": 1.0,
+          "precision_at_3": 0.3333333333333333,
+          "candidate_recall_at_3": 1.0,
+          "warm_latency_ms": {
+            "median": 0.29360002372413874,
+            "p95": 0.7014000439085066,
+            "sample_count": 50
+          }
+        },
+        "cases": [
+          {
+            "id": "final-429",
+            "expected": [
+              "T-1702"
+            ],
+            "returned": [
+              "T-1702"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1702"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "final-payments",
+            "expected": [
+              "T-1303"
+            ],
+            "returned": [
+              "T-1303"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1303"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "final-filter",
+            "expected": [
+              "T-1204"
+            ],
+            "returned": [
+              "T-1204",
+              "T-1602"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1204",
+              "T-1602"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "final-permission",
+            "expected": [
+              "T-1405"
+            ],
+            "returned": [
+              "T-1405"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1405"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "final-custom-role",
+            "expected": [
+              "T-1504"
+            ],
+            "returned": [
+              "T-1504"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1504"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "final-duplicate-data",
+            "expected": [
+              "T-1103"
+            ],
+            "returned": [
+              "T-1103"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1103"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "final-email-link",
+            "expected": [],
+            "returned": [
+              "T-1001"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1001"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "final-unfamiliar",
+            "expected": [],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "final-invoice-file",
+            "expected": [],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "final-browser-crash",
+            "expected": [],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          }
+        ]
+      },
+      "semantic": {
+        "metrics": {
+          "positive_count": 6,
+          "negative_count": 4,
+          "false_acceptances": 0,
+          "false_rejections": 0,
+          "wrong_resolution_on_positive": 0,
+          "recall_at_3": 1.0,
+          "mrr": 1.0,
+          "precision_at_3": 0.3333333333333333,
+          "candidate_recall_at_3": 1.0,
+          "warm_latency_ms": {
+            "median": 7.455149985617027,
+            "p95": 10.62469999305904,
+            "sample_count": 50
+          }
+        },
+        "cases": [
+          {
+            "id": "final-429",
+            "expected": [
+              "T-1702"
+            ],
+            "returned": [
+              "T-1702"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1702"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "final-payments",
+            "expected": [
+              "T-1303"
+            ],
+            "returned": [
+              "T-1303"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1303"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "final-filter",
+            "expected": [
+              "T-1204"
+            ],
+            "returned": [
+              "T-1204"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1204"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "final-permission",
+            "expected": [
+              "T-1405"
+            ],
+            "returned": [
+              "T-1405"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1405"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "final-custom-role",
+            "expected": [
+              "T-1504"
+            ],
+            "returned": [
+              "T-1504"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1504"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "final-duplicate-data",
+            "expected": [
+              "T-1103"
+            ],
+            "returned": [
+              "T-1103"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1103"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "final-email-link",
+            "expected": [],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "final-unfamiliar",
+            "expected": [],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "final-invoice-file",
+            "expected": [],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "final-browser-crash",
+            "expected": [],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          }
+        ]
+      },
+      "hybrid": {
+        "metrics": {
+          "positive_count": 6,
+          "negative_count": 4,
+          "false_acceptances": 1,
+          "false_rejections": 0,
+          "wrong_resolution_on_positive": 1,
+          "recall_at_3": 1.0,
+          "mrr": 1.0,
+          "precision_at_3": 0.3333333333333333,
+          "candidate_recall_at_3": 1.0,
+          "warm_latency_ms": {
+            "median": 7.677450019400567,
+            "p95": 9.017800039146096,
+            "sample_count": 50
+          }
+        },
+        "cases": [
+          {
+            "id": "final-429",
+            "expected": [
+              "T-1702"
+            ],
+            "returned": [
+              "T-1702"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1702"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "final-payments",
+            "expected": [
+              "T-1303"
+            ],
+            "returned": [
+              "T-1303"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1303"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "final-filter",
+            "expected": [
+              "T-1204"
+            ],
+            "returned": [
+              "T-1204",
+              "T-1602"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1204",
+              "T-1602"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "final-permission",
+            "expected": [
+              "T-1405"
+            ],
+            "returned": [
+              "T-1405"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1405"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "final-custom-role",
+            "expected": [
+              "T-1504"
+            ],
+            "returned": [
+              "T-1504"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1504"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "final-duplicate-data",
+            "expected": [
+              "T-1103"
+            ],
+            "returned": [
+              "T-1103"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1103"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "final-email-link",
+            "expected": [],
+            "returned": [
+              "T-1001"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1001"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "final-unfamiliar",
+            "expected": [],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "final-invoice-file",
+            "expected": [],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "final-browser-crash",
+            "expected": [],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          }
+        ]
+      }
+    },
+    "revised": {
+      "keyword": {
+        "metrics": {
+          "positive_count": 6,
+          "negative_count": 4,
+          "false_acceptances": 0,
+          "false_rejections": 6,
+          "wrong_resolution_on_positive": 0,
+          "recall_at_3": 0.0,
+          "mrr": 0,
+          "precision_at_3": 0.0,
+          "candidate_recall_at_3": 1.0,
+          "warm_latency_ms": {
+            "median": 0.3208999987691641,
+            "p95": 0.388299988117069,
+            "sample_count": 50
+          }
+        },
+        "cases": [
+          {
+            "id": "final-429",
+            "expected": [
+              "T-1702"
+            ],
+            "returned": [],
+            "related": [
+              "T-1702"
+            ],
+            "candidates": [
+              "T-1702"
+            ],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "final-payments",
+            "expected": [
+              "T-1303"
+            ],
+            "returned": [],
+            "related": [
+              "T-1303"
+            ],
+            "candidates": [
+              "T-1303"
+            ],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "final-filter",
+            "expected": [
+              "T-1204"
+            ],
+            "returned": [],
+            "related": [
+              "T-1204",
+              "T-1602"
+            ],
+            "candidates": [
+              "T-1204",
+              "T-1602"
+            ],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "final-permission",
+            "expected": [
+              "T-1405"
+            ],
+            "returned": [],
+            "related": [
+              "T-1405"
+            ],
+            "candidates": [
+              "T-1405"
+            ],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "final-custom-role",
+            "expected": [
+              "T-1504"
+            ],
+            "returned": [],
+            "related": [
+              "T-1504"
+            ],
+            "candidates": [
+              "T-1504"
+            ],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "final-duplicate-data",
+            "expected": [
+              "T-1103"
+            ],
+            "returned": [],
+            "related": [
+              "T-1103"
+            ],
+            "candidates": [
+              "T-1103"
+            ],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "final-email-link",
+            "expected": [],
+            "returned": [],
+            "related": [
+              "T-1001"
+            ],
+            "candidates": [
+              "T-1001"
+            ],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "final-unfamiliar",
+            "expected": [],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "final-invoice-file",
+            "expected": [],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "final-browser-crash",
+            "expected": [],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          }
+        ]
+      },
+      "semantic": {
+        "metrics": {
+          "positive_count": 6,
+          "negative_count": 4,
+          "false_acceptances": 1,
+          "false_rejections": 0,
+          "wrong_resolution_on_positive": 0,
+          "recall_at_3": 1.0,
+          "mrr": 1.0,
+          "precision_at_3": 0.3333333333333333,
+          "candidate_recall_at_3": 1.0,
+          "warm_latency_ms": {
+            "median": 11.29195000976324,
+            "p95": 13.31359997857362,
+            "sample_count": 50
+          }
+        },
+        "cases": [
+          {
+            "id": "final-429",
+            "expected": [
+              "T-1702"
+            ],
+            "returned": [
+              "T-1702"
+            ],
+            "related": [
+              "T-1703"
+            ],
+            "candidates": [
+              "T-1702",
+              "T-1703"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "final-payments",
+            "expected": [
+              "T-1303"
+            ],
+            "returned": [
+              "T-1303"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1303"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "final-filter",
+            "expected": [
+              "T-1204"
+            ],
+            "returned": [
+              "T-1204"
+            ],
+            "related": [
+              "T-1602"
+            ],
+            "candidates": [
+              "T-1204",
+              "T-1602"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "final-permission",
+            "expected": [
+              "T-1405"
+            ],
+            "returned": [
+              "T-1405"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1405"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "final-custom-role",
+            "expected": [
+              "T-1504"
+            ],
+            "returned": [
+              "T-1504"
+            ],
+            "related": [
+              "T-1503"
+            ],
+            "candidates": [
+              "T-1504",
+              "T-1503"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "final-duplicate-data",
+            "expected": [
+              "T-1103"
+            ],
+            "returned": [
+              "T-1103"
+            ],
+            "related": [
+              "T-1104"
+            ],
+            "candidates": [
+              "T-1103",
+              "T-1104"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "final-email-link",
+            "expected": [],
+            "returned": [
+              "T-1001"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1001"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "final-unfamiliar",
+            "expected": [],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "final-invoice-file",
+            "expected": [],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "final-browser-crash",
+            "expected": [],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          }
+        ]
+      },
+      "hybrid": {
+        "metrics": {
+          "positive_count": 6,
+          "negative_count": 4,
+          "false_acceptances": 1,
+          "false_rejections": 0,
+          "wrong_resolution_on_positive": 0,
+          "recall_at_3": 1.0,
+          "mrr": 1.0,
+          "precision_at_3": 0.3333333333333333,
+          "candidate_recall_at_3": 1.0,
+          "warm_latency_ms": {
+            "median": 12.758550001308322,
+            "p95": 16.619500005617738,
+            "sample_count": 50
+          }
+        },
+        "cases": [
+          {
+            "id": "final-429",
+            "expected": [
+              "T-1702"
+            ],
+            "returned": [
+              "T-1702"
+            ],
+            "related": [
+              "T-1703"
+            ],
+            "candidates": [
+              "T-1702",
+              "T-1703"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "final-payments",
+            "expected": [
+              "T-1303"
+            ],
+            "returned": [
+              "T-1303"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1303"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "final-filter",
+            "expected": [
+              "T-1204"
+            ],
+            "returned": [
+              "T-1204"
+            ],
+            "related": [
+              "T-1602"
+            ],
+            "candidates": [
+              "T-1204",
+              "T-1602"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "final-permission",
+            "expected": [
+              "T-1405"
+            ],
+            "returned": [
+              "T-1405"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1405"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "final-custom-role",
+            "expected": [
+              "T-1504"
+            ],
+            "returned": [
+              "T-1504"
+            ],
+            "related": [
+              "T-1503"
+            ],
+            "candidates": [
+              "T-1504",
+              "T-1503"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "final-duplicate-data",
+            "expected": [
+              "T-1103"
+            ],
+            "returned": [
+              "T-1103"
+            ],
+            "related": [
+              "T-1104"
+            ],
+            "candidates": [
+              "T-1103",
+              "T-1104"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "final-email-link",
+            "expected": [],
+            "returned": [
+              "T-1001"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1001"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "final-unfamiliar",
+            "expected": [],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "final-invoice-file",
+            "expected": [],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "final-browser-crash",
+            "expected": [],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          }
+        ]
+      }
+    }
+  }
+}

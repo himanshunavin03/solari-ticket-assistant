@@ -1,0 +1,1061 @@
+{
+  "timestamp": "2026-10-19T17:19:10.167371+00:00",
+  "split": "regression",
+  "reviewed_commit": "0dbf77d1e9e8ceac1b9130a66c7049f34fbce6f7",
+  "cases_sha256": "80a9b55b01f3d53f5b5d1184f99233955105b07e7c565a67b858af5f00a647bd",
+  "policy_sha256": "56fd59a07447fb89ac84f16be625cf15c092cf2ec1677d17ad4b548023e31c14",
+  "hardware": {
+    "os": "Windows-10-10.0.26200-SP0",
+    "cpu": "Intel64 Family 6 Model 186 Stepping 2, GenuineIntel",
+    "logical_cpus": 20,
+    "python": "3.11.9",
+    "torch_threads": 4
+  },
+  "versions": {
+    "numpy": "1.26.4",
+    "scikit-learn": "1.6.1",
+    "sentence-transformers": "3.4.1",
+    "torch": "2.6.0",
+    "transformers": "4.48.3"
+  },
+  "model": "sentence-transformers/all-MiniLM-L6-v2",
+  "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+  "policies": {
+    "baseline": {
+      "keyword": {
+        "metrics": {
+          "positive_count": 8,
+          "negative_count": 4,
+          "false_acceptances": 2,
+          "false_rejections": 0,
+          "wrong_resolution_on_positive": 0,
+          "recall_at_3": 1.0,
+          "mrr": 1.0,
+          "precision_at_3": 0.3333333333333333,
+          "candidate_recall_at_3": 1.0,
+          "warm_latency_ms": {
+            "median": 0.2961000136565417,
+            "p95": 0.3429999924264848,
+            "sample_count": 60
+          }
+        },
+        "cases": [
+          {
+            "id": "test-rate-limit",
+            "expected": [
+              "T-1702"
+            ],
+            "returned": [
+              "T-1702"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1702"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "test-hubspot",
+            "expected": [
+              "T-1105"
+            ],
+            "returned": [
+              "T-1105"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1105"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "test-sso",
+            "expected": [
+              "T-1002"
+            ],
+            "returned": [
+              "T-1002"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1002"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "test-filter",
+            "expected": [
+              "T-1204"
+            ],
+            "returned": [
+              "T-1204"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1204"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "test-queue",
+            "expected": [
+              "T-1604"
+            ],
+            "returned": [
+              "T-1604"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1604"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "test-key",
+            "expected": [
+              "T-1705"
+            ],
+            "returned": [
+              "T-1705"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1705"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "test-seats",
+            "expected": [
+              "T-1301"
+            ],
+            "returned": [
+              "T-1301"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1301"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "test-export-access",
+            "expected": [
+              "T-1405"
+            ],
+            "returned": [
+              "T-1405"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1405"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "test-snowflake",
+            "expected": [],
+            "returned": [
+              "T-1105"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1105"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "test-aquarium",
+            "expected": [],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "test-mobile",
+            "expected": [],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "test-reset-email",
+            "expected": [],
+            "returned": [
+              "T-1001"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1001"
+            ],
+            "outcome": "matches"
+          }
+        ]
+      },
+      "semantic": {
+        "metrics": {
+          "positive_count": 8,
+          "negative_count": 4,
+          "false_acceptances": 1,
+          "false_rejections": 1,
+          "wrong_resolution_on_positive": 0,
+          "recall_at_3": 0.875,
+          "mrr": 0.875,
+          "precision_at_3": 0.29166666666666663,
+          "candidate_recall_at_3": 0.875,
+          "warm_latency_ms": {
+            "median": 11.51864998973906,
+            "p95": 17.741599993314594,
+            "sample_count": 60
+          }
+        },
+        "cases": [
+          {
+            "id": "test-rate-limit",
+            "expected": [
+              "T-1702"
+            ],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "test-hubspot",
+            "expected": [
+              "T-1105"
+            ],
+            "returned": [
+              "T-1105"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1105"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "test-sso",
+            "expected": [
+              "T-1002"
+            ],
+            "returned": [
+              "T-1002"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1002"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "test-filter",
+            "expected": [
+              "T-1204"
+            ],
+            "returned": [
+              "T-1204"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1204"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "test-queue",
+            "expected": [
+              "T-1604"
+            ],
+            "returned": [
+              "T-1604"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1604"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "test-key",
+            "expected": [
+              "T-1705"
+            ],
+            "returned": [
+              "T-1705"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1705"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "test-seats",
+            "expected": [
+              "T-1301"
+            ],
+            "returned": [
+              "T-1301"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1301"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "test-export-access",
+            "expected": [
+              "T-1405"
+            ],
+            "returned": [
+              "T-1405"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1405"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "test-snowflake",
+            "expected": [],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "test-aquarium",
+            "expected": [],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "test-mobile",
+            "expected": [],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "test-reset-email",
+            "expected": [],
+            "returned": [
+              "T-1001"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1001"
+            ],
+            "outcome": "matches"
+          }
+        ]
+      },
+      "hybrid": {
+        "metrics": {
+          "positive_count": 8,
+          "negative_count": 4,
+          "false_acceptances": 2,
+          "false_rejections": 0,
+          "wrong_resolution_on_positive": 0,
+          "recall_at_3": 1.0,
+          "mrr": 1.0,
+          "precision_at_3": 0.3333333333333333,
+          "candidate_recall_at_3": 1.0,
+          "warm_latency_ms": {
+            "median": 11.901449994184077,
+            "p95": 15.864800021518022,
+            "sample_count": 60
+          }
+        },
+        "cases": [
+          {
+            "id": "test-rate-limit",
+            "expected": [
+              "T-1702"
+            ],
+            "returned": [
+              "T-1702"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1702"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "test-hubspot",
+            "expected": [
+              "T-1105"
+            ],
+            "returned": [
+              "T-1105"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1105"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "test-sso",
+            "expected": [
+              "T-1002"
+            ],
+            "returned": [
+              "T-1002"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1002"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "test-filter",
+            "expected": [
+              "T-1204"
+            ],
+            "returned": [
+              "T-1204"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1204"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "test-queue",
+            "expected": [
+              "T-1604"
+            ],
+            "returned": [
+              "T-1604"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1604"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "test-key",
+            "expected": [
+              "T-1705"
+            ],
+            "returned": [
+              "T-1705"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1705"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "test-seats",
+            "expected": [
+              "T-1301"
+            ],
+            "returned": [
+              "T-1301"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1301"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "test-export-access",
+            "expected": [
+              "T-1405"
+            ],
+            "returned": [
+              "T-1405"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1405"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "test-snowflake",
+            "expected": [],
+            "returned": [
+              "T-1105"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1105"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "test-aquarium",
+            "expected": [],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "test-mobile",
+            "expected": [],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "test-reset-email",
+            "expected": [],
+            "returned": [
+              "T-1001"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1001"
+            ],
+            "outcome": "matches"
+          }
+        ]
+      }
+    },
+    "revised": {
+      "keyword": {
+        "metrics": {
+          "positive_count": 8,
+          "negative_count": 4,
+          "false_acceptances": 0,
+          "false_rejections": 8,
+          "wrong_resolution_on_positive": 0,
+          "recall_at_3": 0.0,
+          "mrr": 0,
+          "precision_at_3": 0.0,
+          "candidate_recall_at_3": 1.0,
+          "warm_latency_ms": {
+            "median": 0.38475001929327846,
+            "p95": 1.324000011663884,
+            "sample_count": 60
+          }
+        },
+        "cases": [
+          {
+            "id": "test-rate-limit",
+            "expected": [
+              "T-1702"
+            ],
+            "returned": [],
+            "related": [
+              "T-1702"
+            ],
+            "candidates": [
+              "T-1702"
+            ],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "test-hubspot",
+            "expected": [
+              "T-1105"
+            ],
+            "returned": [],
+            "related": [
+              "T-1105"
+            ],
+            "candidates": [
+              "T-1105"
+            ],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "test-sso",
+            "expected": [
+              "T-1002"
+            ],
+            "returned": [],
+            "related": [
+              "T-1002"
+            ],
+            "candidates": [
+              "T-1002"
+            ],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "test-filter",
+            "expected": [
+              "T-1204"
+            ],
+            "returned": [],
+            "related": [
+              "T-1204"
+            ],
+            "candidates": [
+              "T-1204"
+            ],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "test-queue",
+            "expected": [
+              "T-1604"
+            ],
+            "returned": [],
+            "related": [
+              "T-1604"
+            ],
+            "candidates": [
+              "T-1604"
+            ],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "test-key",
+            "expected": [
+              "T-1705"
+            ],
+            "returned": [],
+            "related": [
+              "T-1705"
+            ],
+            "candidates": [
+              "T-1705"
+            ],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "test-seats",
+            "expected": [
+              "T-1301"
+            ],
+            "returned": [],
+            "related": [
+              "T-1301"
+            ],
+            "candidates": [
+              "T-1301"
+            ],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "test-export-access",
+            "expected": [
+              "T-1405"
+            ],
+            "returned": [],
+            "related": [
+              "T-1405"
+            ],
+            "candidates": [
+              "T-1405"
+            ],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "test-snowflake",
+            "expected": [],
+            "returned": [],
+            "related": [
+              "T-1105"
+            ],
+            "candidates": [
+              "T-1105"
+            ],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "test-aquarium",
+            "expected": [],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "test-mobile",
+            "expected": [],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "test-reset-email",
+            "expected": [],
+            "returned": [],
+            "related": [
+              "T-1001"
+            ],
+            "candidates": [
+              "T-1001"
+            ],
+            "outcome": "no_reliable_match"
+          }
+        ]
+      },
+      "semantic": {
+        "metrics": {
+          "positive_count": 8,
+          "negative_count": 4,
+          "false_acceptances": 0,
+          "false_rejections": 1,
+          "wrong_resolution_on_positive": 0,
+          "recall_at_3": 0.875,
+          "mrr": 0.875,
+          "precision_at_3": 0.29166666666666663,
+          "candidate_recall_at_3": 1.0,
+          "warm_latency_ms": {
+            "median": 15.792900027008727,
+            "p95": 27.673700009472668,
+            "sample_count": 60
+          }
+        },
+        "cases": [
+          {
+            "id": "test-rate-limit",
+            "expected": [
+              "T-1702"
+            ],
+            "returned": [],
+            "related": [
+              "T-1702",
+              "T-1703"
+            ],
+            "candidates": [
+              "T-1702",
+              "T-1703"
+            ],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "test-hubspot",
+            "expected": [
+              "T-1105"
+            ],
+            "returned": [
+              "T-1105"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1105"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "test-sso",
+            "expected": [
+              "T-1002"
+            ],
+            "returned": [
+              "T-1002"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1002"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "test-filter",
+            "expected": [
+              "T-1204"
+            ],
+            "returned": [
+              "T-1204"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1204"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "test-queue",
+            "expected": [
+              "T-1604"
+            ],
+            "returned": [
+              "T-1604"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1604"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "test-key",
+            "expected": [
+              "T-1705"
+            ],
+            "returned": [
+              "T-1705"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1705"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "test-seats",
+            "expected": [
+              "T-1301"
+            ],
+            "returned": [
+              "T-1301"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1301"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "test-export-access",
+            "expected": [
+              "T-1405"
+            ],
+            "returned": [
+              "T-1405"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1405"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "test-snowflake",
+            "expected": [],
+            "returned": [],
+            "related": [
+              "T-1105"
+            ],
+            "candidates": [
+              "T-1105"
+            ],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "test-aquarium",
+            "expected": [],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "test-mobile",
+            "expected": [],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "test-reset-email",
+            "expected": [],
+            "returned": [],
+            "related": [
+              "T-1001",
+              "T-1004"
+            ],
+            "candidates": [
+              "T-1001",
+              "T-1004"
+            ],
+            "outcome": "no_reliable_match"
+          }
+        ]
+      },
+      "hybrid": {
+        "metrics": {
+          "positive_count": 8,
+          "negative_count": 4,
+          "false_acceptances": 0,
+          "false_rejections": 1,
+          "wrong_resolution_on_positive": 0,
+          "recall_at_3": 0.875,
+          "mrr": 0.875,
+          "precision_at_3": 0.29166666666666663,
+          "candidate_recall_at_3": 1.0,
+          "warm_latency_ms": {
+            "median": 11.633999994955957,
+            "p95": 22.13990001473576,
+            "sample_count": 60
+          }
+        },
+        "cases": [
+          {
+            "id": "test-rate-limit",
+            "expected": [
+              "T-1702"
+            ],
+            "returned": [],
+            "related": [
+              "T-1702",
+              "T-1703"
+            ],
+            "candidates": [
+              "T-1702",
+              "T-1703"
+            ],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "test-hubspot",
+            "expected": [
+              "T-1105"
+            ],
+            "returned": [
+              "T-1105"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1105"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "test-sso",
+            "expected": [
+              "T-1002"
+            ],
+            "returned": [
+              "T-1002"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1002"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "test-filter",
+            "expected": [
+              "T-1204"
+            ],
+            "returned": [
+              "T-1204"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1204"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "test-queue",
+            "expected": [
+              "T-1604"
+            ],
+            "returned": [
+              "T-1604"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1604"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "test-key",
+            "expected": [
+              "T-1705"
+            ],
+            "returned": [
+              "T-1705"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1705"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "test-seats",
+            "expected": [
+              "T-1301"
+            ],
+            "returned": [
+              "T-1301"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1301"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "test-export-access",
+            "expected": [
+              "T-1405"
+            ],
+            "returned": [
+              "T-1405"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1405"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "test-snowflake",
+            "expected": [],
+            "returned": [],
+            "related": [
+              "T-1105"
+            ],
+            "candidates": [
+              "T-1105"
+            ],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "test-aquarium",
+            "expected": [],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "test-mobile",
+            "expected": [],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "test-reset-email",
+            "expected": [],
+            "returned": [],
+            "related": [
+              "T-1001",
+              "T-1004"
+            ],
+            "candidates": [
+              "T-1001",
+              "T-1004"
+            ],
+            "outcome": "no_reliable_match"
+          }
+        ]
+      }
+    }
+  }
+}

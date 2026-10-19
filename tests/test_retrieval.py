@@ -18,7 +18,9 @@ def request(subject='Charged twice for the same billing cycle', description='Two
 def test_valid_data_and_keyword_match(keyword):
     assert len(keyword.tickets) == 40
     response = keyword.search(request(mode='keyword'))
-    assert response.matches[0].ticket.ticket_id == 'T-1303'
+    assert response.related_history[0].ticket.ticket_id == 'T-1303'
+    assert response.outcome == 'no_reliable_match'
+    assert not response.matches
     assert response.degraded
 
 
@@ -65,8 +67,8 @@ def test_ties_and_rrf(keyword):
 def test_keyword_identifiers_and_top_k(keyword):
     assert '429' in keyword.vectorizer.vocabulary_
     result = keyword.search(request(subject='API returns 429 rate limit', description='Integration started receiving 429 errors', mode='keyword', top_k=1))
-    assert len(result.matches) == 1
-    assert result.matches[0].ticket.ticket_id == 'T-1702'
+    assert len(result.related_history) == 1
+    assert result.related_history[0].ticket.ticket_id == 'T-1702'
 
 
 def test_unavailable_capabilities(keyword):
@@ -107,4 +109,4 @@ def test_model_initialization_failure_keeps_keyword(tmp_path):
         def encode(self, *args, **kwargs): raise OSError('unavailable')
     r = Retriever(model=Broken(), cache_dir=tmp_path)
     assert r.model is None and r.semantic_failure
-    assert r.search(request(mode='keyword')).matches
+    assert r.search(request(mode='keyword')).related_history

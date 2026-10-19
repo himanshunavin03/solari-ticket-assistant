@@ -1,87 +1,88 @@
 # Project status
 
-Last updated: 2026-10-17 22:59 -06:00 (America/Edmonton).
+Updated: 2026-10-19 11:33 -06:00 (America/Edmonton).
 
-## Objective, scope and deadline
+## Objective, scope, deadline
 
-Solari Analytics Support Ticket Similarity Assistant: Angular agent UI and FastAPI service retrieve original historical resolutions from the 40 supplied synthetic tickets. Scope includes keyword/semantic/hybrid retrieval, evidence gating, tests, measured evaluation, documentation and local submission packaging. No generated answers, training, database, paid API, or production deployment.
+Solari Ticket Assistant: Angular/TypeScript, FastAPI, TF-IDF, pretrained CPU MiniLM, RRF, supplied JSON/in-memory indexes, original-resolution evidence, tests/evaluation/docs/local ZIP. No database, training, generated fixes, paid API or Conda. Scope/brief: `docs/IMPLEMENTATION_REQUEST.md`, `case-study-1-support-ticket-similarity/case-study-brief.md`; decisions: `SOLUTION_DESIGN.md`.
 
-Deadline: **Tuesday, October 20, 2026, EOD; timezone unspecified**. Confirm recipient timezone before manual delivery. Assignment budget is approximately 3–4 focused hours, with a 4–5 hour stop expectation. Sources: `case-study-1-support-ticket-similarity/case-study-brief.md`, `docs/IMPLEMENTATION_REQUEST.md`; decisions and trade-offs: `SOLUTION_DESIGN.md`.
+Deadline **Tuesday October 20, 2026 EOD; timezone unspecified**. Confirm recipient timezone before manual delivery.
 
-## Current task and last verified milestone
+## Current state and Git
 
-Completed: all authorized local implementation, tests, evaluation, documentation and packaging. No unfinished edits. All four implementation milestones are implemented and tested locally. Next exact action for the user: follow README setup and checks in the original target sandbox; confirm the recipient's deadline timezone before manual submission. No commit, push, upload or submission authorized or performed.
+**Completed:** implementation, requested checks, documentation, ZIP inspection and handoff. No unfinished edits or task-owned servers. Full preflight also passed under Windows PowerShell 5.1. Exact next user action: run README setup/preflight inside actual Launchpad, then review the archive and confirm submission timezone. No automatic commit/push/upload/submission.
 
-Verified Git baseline: `5cc8bf4dc7bf08e9e093d090b13a7a1bd7644138` (`add changes`). Earlier status claiming only README was tracked is obsolete: the user committed the continuity files and supplied materials before authorizing implementation. Current uncommitted work: modified root README/status; new `.gitignore`, backend, frontend/lockfile, tests, evaluation artifacts, scripts, design and supporting docs. Existing AGENTS/Copilot instructions remain unchanged. All original supplied files are unchanged against HEAD (`git diff --exit-code HEAD -- case-study-1-support-ticket-similarity` passed). No application listeners on 8000/4200 after Playwright cleanup; no task-owned background servers/downloads remain.
+Reviewed/actual HEAD: `0dbf77d1e9e8ceac1b9130a66c7049f34fbce6f7`; initial tree clean, no newer fixes. Current changes are uncommitted/un-staged: evidence/retrieval and response fields, related-history UI/browser tests, preflight/packaging scripts, evaluation snapshots/cases/reports, 3.10 resolved requirements, tests, docs/status and ignore rule. AGENTS/Copilot instructions unchanged. No commit, push, upload or submission performed. Git preservation diff confirms original supplied files and original evaluation JSON/cases unchanged.
 
-## Confirmed environment and chosen dependencies
+## Actual runtimes and dependencies
 
-Windows development host: Python 3.11.9, venv pip 25.0.1 (system pip 24.0), Node 22.23.2, npm 10.9.8, Git 2.50.1.windows.1. Host CPU: Intel64 Family 6 Model 186 Stepping 2; 20 logical CPUs; Torch uses four threads. Project-local Node bootstrap downloaded and SHA256-verified Node 22.23.2 successfully; system installation untouched. `.venv` is project-local; no Conda.
+**Windows Python 3.10.11**: official NuGet runtime at `.runtime/python310/tools`, project-local `.venv310`, pip **25.0.1**, direct manifest installation and real CPU inference/tests passed. Existing `.venv` remains **Python 3.11.9**, also tested. No system Python replacement. `requirements-py310-resolved.txt` is actual 3.10.11 snapshot (SciPy 1.15.3); `requirements-resolved.txt` preserves original 3.11 snapshot.
 
-User-stated target: Python 3.10.0 / pip 21.2.3 / Node 20.10.0 / npm 10.2.3 / Git 2.43.0.windows.1. **Original target sandbox not executed.** Official Angular compatibility requires newer Node; README bootstraps a local compatible runtime. PyPI direct-package requirements accept Python 3.10, but cross-version installation/runtime remains manual verification. `requirements-resolved.txt` is the actual Python 3.11 environment snapshot, not a tested Python 3.10 lock.
+Original Launchpad **Python 3.10.0 / pip 21.2.3 / Node 20.10.0 / npm 10.2.3 / Git 2.43.0.windows.1 was NOT executed**. Exact patch and sandbox/network/policy compatibility remain manual. No Launchpad installation blocker can be reported because that sandbox is inaccessible here.
 
-Exact direct Python pins/reasons in `requirements.txt` and README: FastAPI 0.115.8, Uvicorn 0.34.0, Pydantic 2.10.6, NumPy 1.26.4, scikit-learn 1.6.1, Sentence Transformers 3.4.1, Transformers 4.48.3, Torch 2.6.0 (runtime 2.6.0+cpu), HTTPX 0.28.1, pytest 8.3.4. Chosen Python-3.10-compatible API/retrieval/testing stack; exact resolved transitives recorded separately.
+Frontend requires **additional compatible Node**, not the supplied 20.10.0. Existing checksum-verified `.runtime/node-v22.23.2-win-x64` bootstrap preserved; explicit local PATH route tested. Node **22.23.2**, npm **10.9.8**, host Git **2.50.1.windows.1**. Angular runtime/compiler **20.3.34**, CLI/build **20.3.40**, TypeScript **5.9.2**, RxJS **7.8.2**, tslib **2.8.1**, Playwright **1.56.1**; lockfile unchanged. Bootstrap now uses basic parsing for PowerShell 5.1; existing-runtime path tested on **5.1.26100.9711**. No Angular downgrade/system runtime replacement.
 
-Angular runtime/compiler 20.3.34, CLI/build 20.3.40, TypeScript 5.9.2, RxJS 7.8.2, tslib 2.8.1, Playwright 1.56.1. Supported Angular line, compatible host/local Node, patched toolchain with clean npm audit. `frontend/package-lock.json` generated and verified by npm ci, ready for user-controlled version control.
+Direct Python pins unchanged: FastAPI 0.115.8, Uvicorn 0.34.0, Pydantic 2.10.6, NumPy 1.26.4, scikit-learn 1.6.1, Sentence Transformers 3.4.1, Transformers 4.48.3, Torch 2.6.0 (CPU runtime 2.6.0+cpu), HTTPX 0.28.1, pytest 8.3.4. Tested Python-3.10-compatible CPU stack; no extra inference model/dependencies. Complete versions/reasons: README and resolved files.
 
-## Architecture and completed paths
+## Implemented decisions/artifacts
 
-- `backend/retrieval.py`: strict startup data validation/unique IDs; subject+description TF-IDF; CPU normalized MiniLM; safe non-pickle embedding cache keyed by dataset/model/revision/preprocessing; stable ties; positive-evidence RRF; explicit candidate abstention. Pinned model: `sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41`.
-- `backend/app.py`: typed search/readiness/examples API; restricted dev CORS; safe errors; sync inference handlers; keyword-only degradation is explicit and hybrid/semantic fail with 503 when unavailable.
-- `frontend/src/`: accessible responsive form/examples/results, original resolutions/descriptions/tags, optional evidence details, errors/loading/no-match/degradation, abort+sequence stale-response protection.
-- `tests/`, `frontend/e2e/`: offline/API/cache tests, real pretrained model integration, real UI flow and focused simulated failure/concurrency states.
-- `evaluation/`: fixed development/held-out AI-assisted relevance labels/rationales, development diagnostics, initial/final development results, held-out results and reproducible metric script.
-- `README.md`, `SOLUTION_DESIGN.md`, `docs/DEMO_GUIDE.md`, `docs/AI_ASSISTANCE.md`, `docs/VALIDATION.md`: setup, decisions, honest limits, demonstration, assistance and actual validation record.
-- `scripts/`: checksum-verified Node bootstrap, model download/prefetch, reproducible allowlisted ZIP with CRC/content verification. Archive/manifest in ignored `artifacts/`.
+- `backend/evidence.py` / `retrieval.py`: **clause-coverage-v4** separates supported resolutions from potentially related metadata (resolution notes withheld). Support: overall cosine >=.65 plus every retained description clause covered >=.45; alternate generic shared >=3-digit identifier with overall/identifier-clause >=.60. No product names, IDs, specific code allowlist or example strings. Generic English splitting/four-word minimum; >8 query clauses abstain. TF-IDF/RRF ranking retained. Keyword, including degraded mode, is intentionally related-context-only; zero supported recall is a capability restriction, not an accuracy win. Semantic/hybrid unavailability still explicit 503.
+- Same pinned `sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41`; four CPU threads; safe normalized historical clause embeddings with versioned cache invalidation. Individual embeddings retain 256-wordpiece truncation.
+- `frontend/src/`, `frontend/e2e/`: supported cards vs expandable metadata-only history; no-match, errors, stale suppression and new issue-level browser checks. `scripts/preflight.ps1`/`.py`: versions, exact dependencies, real offline embedding, owned HTTP readiness/all capabilities/cleanup, frontend checks; installs nothing.
+- README, design, evaluation README, validation/demo/AI logs updated. Detailed commands/failures: `docs/VALIDATION.md`. Packaging requires current reports/freeze, original results, 3.10 snapshot, preflight and source; excludes all environments, models/caches/builds/Git/secrets.
 
-Trade-offs: JSON/in-memory static indexes require restart for updates; no production permissions/isolation. MiniLM truncates at 256 wordpieces. RRF avoids adding incomparable raw scores. Final gates keyword 0.25 / semantic 0.70 were selected using development evidence **before held-out execution**; cosine/fusion values are not probabilities. Hybrid OR gate inherits lexical false acceptances. See design/evaluation docs rather than expanding scope here.
+## Evaluation provenance/results
 
-## Checks actually completed and observed failures
+Old `held_out` is now **exposed regression**, never described as untouched for this revision. Original cases/results preserved; baseline source frozen from reviewed commit. Intermediate V2/V3 fresh sets became exposed during iteration and retain results/policy snapshots. Final `release-cases.json` and source hashes froze at **2026-10-19 17:21:51 UTC before release scoring**; no policy tuning afterward. Text hashes normalize CRLF; raw data/archive hashes retain bytes. These AI-authored labels are not independent human review.
 
-Detailed commands/failure causes: `docs/VALIDATION.md`.
+Current results/denominators/all modes: `evaluation/README.md`, `release-development-results.json`, `release-regression-results.json`, `release-results.json`.
 
-- Final `.venv/Scripts/python -m pytest -q` with `SOLARI_OFFLINE=1`: **33 passed**, one nonfatal Starlette/AnyIO deprecation warning. Separate offline run: 32 passed/1 deselected; integration run: 1 passed/32 deselected. Real model offline encoding verified (1,384), history (40,384).
-- `pip install -r requirements.txt`, `pip check`: satisfied pins, no broken requirements. Actual resolved packages saved. Initial large-wheel stall recovered through official checksum-verified curl download; temporary missing-package/collection failures resolved.
-- Frontend `npm ci`, `npm run typecheck`, `npm run build`, `npm audit --audit-level=low`, `npm ls --depth=0`: passed; zero audit findings, 175.87 kB raw initial bundle. Initial 20.3.0 vulnerabilities and old-peer ERESOLVE resolved by patching and fresh lock generation. Cleanup rejection handled through reversible generated backups, not force/legacy peers.
-- `npm run test:e2e`: **4 passed**, Chromium 141.0.7390.37/build 1194. Known-match/no-match, original evidence/reset, mobile width, invalid input/backend failure, stale responses and simulated degraded health verified. Desktop/mobile screenshots in artifacts visually inspected. First run had a failed Snowflake abstention assumption; actual retrieval error documented and UI no-match test uses a pre-existing development negative instead. Gates unchanged.
-- Development and held-out evaluation ran for all three modes. Held-out final 60 warm samples/mode: keyword median/p95 0.302/0.348 ms; semantic 9.018/14.243 ms; hybrid 9.540/13.088 ms. No throughput/concurrent SLA claim.
-- Held-out positives: keyword/hybrid Recall@3/MRR 1.0, P@3 .3333; semantic Recall@3/MRR .875, P@3 .2917. No-match correct rejections keyword/hybrid 2/4, semantic 3/4. Hybrid did not beat keyword on held-out quality. Full per-case results in `evaluation/results.json`.
-- `git diff --check` passed (only configured line-ending conversion warnings). Final ZIP packaging verified 49 files, required membership, CRCs and source SHA256 equality; final archive includes this handoff and validation documentation. No source-only checks represented as application tests.
-- Two unchanged-source packaging runs produced identical ZIP SHA256, confirming deterministic output. Final status refresh is included by regenerating the archive. Final process inspection found no Python/Node processes; `Get-Process` returned exit 1 for an empty match list, an idle-state diagnostic rather than an application failure.
+| Hybrid | False acceptances | False rejections | Recall@3 | MRR |
+| --- | --- | --- | --- | --- |
+| Development (12 positive/4 negative) | 3→0 | 1→1 | .9167→.875 | .9167→.9167 |
+| Exposed regression (8/4) | 2→0 | 0→0 | 1→1 | 1→1 |
+| Frozen release (8/4) | 2→0 | 1→1 | .875→.875 | .875→.875 |
 
-## Known limitations, blockers and remaining work
+Both supplied misleading examples withhold resolutions; billing and original HTTP 429 still accepted. Release widget-overlap is related-only; development broad rate-limit paraphrase and one secondary multi-issue ticket lose support. Candidate recall 1.0 for revised hybrid release/regression does not mean supported-resolution recall. Earlier sets retain SMS recovery/2FA and newly phrased reset-mail false acceptances: general mechanism ambiguity remains unresolved. No quality advantage of hybrid over semantic on release.
 
-No unresolved blocker to local implementation. **Known quality failures:** keyword/hybrid accept supplied Snowflake as HubSpot auth, and missing-reset-email as reset rejection. Semantic also accepts reset-email and rejects the 429 positive. Do not tune on those held-out outcomes. New representative development labels and independent support-agent review are needed. AI-assisted synthetic evaluation does not establish production accuracy/security/scale. No original sandbox, Firefox/Safari/physical mobile, production load, tenant isolation or accessibility certification verified.
+Release hybrid warm median/p95 **16.675/26.485→17.852/24.720 ms**, 60 samples/mode, Windows 3.10.11, Intel64 Family 6 Model 186 Stepping 2 / 20 logical CPUs / four Torch threads. Final rerun after browser cleanup; scheduling noise, no production/SLA/throughput claim.
 
-Ignored local generated artifacts: `.venv`, `.runtime`, model/embedding/wheel `.cache`, frontend node_modules/build/cache, browser reports/screenshots, ZIP. Reversible initial npm backups (`frontend/node_modules.previous`, `frontend/package-lock.previous.json`) remain ignored and excluded from packaging; they are not unfinished application work.
+## Actual checks and failures
 
-Priority next steps: (1) manually run README setup/checks in the actual target sandbox with local Node bootstrap; (2) independently review labels and inspect known failures; (3) confirm deadline timezone, review archive and choose repository/ZIP submission; (4) user performs any commit/push/submission. No further feature implementation is required by this local handoff.
+- Full `pytest -q`: **46 passed on 3.10.11**, **46 passed on 3.11.9**, one nonfatal Starlette/AnyIO warning each. Deterministic policy, cache/API, real billing/429/target no-match, original-result protection and metric denominators covered. Targeted evaluation tests after hash helper change: **2 passed**; explicit release hash/no-drift assertions passed.
+- Preflight passed with 3.10.11 and explicit local Node, including Windows PowerShell **5.1.26100.9711**: pip check, packages, actual offline (1,384) MiniLM embedding, HTTP ready/all three capabilities, cleanup, npm ls/typecheck/build. Bundle **177.30 kB**, estimated transfer **49.44 kB**. npm audit: **zero findings**. Compileall passed.
+- Browser tests against actual 3.10.11 API: **6 passed**, including both misleading examples without resolution text, billing/429, unrelated no-match, mobile/reset, errors, stale responses and simulated degradation. Owned servers stopped.
+- V2/V3 policy initially rejected valid 429; two real-model tests failed. Generic identifier corroboration .60 chosen on exposed regression, tested before final release freeze. All reports retained; no product-specific patches. PowerShell display/parser and doc-patch context failures corrected without evaluation effect. Whitespace check initially found blank EOF in validation doc; trimmed and `git diff --check` passed (configured CRLF warnings only).
+- ZIP generated and independently inspected: **79 files**, required current/original evaluation, docs/manifests/preflight; **40 original tickets byte-for-byte unchanged**; CRC and source SHA256 verified. Final archive regenerated with current docs/status; unchanged-source repeat packaging verifies deterministic output. Manifest: `artifacts/manifest.json`; archive: `artifacts/solari-ticket-assistant.zip`. No listeners remain on 8000/4200.
 
-## Exact resume/run commands (PowerShell, repository root)
+## Remaining manual work and exact resume
 
-Read AGENTS.md and this status, inspect `git status --short`, `git diff`, and new/untracked files before changing anything. Verify the handoff rather than treating it as proof. Do not repeat completed work without a reason.
+No unresolved local implementation/test blocker. Original Launchpad patch/network/policy restrictions, independent labels, physical mobile/other browsers, production security/load/tenant isolation remain unverified. MiniLM is not entailment; short fragments, negation and numeric collisions can mislead. Confirm deadline timezone, review demo and archive, then user manually submits. No automatic publication authorized. Ignored `.venv*`, `.runtime`, `.cache`, npm backups/build/browser outputs remain excluded from ZIP.
+
+Read AGENTS/status and verify `git status --short`, diffs and new files before editing. Local checks use `.venv310/Scripts/python.exe`; fresh Launchpad setup uses its Python to create `.venv` (complete commands also in README):
 
 ```powershell
-# Existing verified local environment:
-$env:SOLARI_OFFLINE = '1'
-./.venv/Scripts/python.exe -m uvicorn backend.app:app --host 127.0.0.1 --port 8000 --no-access-log
-# Separate terminal, same root:
+python --version
+node --version
+./scripts/bootstrap-node.ps1
 $env:Path = "$(Get-Location)\.runtime\node-v22.23.2-win-x64;" + $env:Path
+python -m venv .venv
+./.venv/Scripts/python.exe -m pip install --upgrade pip==25.0.1
+./.venv/Scripts/python.exe -m pip install -r requirements.txt
+Push-Location frontend
+npm ci
+Pop-Location
+./.venv/Scripts/python.exe -m scripts.download_model
+$env:SOLARI_OFFLINE = '1'
+./scripts/preflight.ps1
+./.venv/Scripts/python.exe -m pytest -q
+./.venv/Scripts/python.exe -m uvicorn backend.app:app --host 127.0.0.1 --port 8000 --no-access-log
+# Separate root terminal: set same local Node PATH, then:
 Push-Location frontend
 npm start
-# Open http://127.0.0.1:4200 ; Ctrl+C stops each server.
-Pop-Location
-
-# Checks, evaluation, packaging from root; stop servers before browser tests:
-./.venv/Scripts/python.exe -m pytest -q
-./.venv/Scripts/python.exe -m evaluation.run --split held_out --output evaluation/results.json
-Push-Location frontend
-npm run typecheck
-npm run build
-npm run test:e2e
-Pop-Location
+# Open http://127.0.0.1:4200; Ctrl+C stops each server, then Pop-Location.
+# Packaging from root using installed venv:
 ./.venv/Scripts/python.exe -m scripts.package_submission
-Get-FileHash artifacts/solari-ticket-assistant.zip -Algorithm SHA256
 ```
 
-For a fresh target environment, use the complete Windows bootstrap/install/model commands in README; the above commands assume installed dependencies and a provisioned model. No task-started running processes need resuming.
+If provisioning is blocked, retain exact bootstrap/preflight runtime/HTTP/TLS/execution error. Offline reuse requires prior model provisioning. No task-owned process needs resuming after final checks finish.

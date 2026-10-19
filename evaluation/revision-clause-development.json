@@ -1,0 +1,480 @@
+[
+  {
+    "id": "d2-warehouse",
+    "expected": [],
+    "clauses": [
+      "A newly configured Databricks warehouse connector cannot establish a connection",
+      "It has never worked",
+      "the error gives no authentication details"
+    ],
+    "top": [
+      {
+        "id": "T-1105",
+        "semantic": 0.494,
+        "coverage": [
+          0.385,
+          0.184,
+          0.472
+        ]
+      },
+      {
+        "id": "T-1102",
+        "semantic": 0.315,
+        "coverage": [
+          0.354,
+          0.13,
+          0.183
+        ]
+      }
+    ]
+  },
+  {
+    "id": "d2-reset-mail",
+    "expected": [],
+    "clauses": [
+      "I requested a password reset",
+      "never received the email, including in spam",
+      "I cannot even open a reset link"
+    ],
+    "top": [
+      {
+        "id": "T-1001",
+        "semantic": 0.678,
+        "coverage": [
+          0.636,
+          0.369,
+          0.394
+        ]
+      },
+      {
+        "id": "T-1004",
+        "semantic": 0.472,
+        "coverage": [
+          0.596,
+          0.248,
+          0.297
+        ]
+      }
+    ]
+  },
+  {
+    "id": "d2-reset-valid",
+    "expected": [
+      "T-1001"
+    ],
+    "clauses": [
+      "I received the password reset email, followed the link",
+      "login rejects the new password as incorrect"
+    ],
+    "top": [
+      {
+        "id": "T-1001",
+        "semantic": 0.851,
+        "coverage": [
+          0.769,
+          0.917
+        ]
+      },
+      {
+        "id": "T-1004",
+        "semantic": 0.498,
+        "coverage": [
+          0.441,
+          0.604
+        ]
+      }
+    ]
+  },
+  {
+    "id": "d2-billing",
+    "expected": [
+      "T-1303"
+    ],
+    "clauses": [
+      "There are two identical card charges for a single monthly subscription payment"
+    ],
+    "top": [
+      {
+        "id": "T-1303",
+        "semantic": 0.814,
+        "coverage": [
+          0.832
+        ]
+      },
+      {
+        "id": "T-1305",
+        "semantic": 0.383,
+        "coverage": [
+          0.477
+        ]
+      }
+    ]
+  },
+  {
+    "id": "d2-429",
+    "expected": [
+      "T-1702"
+    ],
+    "clauses": [
+      "Our integration now gets HTTP 429 rate limit errors",
+      "its usage has not changed"
+    ],
+    "top": [
+      {
+        "id": "T-1702",
+        "semantic": 0.753,
+        "coverage": [
+          0.724,
+          0.257
+        ]
+      },
+      {
+        "id": "T-1703",
+        "semantic": 0.62,
+        "coverage": [
+          0.524,
+          -0.005
+        ]
+      }
+    ]
+  },
+  {
+    "id": "d2-429-paraphrase",
+    "expected": [
+      "T-1702"
+    ],
+    "clauses": [
+      "Requests that normally succeed are being limited as excessive traffic",
+      "We are not sending more requests than before"
+    ],
+    "top": [
+      {
+        "id": "T-1702",
+        "semantic": 0.662,
+        "coverage": [
+          0.403,
+          0.33
+        ]
+      },
+      {
+        "id": "T-1703",
+        "semantic": 0.563,
+        "coverage": [
+          0.339,
+          0.239
+        ]
+      }
+    ]
+  },
+  {
+    "id": "d2-hub-auth",
+    "expected": [
+      "T-1105"
+    ],
+    "clauses": [
+      "The HubSpot integration ran successfully for months",
+      "has just started returning an authentication error"
+    ],
+    "top": [
+      {
+        "id": "T-1105",
+        "semantic": 0.888,
+        "coverage": [
+          0.807,
+          0.486
+        ]
+      },
+      {
+        "id": "T-1104",
+        "semantic": 0.352,
+        "coverage": [
+          0.193,
+          0.198
+        ]
+      }
+    ]
+  },
+  {
+    "id": "d2-unknown-auth",
+    "expected": [],
+    "clauses": [
+      "Our newly set up Redshift integration rejects authentication on its first connection attempt"
+    ],
+    "top": [
+      {
+        "id": "T-1105",
+        "semantic": 0.6,
+        "coverage": [
+          0.564
+        ]
+      },
+      {
+        "id": "T-1002",
+        "semantic": 0.385,
+        "coverage": [
+          0.398
+        ]
+      }
+    ]
+  },
+  {
+    "id": "d2-blank-chart",
+    "expected": [
+      "T-1201"
+    ],
+    "clauses": [
+      "The revenue chart renders a white rectangle with no bars or axis labels"
+    ],
+    "top": [
+      {
+        "id": "T-1201",
+        "semantic": 0.933,
+        "coverage": [
+          0.891
+        ]
+      },
+      {
+        "id": "T-1101",
+        "semantic": 0.512,
+        "coverage": [
+          0.471
+        ]
+      }
+    ]
+  },
+  {
+    "id": "d2-login-blank",
+    "expected": [
+      "T-1002"
+    ],
+    "clauses": [
+      "After authenticating through Okta SSO, the redirect returns a completely blank application page"
+    ],
+    "top": [
+      {
+        "id": "T-1002",
+        "semantic": 0.939,
+        "coverage": [
+          0.877
+        ]
+      },
+      {
+        "id": "T-1505",
+        "semantic": 0.381,
+        "coverage": [
+          0.386
+        ]
+      }
+    ]
+  },
+  {
+    "id": "d2-sms",
+    "expected": [
+      "T-1003"
+    ],
+    "clauses": [
+      "SMS verification messages never arrive on my phone when I try to log in with two-factor authentication"
+    ],
+    "top": [
+      {
+        "id": "T-1003",
+        "semantic": 0.919,
+        "coverage": [
+          0.756
+        ]
+      },
+      {
+        "id": "T-1001",
+        "semantic": 0.401,
+        "coverage": [
+          0.387
+        ]
+      }
+    ]
+  },
+  {
+    "id": "d2-email-2fa",
+    "expected": [],
+    "clauses": [
+      "Our login verification code sent by email is never delivered",
+      "This account uses email verification, not text messages"
+    ],
+    "top": [
+      {
+        "id": "T-1003",
+        "semantic": 0.582,
+        "coverage": [
+          0.661,
+          0.607
+        ]
+      },
+      {
+        "id": "T-1001",
+        "semantic": 0.518,
+        "coverage": [
+          0.443,
+          0.412
+        ]
+      }
+    ]
+  },
+  {
+    "id": "d2-charge-seat",
+    "expected": [
+      "T-1301"
+    ],
+    "clauses": [
+      "Our invoice lists 25 seats even though we only have 18 active users"
+    ],
+    "top": [
+      {
+        "id": "T-1301",
+        "semantic": 0.897,
+        "coverage": [
+          0.688
+        ]
+      },
+      {
+        "id": "T-1305",
+        "semantic": 0.335,
+        "coverage": [
+          0.351
+        ]
+      }
+    ]
+  },
+  {
+    "id": "d2-recent",
+    "expected": [
+      "T-1104",
+      "T-1401"
+    ],
+    "clauses": [
+      "The newest transaction records are missing after the nightly sync",
+      "are also absent from the CSV export"
+    ],
+    "top": [
+      {
+        "id": "T-1401",
+        "semantic": 0.805,
+        "coverage": [
+          0.602,
+          0.591
+        ]
+      },
+      {
+        "id": "T-1104",
+        "semantic": 0.728,
+        "coverage": [
+          0.65,
+          0.28
+        ]
+      }
+    ]
+  },
+  {
+    "id": "d2-pdf",
+    "expected": [
+      "T-1402"
+    ],
+    "clauses": [
+      "Exporting a full year as a PDF report times out after roughly thirty seconds"
+    ],
+    "top": [
+      {
+        "id": "T-1402",
+        "semantic": 0.883,
+        "coverage": [
+          0.906
+        ]
+      },
+      {
+        "id": "T-1401",
+        "semantic": 0.432,
+        "coverage": [
+          0.429
+        ]
+      }
+    ]
+  },
+  {
+    "id": "d2-queue",
+    "expected": [
+      "T-1604"
+    ],
+    "clauses": [
+      "During peak morning usage the scheduled reports arrive several hours late"
+    ],
+    "top": [
+      {
+        "id": "T-1604",
+        "semantic": 0.697,
+        "coverage": [
+          0.911
+        ]
+      },
+      {
+        "id": "T-1403",
+        "semantic": 0.534,
+        "coverage": [
+          0.53
+        ]
+      }
+    ]
+  },
+  {
+    "id": "test-snowflake",
+    "expected": [],
+    "clauses": [
+      "Customer set up a new integration to sync data into their Snowflake warehouse",
+      "it's failing with an unclear connection error",
+      "This is a newer integration type we haven't seen many tickets about"
+    ],
+    "top": [
+      {
+        "id": "T-1105",
+        "semantic": 0.486,
+        "coverage": [
+          0.265,
+          0.353,
+          0.24
+        ]
+      },
+      {
+        "id": "T-1102",
+        "semantic": 0.43,
+        "coverage": [
+          0.448,
+          0.217,
+          0.211
+        ]
+      }
+    ]
+  },
+  {
+    "id": "test-reset-email",
+    "expected": [],
+    "clauses": [
+      "A customer requested a password reset an hour ago",
+      "says the email still hasn't shown up, even after checking spam"
+    ],
+    "top": [
+      {
+        "id": "T-1001",
+        "semantic": 0.711,
+        "coverage": [
+          0.643,
+          0.289
+        ]
+      },
+      {
+        "id": "T-1004",
+        "semantic": 0.528,
+        "coverage": [
+          0.7,
+          0.189
+        ]
+      }
+    ]
+  }
+]

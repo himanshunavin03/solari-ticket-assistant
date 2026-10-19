@@ -12,7 +12,7 @@ test('real backend known match, evidence, reset and no match', async ({page}) =>
   await page.screenshot({path:'../artifacts/ui-desktop.png',fullPage:true});
   await page.getByRole('button', {name:'Clear',exact:true}).click();
   await expect(page.getByLabel('Subject',{exact:true})).toHaveValue('');
-  // Use a development-set no-match case; Snowflake is a recorded hybrid false acceptance.
+  // Keep an unrelated no-match check as well as issue-level regression tests below.
   await page.getByLabel('Subject',{exact:true}).fill('Office delivery');
   await page.getByLabel('Description',{exact:true}).fill('A parcel containing a desk lamp was delivered to the wrong building.');
   await page.getByRole('button', {name:'Find similar tickets'}).click();
@@ -60,4 +60,25 @@ test('explicit degraded capability state', async ({page}) => {
   await expect(page.locator('.connection')).toContainText('Keyword only');
   await expect(page.getByLabel('Search approach')).toHaveValue('keyword');
   await expect(page.getByText(/Semantic search is unavailable/)).toBeVisible();
+});
+
+test('unsupported integration and missing reset delivery withhold resolutions', async ({page}) => {
+  await page.goto('/');
+  await expect(page.locator('.connection')).toContainText('Connected');
+  for (const example of ['NT-4','NT-1']) {
+    await page.getByLabel('Try an example').selectOption(example);
+    await page.getByRole('button',{name:'Find similar tickets'}).click();
+    await expect(page.getByRole('heading',{name:'No reliable historical match'})).toBeVisible();
+    await expect(page.getByText('ORIGINAL RESOLUTION',{exact:true})).toHaveCount(0);
+    await expect(page.getByText(/Potentially related history ·/)).toBeVisible();
+  }
+});
+
+test('HTTP 429 still yields supported original resolution', async ({page}) => {
+  await page.goto('/');
+  await page.getByLabel('Subject',{exact:true}).fill('429 errors on integration');
+  await page.getByLabel('Description',{exact:true}).fill('Normal integration traffic is now being rejected with HTTP 429 even though usage did not increase.');
+  await page.getByRole('button',{name:'Find similar tickets'}).click();
+  await expect(page.getByRole('heading',{name:'API rate limit reached during normal usage'})).toBeVisible();
+  await expect(page.getByText('ORIGINAL RESOLUTION',{exact:true})).toBeVisible();
 });

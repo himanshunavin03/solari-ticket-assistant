@@ -1,0 +1,7 @@
+{
+  "frozen_at": "2026-10-19T17:21:51.422515+00:00",
+  "cases_sha256": "e28d03d8763d979c85dd7a925395b53502de858530eaec87d5a266fb40e11125",
+  "policy_sha256": "1b0906ec34e7a8bcf0be7f34c7188ec8366d5806477cf0dbca1a7d9c1d19334a",
+  "retrieval_sha256": "1d3a06c741cacbb6bda3d88b63159f4882860a4c1bef40d37760c49220be085f",
+  "note": "Release cases fixed after verifying existing regression tests and BEFORE any release-case scoring. Earlier revision/final cases exposed. No further tuning on release outcomes."
+}

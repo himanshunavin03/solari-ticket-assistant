@@ -1,0 +1,1161 @@
+{
+  "timestamp": "2026-10-19T17:17:20.374064+00:00",
+  "split": "fresh",
+  "reviewed_commit": "0dbf77d1e9e8ceac1b9130a66c7049f34fbce6f7",
+  "cases_sha256": "80a9b55b01f3d53f5b5d1184f99233955105b07e7c565a67b858af5f00a647bd",
+  "policy_sha256": "9831d4ffc0aab47586d3b95177d875c37d6bc954264a1c46564ad4355da8d343",
+  "hardware": {
+    "os": "Windows-10-10.0.26200-SP0",
+    "cpu": "Intel64 Family 6 Model 186 Stepping 2, GenuineIntel",
+    "logical_cpus": 20,
+    "python": "3.11.9",
+    "torch_threads": 4
+  },
+  "versions": {
+    "numpy": "1.26.4",
+    "scikit-learn": "1.6.1",
+    "sentence-transformers": "3.4.1",
+    "torch": "2.6.0",
+    "transformers": "4.48.3"
+  },
+  "model": "sentence-transformers/all-MiniLM-L6-v2",
+  "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+  "policies": {
+    "baseline": {
+      "keyword": {
+        "metrics": {
+          "positive_count": 8,
+          "negative_count": 6,
+          "false_acceptances": 3,
+          "false_rejections": 2,
+          "wrong_resolution_on_positive": 0,
+          "recall_at_3": 0.75,
+          "mrr": 0.75,
+          "precision_at_3": 0.25,
+          "candidate_recall_at_3": 0.75,
+          "warm_latency_ms": {
+            "median": 0.2967500186059624,
+            "p95": 0.3687000134959817,
+            "sample_count": 70
+          }
+        },
+        "cases": [
+          {
+            "id": "f2-payment",
+            "expected": [
+              "T-1303"
+            ],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "f2-throttle",
+            "expected": [
+              "T-1702"
+            ],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "f2-reset-reject",
+            "expected": [
+              "T-1001"
+            ],
+            "returned": [
+              "T-1001"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1001"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "f2-invite",
+            "expected": [
+              "T-1501"
+            ],
+            "returned": [
+              "T-1501"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1501"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "f2-viewer",
+            "expected": [
+              "T-1503"
+            ],
+            "returned": [
+              "T-1503"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1503"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "f2-pdf",
+            "expected": [
+              "T-1402"
+            ],
+            "returned": [
+              "T-1402"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1402"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "f2-hubspot",
+            "expected": [
+              "T-1105"
+            ],
+            "returned": [
+              "T-1105"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1105"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "f2-key",
+            "expected": [
+              "T-1705"
+            ],
+            "returned": [
+              "T-1705"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1705"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "f2-missing-reset",
+            "expected": [],
+            "returned": [
+              "T-1001"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1001"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "f2-warehouse",
+            "expected": [],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "f2-sms-password",
+            "expected": [],
+            "returned": [
+              "T-1001"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1001"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "f2-500-checkout",
+            "expected": [],
+            "returned": [
+              "T-1703"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1703"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "f2-generic",
+            "expected": [],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "f2-dns",
+            "expected": [],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          }
+        ]
+      },
+      "semantic": {
+        "metrics": {
+          "positive_count": 8,
+          "negative_count": 6,
+          "false_acceptances": 0,
+          "false_rejections": 1,
+          "wrong_resolution_on_positive": 0,
+          "recall_at_3": 0.875,
+          "mrr": 0.875,
+          "precision_at_3": 0.29166666666666663,
+          "candidate_recall_at_3": 0.875,
+          "warm_latency_ms": {
+            "median": 9.159749984974042,
+            "p95": 12.548699975013733,
+            "sample_count": 70
+          }
+        },
+        "cases": [
+          {
+            "id": "f2-payment",
+            "expected": [
+              "T-1303"
+            ],
+            "returned": [
+              "T-1303"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1303"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "f2-throttle",
+            "expected": [
+              "T-1702"
+            ],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "f2-reset-reject",
+            "expected": [
+              "T-1001"
+            ],
+            "returned": [
+              "T-1001"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1001"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "f2-invite",
+            "expected": [
+              "T-1501"
+            ],
+            "returned": [
+              "T-1501"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1501"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "f2-viewer",
+            "expected": [
+              "T-1503"
+            ],
+            "returned": [
+              "T-1503"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1503"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "f2-pdf",
+            "expected": [
+              "T-1402"
+            ],
+            "returned": [
+              "T-1402"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1402"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "f2-hubspot",
+            "expected": [
+              "T-1105"
+            ],
+            "returned": [
+              "T-1105"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1105"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "f2-key",
+            "expected": [
+              "T-1705"
+            ],
+            "returned": [
+              "T-1705"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1705"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "f2-missing-reset",
+            "expected": [],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "f2-warehouse",
+            "expected": [],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "f2-sms-password",
+            "expected": [],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "f2-500-checkout",
+            "expected": [],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "f2-generic",
+            "expected": [],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "f2-dns",
+            "expected": [],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          }
+        ]
+      },
+      "hybrid": {
+        "metrics": {
+          "positive_count": 8,
+          "negative_count": 6,
+          "false_acceptances": 3,
+          "false_rejections": 1,
+          "wrong_resolution_on_positive": 0,
+          "recall_at_3": 0.875,
+          "mrr": 0.875,
+          "precision_at_3": 0.29166666666666663,
+          "candidate_recall_at_3": 0.875,
+          "warm_latency_ms": {
+            "median": 8.954749995609745,
+            "p95": 12.193100003059953,
+            "sample_count": 70
+          }
+        },
+        "cases": [
+          {
+            "id": "f2-payment",
+            "expected": [
+              "T-1303"
+            ],
+            "returned": [
+              "T-1303"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1303"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "f2-throttle",
+            "expected": [
+              "T-1702"
+            ],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "f2-reset-reject",
+            "expected": [
+              "T-1001"
+            ],
+            "returned": [
+              "T-1001"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1001"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "f2-invite",
+            "expected": [
+              "T-1501"
+            ],
+            "returned": [
+              "T-1501"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1501"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "f2-viewer",
+            "expected": [
+              "T-1503"
+            ],
+            "returned": [
+              "T-1503"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1503"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "f2-pdf",
+            "expected": [
+              "T-1402"
+            ],
+            "returned": [
+              "T-1402"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1402"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "f2-hubspot",
+            "expected": [
+              "T-1105"
+            ],
+            "returned": [
+              "T-1105"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1105"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "f2-key",
+            "expected": [
+              "T-1705"
+            ],
+            "returned": [
+              "T-1705"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1705"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "f2-missing-reset",
+            "expected": [],
+            "returned": [
+              "T-1001"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1001"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "f2-warehouse",
+            "expected": [],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "f2-sms-password",
+            "expected": [],
+            "returned": [
+              "T-1001"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1001"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "f2-500-checkout",
+            "expected": [],
+            "returned": [
+              "T-1703"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1703"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "f2-generic",
+            "expected": [],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "f2-dns",
+            "expected": [],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          }
+        ]
+      }
+    },
+    "revised": {
+      "keyword": {
+        "metrics": {
+          "positive_count": 8,
+          "negative_count": 6,
+          "false_acceptances": 0,
+          "false_rejections": 8,
+          "wrong_resolution_on_positive": 0,
+          "recall_at_3": 0.0,
+          "mrr": 0,
+          "precision_at_3": 0.0,
+          "candidate_recall_at_3": 0.75,
+          "warm_latency_ms": {
+            "median": 0.32064999686554074,
+            "p95": 0.34660001983866096,
+            "sample_count": 70
+          }
+        },
+        "cases": [
+          {
+            "id": "f2-payment",
+            "expected": [
+              "T-1303"
+            ],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "f2-throttle",
+            "expected": [
+              "T-1702"
+            ],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "f2-reset-reject",
+            "expected": [
+              "T-1001"
+            ],
+            "returned": [],
+            "related": [
+              "T-1001"
+            ],
+            "candidates": [
+              "T-1001"
+            ],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "f2-invite",
+            "expected": [
+              "T-1501"
+            ],
+            "returned": [],
+            "related": [
+              "T-1501"
+            ],
+            "candidates": [
+              "T-1501"
+            ],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "f2-viewer",
+            "expected": [
+              "T-1503"
+            ],
+            "returned": [],
+            "related": [
+              "T-1503"
+            ],
+            "candidates": [
+              "T-1503"
+            ],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "f2-pdf",
+            "expected": [
+              "T-1402"
+            ],
+            "returned": [],
+            "related": [
+              "T-1402"
+            ],
+            "candidates": [
+              "T-1402"
+            ],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "f2-hubspot",
+            "expected": [
+              "T-1105"
+            ],
+            "returned": [],
+            "related": [
+              "T-1105"
+            ],
+            "candidates": [
+              "T-1105"
+            ],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "f2-key",
+            "expected": [
+              "T-1705"
+            ],
+            "returned": [],
+            "related": [
+              "T-1705"
+            ],
+            "candidates": [
+              "T-1705"
+            ],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "f2-missing-reset",
+            "expected": [],
+            "returned": [],
+            "related": [
+              "T-1001"
+            ],
+            "candidates": [
+              "T-1001"
+            ],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "f2-warehouse",
+            "expected": [],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "f2-sms-password",
+            "expected": [],
+            "returned": [],
+            "related": [
+              "T-1001"
+            ],
+            "candidates": [
+              "T-1001"
+            ],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "f2-500-checkout",
+            "expected": [],
+            "returned": [],
+            "related": [
+              "T-1703"
+            ],
+            "candidates": [
+              "T-1703"
+            ],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "f2-generic",
+            "expected": [],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "f2-dns",
+            "expected": [],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          }
+        ]
+      },
+      "semantic": {
+        "metrics": {
+          "positive_count": 8,
+          "negative_count": 6,
+          "false_acceptances": 1,
+          "false_rejections": 1,
+          "wrong_resolution_on_positive": 0,
+          "recall_at_3": 0.875,
+          "mrr": 0.875,
+          "precision_at_3": 0.29166666666666663,
+          "candidate_recall_at_3": 1.0,
+          "warm_latency_ms": {
+            "median": 16.144950001034886,
+            "p95": 24.0955000044778,
+            "sample_count": 70
+          }
+        },
+        "cases": [
+          {
+            "id": "f2-payment",
+            "expected": [
+              "T-1303"
+            ],
+            "returned": [
+              "T-1303"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1303"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "f2-throttle",
+            "expected": [
+              "T-1702"
+            ],
+            "returned": [],
+            "related": [
+              "T-1702",
+              "T-1703"
+            ],
+            "candidates": [
+              "T-1702",
+              "T-1703"
+            ],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "f2-reset-reject",
+            "expected": [
+              "T-1001"
+            ],
+            "returned": [
+              "T-1001"
+            ],
+            "related": [
+              "T-1004"
+            ],
+            "candidates": [
+              "T-1001",
+              "T-1004"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "f2-invite",
+            "expected": [
+              "T-1501"
+            ],
+            "returned": [
+              "T-1501"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1501"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "f2-viewer",
+            "expected": [
+              "T-1503"
+            ],
+            "returned": [
+              "T-1503"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1503"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "f2-pdf",
+            "expected": [
+              "T-1402"
+            ],
+            "returned": [
+              "T-1402"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1402"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "f2-hubspot",
+            "expected": [
+              "T-1105"
+            ],
+            "returned": [
+              "T-1105"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1105"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "f2-key",
+            "expected": [
+              "T-1705"
+            ],
+            "returned": [
+              "T-1705"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1705"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "f2-missing-reset",
+            "expected": [],
+            "returned": [],
+            "related": [
+              "T-1001"
+            ],
+            "candidates": [
+              "T-1001"
+            ],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "f2-warehouse",
+            "expected": [],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "f2-sms-password",
+            "expected": [],
+            "returned": [
+              "T-1003"
+            ],
+            "related": [
+              "T-1001"
+            ],
+            "candidates": [
+              "T-1003",
+              "T-1001"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "f2-500-checkout",
+            "expected": [],
+            "returned": [],
+            "related": [
+              "T-1703"
+            ],
+            "candidates": [
+              "T-1703"
+            ],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "f2-generic",
+            "expected": [],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "f2-dns",
+            "expected": [],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          }
+        ]
+      },
+      "hybrid": {
+        "metrics": {
+          "positive_count": 8,
+          "negative_count": 6,
+          "false_acceptances": 1,
+          "false_rejections": 1,
+          "wrong_resolution_on_positive": 0,
+          "recall_at_3": 0.875,
+          "mrr": 0.875,
+          "precision_at_3": 0.29166666666666663,
+          "candidate_recall_at_3": 1.0,
+          "warm_latency_ms": {
+            "median": 15.595150005538017,
+            "p95": 22.53810002002865,
+            "sample_count": 70
+          }
+        },
+        "cases": [
+          {
+            "id": "f2-payment",
+            "expected": [
+              "T-1303"
+            ],
+            "returned": [
+              "T-1303"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1303"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "f2-throttle",
+            "expected": [
+              "T-1702"
+            ],
+            "returned": [],
+            "related": [
+              "T-1702",
+              "T-1703"
+            ],
+            "candidates": [
+              "T-1702",
+              "T-1703"
+            ],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "f2-reset-reject",
+            "expected": [
+              "T-1001"
+            ],
+            "returned": [
+              "T-1001"
+            ],
+            "related": [
+              "T-1004"
+            ],
+            "candidates": [
+              "T-1001",
+              "T-1004"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "f2-invite",
+            "expected": [
+              "T-1501"
+            ],
+            "returned": [
+              "T-1501"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1501"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "f2-viewer",
+            "expected": [
+              "T-1503"
+            ],
+            "returned": [
+              "T-1503"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1503"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "f2-pdf",
+            "expected": [
+              "T-1402"
+            ],
+            "returned": [
+              "T-1402"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1402"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "f2-hubspot",
+            "expected": [
+              "T-1105"
+            ],
+            "returned": [
+              "T-1105"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1105"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "f2-key",
+            "expected": [
+              "T-1705"
+            ],
+            "returned": [
+              "T-1705"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1705"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "f2-missing-reset",
+            "expected": [],
+            "returned": [],
+            "related": [
+              "T-1001"
+            ],
+            "candidates": [
+              "T-1001"
+            ],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "f2-warehouse",
+            "expected": [],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "f2-sms-password",
+            "expected": [],
+            "returned": [
+              "T-1003"
+            ],
+            "related": [
+              "T-1001"
+            ],
+            "candidates": [
+              "T-1003",
+              "T-1001"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "f2-500-checkout",
+            "expected": [],
+            "returned": [],
+            "related": [
+              "T-1703"
+            ],
+            "candidates": [
+              "T-1703"
+            ],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "f2-generic",
+            "expected": [],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "f2-dns",
+            "expected": [],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          }
+        ]
+      }
+    }
+  }
+}

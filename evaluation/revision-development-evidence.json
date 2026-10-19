@@ -1,0 +1,459 @@
+[
+  {
+    "id": "d2-warehouse",
+    "expected": [],
+    "top": [
+      {
+        "id": "T-1105",
+        "k": 0.139,
+        "s": 0.494,
+        "description": 0.486,
+        "subject": 0.354
+      },
+      {
+        "id": "T-1102",
+        "k": 0.104,
+        "s": 0.315,
+        "description": 0.317,
+        "subject": 0.188
+      },
+      {
+        "id": "T-1501",
+        "k": 0.192,
+        "s": 0.31,
+        "description": 0.301,
+        "subject": 0.173
+      }
+    ]
+  },
+  {
+    "id": "d2-reset-mail",
+    "expected": [],
+    "top": [
+      {
+        "id": "T-1001",
+        "k": 0.395,
+        "s": 0.678,
+        "description": 0.668,
+        "subject": 0.527
+      },
+      {
+        "id": "T-1004",
+        "k": 0.063,
+        "s": 0.472,
+        "description": 0.495,
+        "subject": 0.361
+      },
+      {
+        "id": "T-1003",
+        "k": 0.087,
+        "s": 0.322,
+        "description": 0.317,
+        "subject": 0.317
+      }
+    ]
+  },
+  {
+    "id": "d2-reset-valid",
+    "expected": [
+      "T-1001"
+    ],
+    "top": [
+      {
+        "id": "T-1001",
+        "k": 0.547,
+        "s": 0.851,
+        "description": 0.879,
+        "subject": 0.621
+      },
+      {
+        "id": "T-1004",
+        "k": 0.106,
+        "s": 0.498,
+        "description": 0.501,
+        "subject": 0.371
+      },
+      {
+        "id": "T-1502",
+        "k": 0.017,
+        "s": 0.365,
+        "description": 0.348,
+        "subject": 0.284
+      }
+    ]
+  },
+  {
+    "id": "d2-billing",
+    "expected": [
+      "T-1303"
+    ],
+    "top": [
+      {
+        "id": "T-1303",
+        "k": 0.472,
+        "s": 0.814,
+        "description": 0.833,
+        "subject": 0.619
+      },
+      {
+        "id": "T-1305",
+        "k": 0.007,
+        "s": 0.383,
+        "description": 0.493,
+        "subject": 0.223
+      },
+      {
+        "id": "T-1103",
+        "k": 0.021,
+        "s": 0.36,
+        "description": 0.327,
+        "subject": 0.328
+      }
+    ]
+  },
+  {
+    "id": "d2-429",
+    "expected": [
+      "T-1702"
+    ],
+    "top": [
+      {
+        "id": "T-1702",
+        "k": 0.358,
+        "s": 0.753,
+        "description": 0.784,
+        "subject": 0.496
+      },
+      {
+        "id": "T-1703",
+        "k": 0.101,
+        "s": 0.62,
+        "description": 0.559,
+        "subject": 0.443
+      },
+      {
+        "id": "T-1701",
+        "k": 0.0,
+        "s": 0.385,
+        "description": 0.303,
+        "subject": 0.257
+      }
+    ]
+  },
+  {
+    "id": "d2-429-paraphrase",
+    "expected": [
+      "T-1702"
+    ],
+    "top": [
+      {
+        "id": "T-1702",
+        "k": 0.035,
+        "s": 0.662,
+        "description": 0.468,
+        "subject": 0.74
+      },
+      {
+        "id": "T-1703",
+        "k": 0.162,
+        "s": 0.563,
+        "description": 0.395,
+        "subject": 0.448
+      },
+      {
+        "id": "T-1701",
+        "k": 0.0,
+        "s": 0.431,
+        "description": 0.419,
+        "subject": 0.3
+      }
+    ]
+  },
+  {
+    "id": "d2-hub-auth",
+    "expected": [
+      "T-1105"
+    ],
+    "top": [
+      {
+        "id": "T-1105",
+        "k": 0.499,
+        "s": 0.888,
+        "description": 0.939,
+        "subject": 0.688
+      },
+      {
+        "id": "T-1104",
+        "k": 0.145,
+        "s": 0.352,
+        "description": 0.238,
+        "subject": 0.31
+      },
+      {
+        "id": "T-1705",
+        "k": 0.048,
+        "s": 0.336,
+        "description": 0.306,
+        "subject": 0.204
+      }
+    ]
+  },
+  {
+    "id": "d2-unknown-auth",
+    "expected": [],
+    "top": [
+      {
+        "id": "T-1105",
+        "k": 0.364,
+        "s": 0.6,
+        "description": 0.553,
+        "subject": 0.5
+      },
+      {
+        "id": "T-1002",
+        "k": 0.027,
+        "s": 0.385,
+        "description": 0.352,
+        "subject": 0.288
+      },
+      {
+        "id": "T-1001",
+        "k": 0.056,
+        "s": 0.366,
+        "description": 0.277,
+        "subject": 0.312
+      }
+    ]
+  },
+  {
+    "id": "d2-blank-chart",
+    "expected": [
+      "T-1201"
+    ],
+    "top": [
+      {
+        "id": "T-1201",
+        "k": 0.663,
+        "s": 0.933,
+        "description": 0.894,
+        "subject": 0.868
+      },
+      {
+        "id": "T-1101",
+        "k": 0.086,
+        "s": 0.512,
+        "description": 0.47,
+        "subject": 0.361
+      },
+      {
+        "id": "T-1404",
+        "k": 0.056,
+        "s": 0.506,
+        "description": 0.528,
+        "subject": 0.363
+      }
+    ]
+  },
+  {
+    "id": "d2-login-blank",
+    "expected": [
+      "T-1002"
+    ],
+    "top": [
+      {
+        "id": "T-1002",
+        "k": 0.538,
+        "s": 0.939,
+        "description": 0.926,
+        "subject": 0.656
+      },
+      {
+        "id": "T-1505",
+        "k": 0.092,
+        "s": 0.381,
+        "description": 0.361,
+        "subject": 0.48
+      },
+      {
+        "id": "T-1501",
+        "k": 0.006,
+        "s": 0.337,
+        "description": 0.357,
+        "subject": 0.286
+      }
+    ]
+  },
+  {
+    "id": "d2-sms",
+    "expected": [
+      "T-1003"
+    ],
+    "top": [
+      {
+        "id": "T-1003",
+        "k": 0.493,
+        "s": 0.919,
+        "description": 0.879,
+        "subject": 0.588
+      },
+      {
+        "id": "T-1001",
+        "k": 0.127,
+        "s": 0.401,
+        "description": 0.355,
+        "subject": 0.069
+      },
+      {
+        "id": "T-1004",
+        "k": 0.019,
+        "s": 0.333,
+        "description": 0.341,
+        "subject": 0.015
+      }
+    ]
+  },
+  {
+    "id": "d2-email-2fa",
+    "expected": [],
+    "top": [
+      {
+        "id": "T-1003",
+        "k": 0.29,
+        "s": 0.582,
+        "description": 0.625,
+        "subject": 0.384
+      },
+      {
+        "id": "T-1001",
+        "k": 0.095,
+        "s": 0.518,
+        "description": 0.474,
+        "subject": 0.189
+      },
+      {
+        "id": "T-1004",
+        "k": 0.066,
+        "s": 0.338,
+        "description": 0.325,
+        "subject": 0.148
+      }
+    ]
+  },
+  {
+    "id": "d2-charge-seat",
+    "expected": [
+      "T-1301"
+    ],
+    "top": [
+      {
+        "id": "T-1301",
+        "k": 0.546,
+        "s": 0.897,
+        "description": 0.872,
+        "subject": 0.695
+      },
+      {
+        "id": "T-1305",
+        "k": 0.0,
+        "s": 0.335,
+        "description": 0.314,
+        "subject": 0.272
+      },
+      {
+        "id": "T-1304",
+        "k": 0.053,
+        "s": 0.32,
+        "description": 0.17,
+        "subject": 0.454
+      }
+    ]
+  },
+  {
+    "id": "d2-recent",
+    "expected": [
+      "T-1104",
+      "T-1401"
+    ],
+    "top": [
+      {
+        "id": "T-1401",
+        "k": 0.349,
+        "s": 0.805,
+        "description": 0.79,
+        "subject": 0.506
+      },
+      {
+        "id": "T-1104",
+        "k": 0.312,
+        "s": 0.728,
+        "description": 0.627,
+        "subject": 0.737
+      },
+      {
+        "id": "T-1404",
+        "k": 0.065,
+        "s": 0.476,
+        "description": 0.45,
+        "subject": 0.177
+      }
+    ]
+  },
+  {
+    "id": "d2-pdf",
+    "expected": [
+      "T-1402"
+    ],
+    "top": [
+      {
+        "id": "T-1402",
+        "k": 0.612,
+        "s": 0.883,
+        "description": 0.86,
+        "subject": 0.699
+      },
+      {
+        "id": "T-1401",
+        "k": 0.044,
+        "s": 0.432,
+        "description": 0.425,
+        "subject": 0.341
+      },
+      {
+        "id": "T-1405",
+        "k": 0.076,
+        "s": 0.41,
+        "description": 0.467,
+        "subject": 0.319
+      }
+    ]
+  },
+  {
+    "id": "d2-queue",
+    "expected": [
+      "T-1604"
+    ],
+    "top": [
+      {
+        "id": "T-1604",
+        "k": 0.5,
+        "s": 0.697,
+        "description": 0.888,
+        "subject": 0.487
+      },
+      {
+        "id": "T-1403",
+        "k": 0.049,
+        "s": 0.534,
+        "description": 0.57,
+        "subject": 0.631
+      },
+      {
+        "id": "T-1005",
+        "k": 0.036,
+        "s": 0.429,
+        "description": 0.511,
+        "subject": 0.18
+      }
+    ]
+  }
+]

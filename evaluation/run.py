@@ -11,19 +11,23 @@ from datetime import datetime, timezone
 from pathlib import Path
 from backend.retrieval import (ROOT, DATA, MODEL_ID, MODEL_REVISION, KEYWORD_THRESHOLD,
     SEMANTIC_THRESHOLD, Retriever, SearchRequest)
+from backend.evidence import POLICY_VERSION, CONTEXT_SIMILARITY, CLAUSE_COVERAGE
 
 
 def run(split, output):
+    preserved = ['results.json','development-results.json','development-initial-results.json','development-evidence.json']
+    if output.resolve() in {(ROOT/'evaluation'/name).resolve() for name in preserved}:
+        raise ValueError('Original evaluation artifacts are preserved. Choose a new output path or use evaluation.compare_revision.')
     cases_path = ROOT / 'evaluation/cases.json'
     cases = json.loads(cases_path.read_text(encoding='utf-8'))[split]
     retriever = Retriever()
-    report = {'timestamp':datetime.now(timezone.utc).isoformat(), 'split':split,
+    report = {'timestamp':datetime.now(timezone.utc).isoformat(), 'split':'exposed_regression' if split=='held_out' else split,
         'hardware':{'os':platform.platform(), 'cpu':platform.processor(), 'logical_cpus':os.cpu_count(),
             'python':platform.python_version(), 'torch_threads':4},
         'versions':{name:importlib.metadata.version(name) for name in ['numpy','scikit-learn','sentence-transformers','torch','transformers']},
         'model':MODEL_ID, 'revision':MODEL_REVISION, 'dataset_sha256':hashlib.sha256((DATA/'tickets.json').read_bytes()).hexdigest(),
         'cases_sha256':hashlib.sha256(cases_path.read_bytes()).hexdigest(),
-        'thresholds':{'keyword':KEYWORD_THRESHOLD, 'semantic':SEMANTIC_THRESHOLD}, 'modes':{}}
+        'policy':{'version':POLICY_VERSION,'context':CONTEXT_SIMILARITY,'clause_coverage':CLAUSE_COVERAGE,'keyword':'related metadata only'}, 'modes':{}}
     for mode in ['keyword', 'semantic', 'hybrid']:
         if mode not in retriever.capabilities:
             report['modes'][mode] = {'status':'unavailable', 'reason':retriever.semantic_failure}
@@ -62,5 +66,5 @@ def run(split, output):
 
 if __name__ == '__main__':
     parser=argparse.ArgumentParser(); parser.add_argument('--split', choices=['development','held_out'], default='held_out')
-    parser.add_argument('--output',type=Path,default=ROOT/'evaluation/results.json')
+    parser.add_argument('--output',type=Path,default=ROOT/'evaluation/current-results.json')
     args=parser.parse_args(); run(args.split,args.output)

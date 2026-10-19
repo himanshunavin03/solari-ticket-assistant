@@ -8,8 +8,8 @@ $nodeDirectory = Join-Path $runtimeDirectory "node-v$nodeVersion-win-x64"
 New-Item -ItemType Directory -Force $runtimeDirectory | Out-Null
 if (!(Test-Path (Join-Path $nodeDirectory 'node.exe'))) {
     $archivePath = Join-Path $runtimeDirectory $archiveName
-    Invoke-WebRequest "https://nodejs.org/dist/v$nodeVersion/$archiveName" -OutFile $archivePath
-    $sums = (Invoke-WebRequest "https://nodejs.org/dist/v$nodeVersion/SHASUMS256.txt").Content
+    Invoke-WebRequest "https://nodejs.org/dist/v$nodeVersion/$archiveName" -OutFile $archivePath -UseBasicParsing
+    $sums = (Invoke-WebRequest "https://nodejs.org/dist/v$nodeVersion/SHASUMS256.txt" -UseBasicParsing).Content
     $line = ($sums -split "`n" | Where-Object { $_.Trim().EndsWith("  $archiveName") })
     if (!$line -or ((Get-FileHash $archivePath -Algorithm SHA256).Hash.ToLower() -ne ($line -split '\s+')[0])) {
         throw 'Node archive checksum mismatch; do not use the download.'

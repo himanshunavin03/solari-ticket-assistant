@@ -10,12 +10,13 @@ from typing import Literal
 import numpy as np
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from sklearn.feature_extraction.text import TfidfVectorizer
+from backend.evidence import POLICY_VERSION, MAX_CLAUSES, evidence_level, split_clauses, technical_identifiers
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / 'case-study-1-support-ticket-similarity/starter_kit/data'
 MODEL_ID = 'sentence-transformers/all-MiniLM-L6-v2'
 MODEL_REVISION = '1110a243fdf4706b3f48f1d95db1a4f5529b4d41'
-PREPROCESSING = 'subject-description-v1'
+PREPROCESSING = 'subject-description-v1+' + POLICY_VERSION
 # Evidence gates are finalized using development examples only; see evaluation/README.md.
 KEYWORD_THRESHOLD = 0.25
 SEMANTIC_THRESHOLD = 0.70
@@ -60,6 +61,24 @@ class Match(BaseModel):
     keyword_score: float
     semantic_score: float | None
     fusion_score: float | None
+    clause_coverage: float | None = None
+    identifier_coverage: float | None = None
+    evidence_reason: str = ''
+
+
+class TicketSummary(BaseModel):
+    ticket_id: str
+    subject: str
+    category: str
+    tags: list[str]
+
+
+class RelatedHistory(BaseModel):
+    ticket: TicketSummary
+    keyword_score: float
+    semantic_score: float | None
+    clause_coverage: float | None
+    evidence_reason: str
 
 
 class SearchResponse(BaseModel):
@@ -68,6 +87,8 @@ class SearchResponse(BaseModel):
     active_mode: Mode
     degraded: bool
     matches: list[Match]
+    related_history: list[RelatedHistory] = Field(default_factory=list)
+    policy_version: str = POLICY_VERSION
     evidence_note: str
 
 
@@ -107,6 +128,14 @@ class Retriever:
     def __init__(self, path=DATA / 'tickets.json', semantic=True, model=None, cache_dir=None):
         self.tickets = load_tickets(path)
         self.texts = [f'{t.subject}\n{t.description}' for t in self.tickets]
+        self.history_clauses = [split_clauses(t.subject) + split_clauses(t.description) for t in self.tickets]
+        self.clause_ranges = []
+        flat_clauses = []
+        for parts in self.history_clauses:
+            start = len(flat_clauses)
+            flat_clauses.extend(parts)
+            self.clause_ranges.append((start, len(flat_clauses)))
+        embedding_texts = self.texts + flat_clauses
         self.vectorizer = TfidfVectorizer(lowercase=True, ngram_range=(1, 2), sublinear_tf=True,
             token_pattern=r'(?u)\b[\w][\w.\-]*\b')
         self.matrix = self.vectorizer.fit_transform(self.texts)
@@ -131,17 +160,18 @@ class Retriever:
                 try:
                     embeddings = np.load(cache, allow_pickle=False)
                     dimension = model.get_sentence_embedding_dimension() if hasattr(model, 'get_sentence_embedding_dimension') else None
-                    if embeddings.ndim != 2 or embeddings.shape[0] != len(self.tickets) or (dimension and embeddings.shape[1] != dimension) or not np.isfinite(embeddings).all():
+                    if embeddings.ndim != 2 or embeddings.shape[0] != len(embedding_texts) or (dimension and embeddings.shape[1] != dimension) or not np.isfinite(embeddings).all():
                         raise ValueError('invalid embedding shape/values')
                     if not np.allclose(np.linalg.norm(embeddings, axis=1), 1, atol=1e-4):
                         raise ValueError('unnormalized embeddings')
                 except (OSError, ValueError, TypeError):
-                    embeddings = model.encode(self.texts, normalize_embeddings=True, convert_to_numpy=True)
+                    embeddings = model.encode(embedding_texts, normalize_embeddings=True, convert_to_numpy=True)
                     temporary = cache.with_suffix('.tmp')
                     with temporary.open('wb') as stream:
                         np.save(stream, embeddings, allow_pickle=False)
                     temporary.replace(cache)
-                self.embeddings = embeddings
+                self.embeddings = embeddings[:len(self.tickets)]
+                self.clause_embeddings = embeddings[len(self.tickets):]
             except Exception:
                 # Do not expose local paths, ticket text, or network details through the API.
                 logging.getLogger(__name__).warning('Semantic initialization failed; keyword capability remains available')
@@ -158,23 +188,37 @@ class Retriever:
         text = f'{request.subject}\n{request.description}'
         keyword = (self.matrix @ self.vectorizer.transform([text]).T).toarray().ravel()
         semantic = None
+        coverage = None
+        identifier_coverage = [None] * len(self.tickets)
+        parts = split_clauses(request.description)
+        complete_context = len(parts) <= MAX_CLAUSES
         if request.mode != 'keyword':
             with self.lock:
-                query = self.model.encode([text], normalize_embeddings=True, convert_to_numpy=True)
+                query = self.model.encode([text] + parts[:MAX_CLAUSES], normalize_embeddings=True, convert_to_numpy=True)
             semantic = (self.embeddings @ query[0]).clip(-1, 1)
+            clause_scores = query[1:] @ self.clause_embeddings.T
+            coverage = np.array([clause_scores[:, start:end].max(axis=1).min()
+                for start, end in self.clause_ranges])
+            for i, (start, end) in enumerate(self.clause_ranges):
+                shared = technical_identifiers(text) & technical_identifiers(self.texts[i])
+                anchored = [j for j, part in enumerate(parts[:MAX_CLAUSES]) if technical_identifiers(part) & shared]
+                if anchored:
+                    identifier_coverage[i] = float(clause_scores[anchored, start:end].max(axis=1).min())
         fusion = reciprocal_rank_fusion(keyword, semantic, self.tickets) if request.mode == 'hybrid' else None
         scores = keyword if request.mode == 'keyword' else semantic if request.mode == 'semantic' else fusion
-        # Gate individual candidates, so weak tail matches are not displayed as evidence.
-        def reliable(i):
-            if request.mode == 'keyword':
-                return keyword[i] >= KEYWORD_THRESHOLD
-            if request.mode == 'semantic':
-                return semantic[i] >= SEMANTIC_THRESHOLD
-            return semantic[i] >= SEMANTIC_THRESHOLD or keyword[i] >= KEYWORD_THRESHOLD
-        ranking = [i for i in stable_order(scores, self.tickets) if reliable(i)][:request.top_k]
+        decisions = [evidence_level(float(keyword[i]), float(semantic[i]) if semantic is not None else None,
+            float(coverage[i]) if coverage is not None else None, complete_context, identifier_coverage[i]) for i in range(len(self.tickets))]
+        order = stable_order(scores, self.tickets)
+        ranking = [i for i in order if decisions[i][0] == 'supported'][:request.top_k]
+        related = [i for i in order if decisions[i][0] == 'related'][:request.top_k]
         return SearchResponse(outcome='matches' if ranking else 'no_reliable_match',
             requested_mode=request.mode, active_mode=request.mode, degraded=self.model is None,
             matches=[Match(ticket=self.tickets[i], keyword_score=float(keyword[i]),
                 semantic_score=float(semantic[i]) if semantic is not None else None,
-                fusion_score=float(fusion[i]) if fusion is not None else None) for i in ranking],
-            evidence_note='Historical similarity is evidence for review, not a probability or a new resolution.')
+                fusion_score=float(fusion[i]) if fusion is not None else None,
+                clause_coverage=float(coverage[i]), identifier_coverage=identifier_coverage[i], evidence_reason=decisions[i][1]) for i in ranking],
+            related_history=[RelatedHistory(ticket=TicketSummary(**self.tickets[i].model_dump()),
+                keyword_score=float(keyword[i]), semantic_score=float(semantic[i]) if semantic is not None else None,
+                clause_coverage=float(coverage[i]) if coverage is not None else None,
+                evidence_reason=decisions[i][1]) for i in related],
+            evidence_note='Supported history still requires agent review. Related topics are not resolution evidence. Scores are not probabilities.')

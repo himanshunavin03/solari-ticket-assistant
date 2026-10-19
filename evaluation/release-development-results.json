@@ -1,0 +1,1439 @@
+{
+  "timestamp": "2026-10-19T17:21:52.989766+00:00",
+  "split": "development",
+  "reviewed_commit": "0dbf77d1e9e8ceac1b9130a66c7049f34fbce6f7",
+  "cases_sha256": "80a9b55b01f3d53f5b5d1184f99233955105b07e7c565a67b858af5f00a647bd",
+  "policy_sha256": "1b0906ec34e7a8bcf0be7f34c7188ec8366d5806477cf0dbca1a7d9c1d19334a",
+  "hardware": {
+    "os": "Windows-10-10.0.26200-SP0",
+    "cpu": "Intel64 Family 6 Model 186 Stepping 2, GenuineIntel",
+    "logical_cpus": 20,
+    "python": "3.10.11",
+    "torch_threads": 4
+  },
+  "versions": {
+    "numpy": "1.26.4",
+    "scikit-learn": "1.6.1",
+    "sentence-transformers": "3.4.1",
+    "torch": "2.6.0",
+    "transformers": "4.48.3"
+  },
+  "model": "sentence-transformers/all-MiniLM-L6-v2",
+  "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+  "policies": {
+    "baseline": {
+      "keyword": {
+        "metrics": {
+          "positive_count": 12,
+          "negative_count": 4,
+          "false_acceptances": 3,
+          "false_rejections": 1,
+          "wrong_resolution_on_positive": 0,
+          "recall_at_3": 0.9166666666666666,
+          "mrr": 0.9166666666666666,
+          "precision_at_3": 0.3333333333333333,
+          "candidate_recall_at_3": 0.9166666666666666,
+          "warm_latency_ms": {
+            "median": 0.3392999933566898,
+            "p95": 0.37210003938525915,
+            "sample_count": 80
+          }
+        },
+        "cases": [
+          {
+            "id": "d2-warehouse",
+            "expected": [],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "d2-reset-mail",
+            "expected": [],
+            "returned": [
+              "T-1001"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1001"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "d2-reset-valid",
+            "expected": [
+              "T-1001"
+            ],
+            "returned": [
+              "T-1001"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1001"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "d2-billing",
+            "expected": [
+              "T-1303"
+            ],
+            "returned": [
+              "T-1303"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1303"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "d2-429",
+            "expected": [
+              "T-1702"
+            ],
+            "returned": [
+              "T-1702"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1702"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "d2-429-paraphrase",
+            "expected": [
+              "T-1702"
+            ],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "d2-hub-auth",
+            "expected": [
+              "T-1105"
+            ],
+            "returned": [
+              "T-1105"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1105"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "d2-unknown-auth",
+            "expected": [],
+            "returned": [
+              "T-1105"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1105"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "d2-blank-chart",
+            "expected": [
+              "T-1201"
+            ],
+            "returned": [
+              "T-1201"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1201"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "d2-login-blank",
+            "expected": [
+              "T-1002"
+            ],
+            "returned": [
+              "T-1002"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1002"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "d2-sms",
+            "expected": [
+              "T-1003"
+            ],
+            "returned": [
+              "T-1003"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1003"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "d2-email-2fa",
+            "expected": [],
+            "returned": [
+              "T-1003"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1003"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "d2-charge-seat",
+            "expected": [
+              "T-1301"
+            ],
+            "returned": [
+              "T-1301"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1301"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "d2-recent",
+            "expected": [
+              "T-1104",
+              "T-1401"
+            ],
+            "returned": [
+              "T-1401",
+              "T-1104"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1401",
+              "T-1104"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "d2-pdf",
+            "expected": [
+              "T-1402"
+            ],
+            "returned": [
+              "T-1402"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1402"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "d2-queue",
+            "expected": [
+              "T-1604"
+            ],
+            "returned": [
+              "T-1604"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1604"
+            ],
+            "outcome": "matches"
+          }
+        ]
+      },
+      "semantic": {
+        "metrics": {
+          "positive_count": 12,
+          "negative_count": 4,
+          "false_acceptances": 0,
+          "false_rejections": 2,
+          "wrong_resolution_on_positive": 0,
+          "recall_at_3": 0.8333333333333334,
+          "mrr": 0.8333333333333334,
+          "precision_at_3": 0.3055555555555555,
+          "candidate_recall_at_3": 0.8333333333333334,
+          "warm_latency_ms": {
+            "median": 9.479650005232543,
+            "p95": 14.09740000963211,
+            "sample_count": 80
+          }
+        },
+        "cases": [
+          {
+            "id": "d2-warehouse",
+            "expected": [],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "d2-reset-mail",
+            "expected": [],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "d2-reset-valid",
+            "expected": [
+              "T-1001"
+            ],
+            "returned": [
+              "T-1001"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1001"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "d2-billing",
+            "expected": [
+              "T-1303"
+            ],
+            "returned": [
+              "T-1303"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1303"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "d2-429",
+            "expected": [
+              "T-1702"
+            ],
+            "returned": [
+              "T-1702"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1702"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "d2-429-paraphrase",
+            "expected": [
+              "T-1702"
+            ],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "d2-hub-auth",
+            "expected": [
+              "T-1105"
+            ],
+            "returned": [
+              "T-1105"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1105"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "d2-unknown-auth",
+            "expected": [],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "d2-blank-chart",
+            "expected": [
+              "T-1201"
+            ],
+            "returned": [
+              "T-1201"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1201"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "d2-login-blank",
+            "expected": [
+              "T-1002"
+            ],
+            "returned": [
+              "T-1002"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1002"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "d2-sms",
+            "expected": [
+              "T-1003"
+            ],
+            "returned": [
+              "T-1003"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1003"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "d2-email-2fa",
+            "expected": [],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "d2-charge-seat",
+            "expected": [
+              "T-1301"
+            ],
+            "returned": [
+              "T-1301"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1301"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "d2-recent",
+            "expected": [
+              "T-1104",
+              "T-1401"
+            ],
+            "returned": [
+              "T-1401",
+              "T-1104"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1401",
+              "T-1104"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "d2-pdf",
+            "expected": [
+              "T-1402"
+            ],
+            "returned": [
+              "T-1402"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1402"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "d2-queue",
+            "expected": [
+              "T-1604"
+            ],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          }
+        ]
+      },
+      "hybrid": {
+        "metrics": {
+          "positive_count": 12,
+          "negative_count": 4,
+          "false_acceptances": 3,
+          "false_rejections": 1,
+          "wrong_resolution_on_positive": 0,
+          "recall_at_3": 0.9166666666666666,
+          "mrr": 0.9166666666666666,
+          "precision_at_3": 0.3333333333333333,
+          "candidate_recall_at_3": 0.9166666666666666,
+          "warm_latency_ms": {
+            "median": 9.085799974855036,
+            "p95": 12.57279998390004,
+            "sample_count": 80
+          }
+        },
+        "cases": [
+          {
+            "id": "d2-warehouse",
+            "expected": [],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "d2-reset-mail",
+            "expected": [],
+            "returned": [
+              "T-1001"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1001"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "d2-reset-valid",
+            "expected": [
+              "T-1001"
+            ],
+            "returned": [
+              "T-1001"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1001"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "d2-billing",
+            "expected": [
+              "T-1303"
+            ],
+            "returned": [
+              "T-1303"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1303"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "d2-429",
+            "expected": [
+              "T-1702"
+            ],
+            "returned": [
+              "T-1702"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1702"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "d2-429-paraphrase",
+            "expected": [
+              "T-1702"
+            ],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "d2-hub-auth",
+            "expected": [
+              "T-1105"
+            ],
+            "returned": [
+              "T-1105"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1105"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "d2-unknown-auth",
+            "expected": [],
+            "returned": [
+              "T-1105"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1105"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "d2-blank-chart",
+            "expected": [
+              "T-1201"
+            ],
+            "returned": [
+              "T-1201"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1201"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "d2-login-blank",
+            "expected": [
+              "T-1002"
+            ],
+            "returned": [
+              "T-1002"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1002"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "d2-sms",
+            "expected": [
+              "T-1003"
+            ],
+            "returned": [
+              "T-1003"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1003"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "d2-email-2fa",
+            "expected": [],
+            "returned": [
+              "T-1003"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1003"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "d2-charge-seat",
+            "expected": [
+              "T-1301"
+            ],
+            "returned": [
+              "T-1301"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1301"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "d2-recent",
+            "expected": [
+              "T-1104",
+              "T-1401"
+            ],
+            "returned": [
+              "T-1401",
+              "T-1104"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1401",
+              "T-1104"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "d2-pdf",
+            "expected": [
+              "T-1402"
+            ],
+            "returned": [
+              "T-1402"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1402"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "d2-queue",
+            "expected": [
+              "T-1604"
+            ],
+            "returned": [
+              "T-1604"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1604"
+            ],
+            "outcome": "matches"
+          }
+        ]
+      }
+    },
+    "revised": {
+      "keyword": {
+        "metrics": {
+          "positive_count": 12,
+          "negative_count": 4,
+          "false_acceptances": 0,
+          "false_rejections": 12,
+          "wrong_resolution_on_positive": 0,
+          "recall_at_3": 0.0,
+          "mrr": 0,
+          "precision_at_3": 0.0,
+          "candidate_recall_at_3": 0.9166666666666666,
+          "warm_latency_ms": {
+            "median": 0.39235001895576715,
+            "p95": 0.5252999835647643,
+            "sample_count": 80
+          }
+        },
+        "cases": [
+          {
+            "id": "d2-warehouse",
+            "expected": [],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "d2-reset-mail",
+            "expected": [],
+            "returned": [],
+            "related": [
+              "T-1001"
+            ],
+            "candidates": [
+              "T-1001"
+            ],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "d2-reset-valid",
+            "expected": [
+              "T-1001"
+            ],
+            "returned": [],
+            "related": [
+              "T-1001"
+            ],
+            "candidates": [
+              "T-1001"
+            ],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "d2-billing",
+            "expected": [
+              "T-1303"
+            ],
+            "returned": [],
+            "related": [
+              "T-1303"
+            ],
+            "candidates": [
+              "T-1303"
+            ],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "d2-429",
+            "expected": [
+              "T-1702"
+            ],
+            "returned": [],
+            "related": [
+              "T-1702"
+            ],
+            "candidates": [
+              "T-1702"
+            ],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "d2-429-paraphrase",
+            "expected": [
+              "T-1702"
+            ],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "d2-hub-auth",
+            "expected": [
+              "T-1105"
+            ],
+            "returned": [],
+            "related": [
+              "T-1105"
+            ],
+            "candidates": [
+              "T-1105"
+            ],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "d2-unknown-auth",
+            "expected": [],
+            "returned": [],
+            "related": [
+              "T-1105"
+            ],
+            "candidates": [
+              "T-1105"
+            ],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "d2-blank-chart",
+            "expected": [
+              "T-1201"
+            ],
+            "returned": [],
+            "related": [
+              "T-1201"
+            ],
+            "candidates": [
+              "T-1201"
+            ],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "d2-login-blank",
+            "expected": [
+              "T-1002"
+            ],
+            "returned": [],
+            "related": [
+              "T-1002"
+            ],
+            "candidates": [
+              "T-1002"
+            ],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "d2-sms",
+            "expected": [
+              "T-1003"
+            ],
+            "returned": [],
+            "related": [
+              "T-1003"
+            ],
+            "candidates": [
+              "T-1003"
+            ],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "d2-email-2fa",
+            "expected": [],
+            "returned": [],
+            "related": [
+              "T-1003"
+            ],
+            "candidates": [
+              "T-1003"
+            ],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "d2-charge-seat",
+            "expected": [
+              "T-1301"
+            ],
+            "returned": [],
+            "related": [
+              "T-1301"
+            ],
+            "candidates": [
+              "T-1301"
+            ],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "d2-recent",
+            "expected": [
+              "T-1104",
+              "T-1401"
+            ],
+            "returned": [],
+            "related": [
+              "T-1401",
+              "T-1104"
+            ],
+            "candidates": [
+              "T-1401",
+              "T-1104"
+            ],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "d2-pdf",
+            "expected": [
+              "T-1402"
+            ],
+            "returned": [],
+            "related": [
+              "T-1402"
+            ],
+            "candidates": [
+              "T-1402"
+            ],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "d2-queue",
+            "expected": [
+              "T-1604"
+            ],
+            "returned": [],
+            "related": [
+              "T-1604"
+            ],
+            "candidates": [
+              "T-1604"
+            ],
+            "outcome": "no_reliable_match"
+          }
+        ]
+      },
+      "semantic": {
+        "metrics": {
+          "positive_count": 12,
+          "negative_count": 4,
+          "false_acceptances": 0,
+          "false_rejections": 1,
+          "wrong_resolution_on_positive": 0,
+          "recall_at_3": 0.875,
+          "mrr": 0.9166666666666666,
+          "precision_at_3": 0.3055555555555555,
+          "candidate_recall_at_3": 1.0,
+          "warm_latency_ms": {
+            "median": 15.492050006287172,
+            "p95": 21.993700007442385,
+            "sample_count": 80
+          }
+        },
+        "cases": [
+          {
+            "id": "d2-warehouse",
+            "expected": [],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "d2-reset-mail",
+            "expected": [],
+            "returned": [],
+            "related": [
+              "T-1001"
+            ],
+            "candidates": [
+              "T-1001"
+            ],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "d2-reset-valid",
+            "expected": [
+              "T-1001"
+            ],
+            "returned": [
+              "T-1001"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1001"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "d2-billing",
+            "expected": [
+              "T-1303"
+            ],
+            "returned": [
+              "T-1303"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1303"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "d2-429",
+            "expected": [
+              "T-1702"
+            ],
+            "returned": [
+              "T-1702"
+            ],
+            "related": [
+              "T-1703"
+            ],
+            "candidates": [
+              "T-1702",
+              "T-1703"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "d2-429-paraphrase",
+            "expected": [
+              "T-1702"
+            ],
+            "returned": [],
+            "related": [
+              "T-1702",
+              "T-1703"
+            ],
+            "candidates": [
+              "T-1702",
+              "T-1703"
+            ],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "d2-hub-auth",
+            "expected": [
+              "T-1105"
+            ],
+            "returned": [
+              "T-1105"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1105"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "d2-unknown-auth",
+            "expected": [],
+            "returned": [],
+            "related": [
+              "T-1105"
+            ],
+            "candidates": [
+              "T-1105"
+            ],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "d2-blank-chart",
+            "expected": [
+              "T-1201"
+            ],
+            "returned": [
+              "T-1201"
+            ],
+            "related": [
+              "T-1101",
+              "T-1404"
+            ],
+            "candidates": [
+              "T-1201",
+              "T-1101",
+              "T-1404"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "d2-login-blank",
+            "expected": [
+              "T-1002"
+            ],
+            "returned": [
+              "T-1002"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1002"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "d2-sms",
+            "expected": [
+              "T-1003"
+            ],
+            "returned": [
+              "T-1003"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1003"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "d2-email-2fa",
+            "expected": [],
+            "returned": [],
+            "related": [
+              "T-1003",
+              "T-1001"
+            ],
+            "candidates": [
+              "T-1003",
+              "T-1001"
+            ],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "d2-charge-seat",
+            "expected": [
+              "T-1301"
+            ],
+            "returned": [
+              "T-1301"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1301"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "d2-recent",
+            "expected": [
+              "T-1104",
+              "T-1401"
+            ],
+            "returned": [
+              "T-1401"
+            ],
+            "related": [
+              "T-1104"
+            ],
+            "candidates": [
+              "T-1401",
+              "T-1104"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "d2-pdf",
+            "expected": [
+              "T-1402"
+            ],
+            "returned": [
+              "T-1402"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1402"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "d2-queue",
+            "expected": [
+              "T-1604"
+            ],
+            "returned": [
+              "T-1604"
+            ],
+            "related": [
+              "T-1403"
+            ],
+            "candidates": [
+              "T-1604",
+              "T-1403"
+            ],
+            "outcome": "matches"
+          }
+        ]
+      },
+      "hybrid": {
+        "metrics": {
+          "positive_count": 12,
+          "negative_count": 4,
+          "false_acceptances": 0,
+          "false_rejections": 1,
+          "wrong_resolution_on_positive": 0,
+          "recall_at_3": 0.875,
+          "mrr": 0.9166666666666666,
+          "precision_at_3": 0.3055555555555555,
+          "candidate_recall_at_3": 1.0,
+          "warm_latency_ms": {
+            "median": 16.491550020873547,
+            "p95": 24.23310000449419,
+            "sample_count": 80
+          }
+        },
+        "cases": [
+          {
+            "id": "d2-warehouse",
+            "expected": [],
+            "returned": [],
+            "related": [],
+            "candidates": [],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "d2-reset-mail",
+            "expected": [],
+            "returned": [],
+            "related": [
+              "T-1001"
+            ],
+            "candidates": [
+              "T-1001"
+            ],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "d2-reset-valid",
+            "expected": [
+              "T-1001"
+            ],
+            "returned": [
+              "T-1001"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1001"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "d2-billing",
+            "expected": [
+              "T-1303"
+            ],
+            "returned": [
+              "T-1303"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1303"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "d2-429",
+            "expected": [
+              "T-1702"
+            ],
+            "returned": [
+              "T-1702"
+            ],
+            "related": [
+              "T-1703"
+            ],
+            "candidates": [
+              "T-1702",
+              "T-1703"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "d2-429-paraphrase",
+            "expected": [
+              "T-1702"
+            ],
+            "returned": [],
+            "related": [
+              "T-1703",
+              "T-1702"
+            ],
+            "candidates": [
+              "T-1703",
+              "T-1702"
+            ],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "d2-hub-auth",
+            "expected": [
+              "T-1105"
+            ],
+            "returned": [
+              "T-1105"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1105"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "d2-unknown-auth",
+            "expected": [],
+            "returned": [],
+            "related": [
+              "T-1105"
+            ],
+            "candidates": [
+              "T-1105"
+            ],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "d2-blank-chart",
+            "expected": [
+              "T-1201"
+            ],
+            "returned": [
+              "T-1201"
+            ],
+            "related": [
+              "T-1101",
+              "T-1404"
+            ],
+            "candidates": [
+              "T-1201",
+              "T-1101",
+              "T-1404"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "d2-login-blank",
+            "expected": [
+              "T-1002"
+            ],
+            "returned": [
+              "T-1002"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1002"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "d2-sms",
+            "expected": [
+              "T-1003"
+            ],
+            "returned": [
+              "T-1003"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1003"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "d2-email-2fa",
+            "expected": [],
+            "returned": [],
+            "related": [
+              "T-1003",
+              "T-1001"
+            ],
+            "candidates": [
+              "T-1003",
+              "T-1001"
+            ],
+            "outcome": "no_reliable_match"
+          },
+          {
+            "id": "d2-charge-seat",
+            "expected": [
+              "T-1301"
+            ],
+            "returned": [
+              "T-1301"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1301"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "d2-recent",
+            "expected": [
+              "T-1104",
+              "T-1401"
+            ],
+            "returned": [
+              "T-1401"
+            ],
+            "related": [
+              "T-1104"
+            ],
+            "candidates": [
+              "T-1401",
+              "T-1104"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "d2-pdf",
+            "expected": [
+              "T-1402"
+            ],
+            "returned": [
+              "T-1402"
+            ],
+            "related": [],
+            "candidates": [
+              "T-1402"
+            ],
+            "outcome": "matches"
+          },
+          {
+            "id": "d2-queue",
+            "expected": [
+              "T-1604"
+            ],
+            "returned": [
+              "T-1604"
+            ],
+            "related": [
+              "T-1403"
+            ],
+            "candidates": [
+              "T-1604",
+              "T-1403"
+            ],
+            "outcome": "matches"
+          }
+        ]
+      }
+    }
+  }
+}

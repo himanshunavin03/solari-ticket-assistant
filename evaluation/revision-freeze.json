@@ -1,0 +1,7 @@
+{
+  "frozen_at": "2026-10-19T17:16:18.205118+00:00",
+  "cases_sha256": "80a9b55b01f3d53f5b5d1184f99233955105b07e7c565a67b858af5f00a647bd",
+  "policy_sha256": "9831d4ffc0aab47586d3b95177d875c37d6bc954264a1c46564ad4355da8d343",
+  "reviewed_baseline_sha256": "87367d2baa364415cf65dc74bf238eb6ff58bd3820bf0ad40602d13c6b754422",
+  "note": "Fresh cases frozen before revised policy execution; regression exposed. Policy selected on development and known exposed failures, not fresh results."
+}
