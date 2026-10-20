@@ -13,7 +13,7 @@ from backend.retrieval import ROOT, DATA, Retriever, SearchRequest, MODEL_ID, MO
 from backend.evidence import POLICY_VERSION
 
 
-def run(output):
+def run(output, policy="current"):
     if Path(output).name != output or not output.startswith('informal-') or not output.endswith('-results.json'):
         raise ValueError('Use an informal-*-results.json filename')
     output=ROOT/'evaluation'/output
@@ -24,13 +24,21 @@ def run(output):
         raise ValueError('Frozen informal case hash mismatch')
     sources={'original_exposed':('cases.json','held_out'), 'previous_release_now_exposed':('release-cases.json','fresh'),
         'targeted_exposed':('precedent-cases.json','cases'), 'informal_exposed':('informal-cases.json','cases')}
-    retriever=Retriever()
+    if policy == 'baseline':
+        from evaluation.baseline_v5.retrieval import Retriever as SelectedRetriever
+        from evaluation.baseline_v5.evidence import POLICY_VERSION as selected_policy
+        source_folder=ROOT/'evaluation/baseline_v5'
+    elif policy == 'current':
+        SelectedRetriever=Retriever; selected_policy=POLICY_VERSION; source_folder=ROOT/'backend'
+    else:
+        raise ValueError('Unknown policy')
+    retriever=SelectedRetriever()
     if retriever.model is None: raise RuntimeError('Actual pinned model required for semantic/hybrid regression')
-    report={'timestamp':datetime.now(timezone.utc).isoformat(),'policy':POLICY_VERSION,
+    report={'timestamp':datetime.now(timezone.utc).isoformat(),'policy':selected_policy,
         'result_semantics':'historical-precedent-v1',
         'warning':'Metrics measure displayed historical resolution relevance for review, never verified root cause. All cases exposed; not directly equivalent to earlier supported-resolution metrics.',
         'model':MODEL_ID,'revision':MODEL_REVISION,'dataset_sha256':hashlib.sha256((DATA/'tickets.json').read_bytes()).hexdigest(),
-        'code_sha256':{name:hashlib.sha256((ROOT/'backend'/name).read_bytes()).hexdigest() for name in ['evidence.py','retrieval.py']},
+        'code_sha256':{name:hashlib.sha256((source_folder/name).read_bytes()).hexdigest() for name in ['evidence.py','retrieval.py']},
         'hardware':{'python':platform.python_version(),'os':platform.platform(),'cpu':platform.processor(),'logical_cpus':os.cpu_count(),'torch_threads':4},
         'versions':{n:importlib.metadata.version(n) for n in ['numpy','scikit-learn','sentence-transformers','transformers','torch']},'splits':{}}
     for split,(filename,key) in sources.items():
@@ -69,4 +77,5 @@ def run(output):
 if __name__=='__main__':
     import argparse
     parser=argparse.ArgumentParser(); parser.add_argument('--output',required=True)
-    run(parser.parse_args().output)
+    parser.add_argument('--policy',choices=['current','baseline'],default='current')
+    args=parser.parse_args(); run(args.output,args.policy)

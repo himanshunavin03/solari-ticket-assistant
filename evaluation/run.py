@@ -7,8 +7,8 @@ from backend.retrieval import ROOT
 def run(split, output):
     preserved = ['results.json','development-results.json','development-initial-results.json','development-evidence.json']
     if output.resolve() in {(ROOT/'evaluation'/name).resolve() for name in preserved}:
-        raise ValueError('Original evaluation artifacts are preserved. Use evaluation.review_precedents and a new result definition.')
-    raise RuntimeError('Historical evaluator uses obsolete supported-resolution semantics. Use python -m evaluation.review_precedents.')
+        raise ValueError('Original evaluation artifacts are preserved. Use evaluation.review_informal with a new output path.')
+    raise RuntimeError('Historical evaluator uses obsolete supported-resolution semantics. Use python -m evaluation.review_informal with a new output path.')
 
 
 if __name__ == '__main__':

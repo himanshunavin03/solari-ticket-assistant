@@ -110,3 +110,33 @@ test('short contradictory symptom is retained and its resolution withheld',async
     await expect(page.getByText('ORIGINAL RESOLUTION',{exact:true})).toHaveCount(0);
   }
 });
+
+test('supplied chart and exact informal regression show unverified original notes',async ({page})=>{
+  await page.goto('/');
+  await expect(page.locator('.connection')).toContainText('Connected');
+  await page.getByLabel('Try an example').selectOption('NT-2');
+  await page.getByRole('button',{name:'Find similar tickets'}).click();
+  await expect(page.getByRole('heading',{name:'Revenue chart shows blank instead of bars'})).toBeVisible();
+  await expect(page.getByText('Applicability unverified',{exact:true}).first()).toBeVisible();
+  await page.getByLabel('Subject',{exact:true}).fill('i charged twice');
+  await page.getByLabel('Description',{exact:true}).fill('i charged twice please validate this transaction');
+  await page.getByRole('button',{name:'Find similar tickets'}).click();
+  await expect(page.getByRole('heading',{name:'Charged twice for the same billing cycle'})).toBeVisible();
+  await expect(page.getByText('ORIGINAL RESOLUTION',{exact:true})).toBeVisible();
+});
+
+test('backend-only Swagger docs can execute a real search',async ({page})=>{
+  await page.goto('http://127.0.0.1:8000/docs');
+  await expect(page.locator('.swagger-ui .info .title')).toContainText('Solari Ticket Assistant');
+  const operation=page.locator('.opblock-post').filter({hasText:'/api/search'});
+  await operation.locator('.opblock-summary').click();
+  await operation.getByRole('button',{name:'Try it out'}).click();
+  await operation.locator('textarea').fill(JSON.stringify({subject:'Duplicate charges',description:'Two identical monthly charges',mode:'keyword',top_k:3}));
+  const result=page.waitForResponse(r=>r.url().endsWith('/api/search') && r.request().method()==='POST');
+  await operation.getByRole('button',{name:'Execute',exact:true}).click();
+  const response=await result;
+  expect(response.status()).toBe(200);
+  const body=await response.json();
+  expect(body.matches[0].ticket.ticket_id).toBe('T-1303');
+  expect(body.matches[0].applicability).toBe('unverified');
+});

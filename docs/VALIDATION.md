@@ -1,3 +1,9 @@
+# Final submission validation
+
+The current finalization report is [SUBMISSION_VALIDATION.md](SUBMISSION_VALIDATION.md), including extracted-package checks and actual resource reuse. Records below are preserved historical revision results.
+
+---
+
 # Informal-request correction — current checks
 
 75 backend tests passed on existing Windows Python3.11.9 (6.41s) and3.10.11 (34.21s); one nonfatal Starlette/AnyIO warning each. Actual pinned model verified the reported rejection before editing and the corrected precedent afterward. New deterministic framing/negation/identifier/boundary tests and10 confusing-negative actual-model regressions pass. Initial targeted10test failures are preserved as test-first evidence. Before/after current-definition regression and frozen hashes: `evaluation/INFORMAL_REVISION.md`. A diff review caught/restored an accidentally re-encoded curly apostrophe; final Unicode test and source-hash verification passed. No threshold tuning to remove the remaining informal429 miss.

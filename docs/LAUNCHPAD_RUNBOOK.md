@@ -1,8 +1,8 @@
 # Windows PowerShell Launchpad runbook
 
-Start in the repository root. Current work is local: Codex has **not committed or pushed it**. Pull retrieves these corrections only after you manually publish them upstream; alternatively transfer/extract the verified ZIP yourself. Do not assume the remote already contains this work.
+Start in the extracted project or repository root. For a Git checkout, inspect the revision and local changes before pulling; a ZIP does not contain Git metadata.
 
-Tested here: Windows Python **3.10.11** and **3.11.9**, venv pip **25.0.1**, Node **22.23.2**, npm **10.9.8**, Windows PowerShell **5.1.26100.9711**, Git **2.50.1.windows.1**. This is **not** verification inside original Launchpad (Python 3.10.0 / pip 21.2.3 / Node 20.10.0 / npm 10.2.3 / Git 2.43.0.windows.1). Angular requires the additional local Node runtime; system runtimes stay intact.
+Tested here: Windows Python **3.10.11** and **3.11.9**, venv pip **25.0.1**, Node **22.23.2**, npm **10.9.8**, Windows PowerShell **5.1.26100.9711** and PowerShell **7.6.7**, Git **2.50.1.windows.1**. This is **not** verification inside original Launchpad (Python 3.10.0 / pip 21.2.3 / Node 20.10.0 / npm 10.2.3 / Git 2.43.0.windows.1). Angular requires the additional local Node runtime; system runtimes stay intact.
 
 1. **Pull latest code**, after preserving/reconciling local changes:
 
@@ -10,11 +10,10 @@ Tested here: Windows Python **3.10.11** and **3.11.9**, venv pip **25.0.1**, Nod
    git status --short
    git pull --ff-only
    git log -1 --oneline
-   Get-Content AGENTS.md
-   Get-Content PROJECT_STATUS.md
+   Get-Content README.md
    ```
 
-   Expected: intended revision includes `backend/evidence.py` and `scripts/preflight.ps1`. Never reset/overwrite uncommitted work to force a pull. If these corrections have not been manually pushed, use your transferred ZIP instead.
+   Skip Git commands for an extracted ZIP. Expected: `backend/evidence.py` and `scripts/preflight.ps1` are present. Never reset/overwrite local work to force a pull.
 
 2. **Bootstrap local Node and set this terminal's PATH**:
 
@@ -76,10 +75,11 @@ Tested here: Windows Python **3.10.11** and **3.11.9**, venv pip **25.0.1**, Nod
    $env:SOLARI_OFFLINE = '1'
    ./.venv/Scripts/python.exe -m pytest -q
    ./.venv/Scripts/python.exe -m scripts.inspect_data
+   # With the backend running (step 8): python -m scripts.verify_samples
    ./.venv/Scripts/python.exe -m evaluation.review_informal --output "informal-check-$(Get-Date -Format yyyyMMdd-HHmmss)-results.json"
    ```
 
-   Expected: 75 passing tests for current source; a nonfatal dependency deprecation warning was observed here. Inspection: 40 valid records, no duplicate-content groups in supplied data. Repeats would be reported, never deleted. Current regression uses **unverified historical precedent**, not old supported-resolution semantics, and writes a new timestamped informal report without overwriting earlier results.
+   Expected: all shipped tests pass (final counts are recorded in SUBMISSION_VALIDATION.md) for current source; a nonfatal dependency deprecation warning was observed here. Inspection: 40 valid records, no duplicate-content groups in supplied data. Repeats would be reported, never deleted. Current regression uses **unverified historical precedent**, not old supported-resolution semantics, and writes a new timestamped informal report without overwriting earlier results.
 
    Optional browser checks **before starting manual servers**:
 
@@ -91,7 +91,7 @@ Tested here: Windows Python **3.10.11** and **3.11.9**, venv pip **25.0.1**, Nod
    Pop-Location
    ```
 
-   Expected: 7 passing tests; ports 8000, 8001 and 4200 free beforehand. Tests start/stop real full and keyword-only backends. A blocked browser download means a blocked check, not a Launchpad pass.
+   Expected: 9 passing browser tests; ports 8000, 8001 and 4200 free beforehand. Tests start/stop real full and keyword-only backends. A blocked browser download means a blocked check, not a Launchpad pass.
 
 8. **Start separate terminals**, each initially at repository root.
 
@@ -114,6 +114,7 @@ Tested here: Windows Python **3.10.11** and **3.11.9**, venv pip **25.0.1**, Nod
 
 9. **Manual acceptance checklist**:
 
+   - Supplied empty-chart example in hybrid: T-1201 original notes, applicability unverified.
    - Duplicate-billing example in hybrid and keyword: original notes shown with **Applicability unverified**, never a confirmed fix.
    - Subject `API returns 429 rate limit`, description `Integration started receiving 429 errors`: historical rate-limit precedent, applicability unverified.
    - Supplied Snowflake and missing-reset-email examples: **Related history only**, no original resolution notes, in keyword/hybrid.
@@ -134,7 +135,7 @@ Tested here: Windows Python **3.10.11** and **3.11.9**, venv pip **25.0.1**, Nod
     Get-Content artifacts/manifest.json
     ```
 
-    Expected: required members, CRCs and source SHA256 verified; ZIP test `Done testing`. Inspect source/data/manifests/docs/original and current evaluation; exclude Git, venvs, runtimes, node_modules, weights, caches and builds. Creation is local, not submission. Confirm the recipient timezone for **October 20, 2026 EOD**, review limitations, then submit manually.
+    Expected: required members, CRCs and source SHA256 verified; ZIP test `Done testing`. Inspect the explicit list in `artifacts/included-files.txt`. Session instructions/status, internal prompts, superseded experiments and generated environments/caches/builds are excluded. The PDF is optional at `docs/SOLUTION_DESIGN.pdf`; add the final reviewed PDF and regenerate if supplied. Creation is local, not submission. Confirm the recipient timezone for **October 20, 2026 EOD**, review limitations, then submit manually.
 
 ## Troubleshooting
 

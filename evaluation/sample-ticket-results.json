@@ -1,0 +1,599 @@
+{
+  "timestamp": "2026-10-20T03:35:05.873917+00:00",
+  "python": "3.11.9",
+  "health": {
+    "status": "ready",
+    "capabilities": [
+      "keyword",
+      "semantic",
+      "hybrid"
+    ],
+    "ticket_count": 40,
+    "model_id": "sentence-transformers/all-MiniLM-L6-v2",
+    "model_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "message": null
+  },
+  "policy": "informal-precedent-v6",
+  "sample_sha256": "d5225af6d299619b5b59877b0192621c2d213e6bf0603dc14b93287d092b4938",
+  "rows": [
+    {
+      "id": "NT-1",
+      "input": {
+        "subject": "Can't log in, password reset email never arrives",
+        "description": "A customer requested a password reset an hour ago and says the email still hasn't shown up, even after checking spam.",
+        "mode": "keyword",
+        "top_k": 3
+      },
+      "response": {
+        "outcome": "related_history_only",
+        "requested_mode": "keyword",
+        "active_mode": "keyword",
+        "degraded": false,
+        "matches": [],
+        "related_history": [
+          {
+            "ticket": {
+              "ticket_id": "T-1001",
+              "subject": "Unable to log in after password reset",
+              "category": "auth",
+              "tags": [
+                "login",
+                "password-reset",
+                "email"
+              ]
+            },
+            "keyword_score": 0.3364160066747382,
+            "semantic_score": null,
+            "clause_coverage": null,
+            "evidence_reason": "Weak or conflicting related history; insufficient clause relevance to show its resolution."
+          }
+        ],
+        "policy_version": "informal-precedent-v6",
+        "result_semantics": "historical-precedent-v1",
+        "evidence_note": "Historical precedent for agent review only. Applicability is unverified; no root cause or fix is confirmed. Scores are not probabilities."
+      }
+    },
+    {
+      "id": "NT-1",
+      "input": {
+        "subject": "Can't log in, password reset email never arrives",
+        "description": "A customer requested a password reset an hour ago and says the email still hasn't shown up, even after checking spam.",
+        "mode": "semantic",
+        "top_k": 3
+      },
+      "response": {
+        "outcome": "related_history_only",
+        "requested_mode": "semantic",
+        "active_mode": "semantic",
+        "degraded": false,
+        "matches": [],
+        "related_history": [
+          {
+            "ticket": {
+              "ticket_id": "T-1001",
+              "subject": "Unable to log in after password reset",
+              "category": "auth",
+              "tags": [
+                "login",
+                "password-reset",
+                "email"
+              ]
+            },
+            "keyword_score": 0.3364160066747382,
+            "semantic_score": 0.7112417221069336,
+            "clause_coverage": 0.289481520652771,
+            "evidence_reason": "Weak or conflicting related history; insufficient clause relevance to show its resolution."
+          },
+          {
+            "ticket": {
+              "ticket_id": "T-1004",
+              "subject": "Account locked after multiple failed login attempts",
+              "category": "auth",
+              "tags": [
+                "login",
+                "account-lockout"
+              ]
+            },
+            "keyword_score": 0.07782499602588211,
+            "semantic_score": 0.5282244682312012,
+            "clause_coverage": 0.18905594944953918,
+            "evidence_reason": "Weak or conflicting related history; insufficient clause relevance to show its resolution."
+          }
+        ],
+        "policy_version": "informal-precedent-v6",
+        "result_semantics": "historical-precedent-v1",
+        "evidence_note": "Historical precedent for agent review only. Applicability is unverified; no root cause or fix is confirmed. Scores are not probabilities."
+      }
+    },
+    {
+      "id": "NT-1",
+      "input": {
+        "subject": "Can't log in, password reset email never arrives",
+        "description": "A customer requested a password reset an hour ago and says the email still hasn't shown up, even after checking spam.",
+        "mode": "hybrid",
+        "top_k": 3
+      },
+      "response": {
+        "outcome": "related_history_only",
+        "requested_mode": "hybrid",
+        "active_mode": "hybrid",
+        "degraded": false,
+        "matches": [],
+        "related_history": [
+          {
+            "ticket": {
+              "ticket_id": "T-1001",
+              "subject": "Unable to log in after password reset",
+              "category": "auth",
+              "tags": [
+                "login",
+                "password-reset",
+                "email"
+              ]
+            },
+            "keyword_score": 0.3364160066747382,
+            "semantic_score": 0.7112417221069336,
+            "clause_coverage": 0.289481520652771,
+            "evidence_reason": "Weak or conflicting related history; insufficient clause relevance to show its resolution."
+          },
+          {
+            "ticket": {
+              "ticket_id": "T-1004",
+              "subject": "Account locked after multiple failed login attempts",
+              "category": "auth",
+              "tags": [
+                "login",
+                "account-lockout"
+              ]
+            },
+            "keyword_score": 0.07782499602588211,
+            "semantic_score": 0.5282244682312012,
+            "clause_coverage": 0.18905594944953918,
+            "evidence_reason": "Weak or conflicting related history; insufficient clause relevance to show its resolution."
+          }
+        ],
+        "policy_version": "informal-precedent-v6",
+        "result_semantics": "historical-precedent-v1",
+        "evidence_note": "Historical precedent for agent review only. Applicability is unverified; no root cause or fix is confirmed. Scores are not probabilities."
+      }
+    },
+    {
+      "id": "NT-2",
+      "input": {
+        "subject": "Chart shows nothing for the revenue tab",
+        "description": "The revenue tab on the main dashboard is completely empty for this customer, no bars, no error message, just white space.",
+        "mode": "keyword",
+        "top_k": 3
+      },
+      "response": {
+        "outcome": "related_history_only",
+        "requested_mode": "keyword",
+        "active_mode": "keyword",
+        "degraded": false,
+        "matches": [],
+        "related_history": [
+          {
+            "ticket": {
+              "ticket_id": "T-1201",
+              "subject": "Revenue chart shows blank instead of bars",
+              "category": "render",
+              "tags": [
+                "chart",
+                "rendering",
+                "dashboard"
+              ]
+            },
+            "keyword_score": 0.40271526949759623,
+            "semantic_score": null,
+            "clause_coverage": null,
+            "evidence_reason": "Weak or conflicting related history; insufficient clause relevance to show its resolution."
+          }
+        ],
+        "policy_version": "informal-precedent-v6",
+        "result_semantics": "historical-precedent-v1",
+        "evidence_note": "Historical precedent for agent review only. Applicability is unverified; no root cause or fix is confirmed. Scores are not probabilities."
+      }
+    },
+    {
+      "id": "NT-2",
+      "input": {
+        "subject": "Chart shows nothing for the revenue tab",
+        "description": "The revenue tab on the main dashboard is completely empty for this customer, no bars, no error message, just white space.",
+        "mode": "semantic",
+        "top_k": 3
+      },
+      "response": {
+        "outcome": "historical_precedents",
+        "requested_mode": "semantic",
+        "active_mode": "semantic",
+        "degraded": false,
+        "matches": [
+          {
+            "ticket": {
+              "ticket_id": "T-1201",
+              "subject": "Revenue chart shows blank instead of bars",
+              "description": "The main revenue chart on the dashboard renders as an empty white box with no bars or axis labels.",
+              "resolution_notes": "A recent filter combination produced a zero-row result set, and the chart component didn't handle the empty-data case gracefully. Added an explicit 'no data for this range' state.",
+              "category": "render",
+              "tags": [
+                "chart",
+                "rendering",
+                "dashboard"
+              ],
+              "created_at": "2025-10-08",
+              "status": "resolved"
+            },
+            "keyword_score": 0.40271526949759623,
+            "semantic_score": 0.8656840920448303,
+            "fusion_score": null,
+            "clause_coverage": 0.7097347974777222,
+            "identifier_coverage": null,
+            "evidence_reason": "Historical issue and retained clauses are similar; applicability is unverified.",
+            "applicability": "unverified",
+            "lexical_clause_coverage": 0.4315588589718718
+          }
+        ],
+        "related_history": [
+          {
+            "ticket": {
+              "ticket_id": "T-1101",
+              "subject": "Salesforce data not syncing into dashboard",
+              "category": "sync",
+              "tags": [
+                "salesforce",
+                "sync",
+                "integration"
+              ]
+            },
+            "keyword_score": 0.1624052400009109,
+            "semantic_score": 0.5876367688179016,
+            "clause_coverage": 0.5320272445678711,
+            "evidence_reason": "Weak or conflicting related history; insufficient clause relevance to show its resolution."
+          },
+          {
+            "ticket": {
+              "ticket_id": "T-1404",
+              "subject": "Exported numbers don't match dashboard totals",
+              "category": "export",
+              "tags": [
+                "export",
+                "data-discrepancy"
+              ]
+            },
+            "keyword_score": 0.12712139281889026,
+            "semantic_score": 0.5264180302619934,
+            "clause_coverage": 0.48677337169647217,
+            "evidence_reason": "Weak or conflicting related history; insufficient clause relevance to show its resolution."
+          }
+        ],
+        "policy_version": "informal-precedent-v6",
+        "result_semantics": "historical-precedent-v1",
+        "evidence_note": "Historical precedent for agent review only. Applicability is unverified; no root cause or fix is confirmed. Scores are not probabilities."
+      }
+    },
+    {
+      "id": "NT-2",
+      "input": {
+        "subject": "Chart shows nothing for the revenue tab",
+        "description": "The revenue tab on the main dashboard is completely empty for this customer, no bars, no error message, just white space.",
+        "mode": "hybrid",
+        "top_k": 3
+      },
+      "response": {
+        "outcome": "historical_precedents",
+        "requested_mode": "hybrid",
+        "active_mode": "hybrid",
+        "degraded": false,
+        "matches": [
+          {
+            "ticket": {
+              "ticket_id": "T-1201",
+              "subject": "Revenue chart shows blank instead of bars",
+              "description": "The main revenue chart on the dashboard renders as an empty white box with no bars or axis labels.",
+              "resolution_notes": "A recent filter combination produced a zero-row result set, and the chart component didn't handle the empty-data case gracefully. Added an explicit 'no data for this range' state.",
+              "category": "render",
+              "tags": [
+                "chart",
+                "rendering",
+                "dashboard"
+              ],
+              "created_at": "2025-10-08",
+              "status": "resolved"
+            },
+            "keyword_score": 0.40271526949759623,
+            "semantic_score": 0.8656840920448303,
+            "fusion_score": 0.03278688524590164,
+            "clause_coverage": 0.7097347974777222,
+            "identifier_coverage": null,
+            "evidence_reason": "Historical issue and retained clauses are similar; applicability is unverified.",
+            "applicability": "unverified",
+            "lexical_clause_coverage": 0.4315588589718718
+          }
+        ],
+        "related_history": [
+          {
+            "ticket": {
+              "ticket_id": "T-1101",
+              "subject": "Salesforce data not syncing into dashboard",
+              "category": "sync",
+              "tags": [
+                "salesforce",
+                "sync",
+                "integration"
+              ]
+            },
+            "keyword_score": 0.1624052400009109,
+            "semantic_score": 0.5876367688179016,
+            "clause_coverage": 0.5320272445678711,
+            "evidence_reason": "Weak or conflicting related history; insufficient clause relevance to show its resolution."
+          },
+          {
+            "ticket": {
+              "ticket_id": "T-1404",
+              "subject": "Exported numbers don't match dashboard totals",
+              "category": "export",
+              "tags": [
+                "export",
+                "data-discrepancy"
+              ]
+            },
+            "keyword_score": 0.12712139281889026,
+            "semantic_score": 0.5264180302619934,
+            "clause_coverage": 0.48677337169647217,
+            "evidence_reason": "Weak or conflicting related history; insufficient clause relevance to show its resolution."
+          }
+        ],
+        "policy_version": "informal-precedent-v6",
+        "result_semantics": "historical-precedent-v1",
+        "evidence_note": "Historical precedent for agent review only. Applicability is unverified; no root cause or fix is confirmed. Scores are not probabilities."
+      }
+    },
+    {
+      "id": "NT-3",
+      "input": {
+        "subject": "Getting charged twice this month",
+        "description": "Customer's card statement shows two charges for what should be a single monthly subscription payment.",
+        "mode": "keyword",
+        "top_k": 3
+      },
+      "response": {
+        "outcome": "historical_precedents",
+        "requested_mode": "keyword",
+        "active_mode": "keyword",
+        "degraded": false,
+        "matches": [
+          {
+            "ticket": {
+              "ticket_id": "T-1303",
+              "subject": "Charged twice for the same billing cycle",
+              "description": "Customer noticed two identical charges on their card statement for what should be a single monthly charge.",
+              "resolution_notes": "A retry mechanism for a previously failed payment double-charged after the original payment actually succeeded on the processor's side. Refunded the duplicate charge and added idempotency keys to the retry logic.",
+              "category": "billing",
+              "tags": [
+                "billing",
+                "duplicate-charge",
+                "payments"
+              ],
+              "created_at": "2025-10-28",
+              "status": "resolved"
+            },
+            "keyword_score": 0.6509075767541371,
+            "semantic_score": null,
+            "fusion_score": null,
+            "clause_coverage": null,
+            "identifier_coverage": null,
+            "evidence_reason": "Relevant keyword precedent for agent review; applicability is unverified.",
+            "applicability": "unverified",
+            "lexical_clause_coverage": 0.5343340815905715
+          }
+        ],
+        "related_history": [],
+        "policy_version": "informal-precedent-v6",
+        "result_semantics": "historical-precedent-v1",
+        "evidence_note": "Historical precedent for agent review only. Applicability is unverified; no root cause or fix is confirmed. Scores are not probabilities."
+      }
+    },
+    {
+      "id": "NT-3",
+      "input": {
+        "subject": "Getting charged twice this month",
+        "description": "Customer's card statement shows two charges for what should be a single monthly subscription payment.",
+        "mode": "semantic",
+        "top_k": 3
+      },
+      "response": {
+        "outcome": "historical_precedents",
+        "requested_mode": "semantic",
+        "active_mode": "semantic",
+        "degraded": false,
+        "matches": [
+          {
+            "ticket": {
+              "ticket_id": "T-1303",
+              "subject": "Charged twice for the same billing cycle",
+              "description": "Customer noticed two identical charges on their card statement for what should be a single monthly charge.",
+              "resolution_notes": "A retry mechanism for a previously failed payment double-charged after the original payment actually succeeded on the processor's side. Refunded the duplicate charge and added idempotency keys to the retry logic.",
+              "category": "billing",
+              "tags": [
+                "billing",
+                "duplicate-charge",
+                "payments"
+              ],
+              "created_at": "2025-10-28",
+              "status": "resolved"
+            },
+            "keyword_score": 0.6509075767541371,
+            "semantic_score": 0.8959254026412964,
+            "fusion_score": null,
+            "clause_coverage": 0.8716123104095459,
+            "identifier_coverage": null,
+            "evidence_reason": "Historical issue and retained clauses are similar; applicability is unverified.",
+            "applicability": "unverified",
+            "lexical_clause_coverage": 0.5343340815905715
+          }
+        ],
+        "related_history": [],
+        "policy_version": "informal-precedent-v6",
+        "result_semantics": "historical-precedent-v1",
+        "evidence_note": "Historical precedent for agent review only. Applicability is unverified; no root cause or fix is confirmed. Scores are not probabilities."
+      }
+    },
+    {
+      "id": "NT-3",
+      "input": {
+        "subject": "Getting charged twice this month",
+        "description": "Customer's card statement shows two charges for what should be a single monthly subscription payment.",
+        "mode": "hybrid",
+        "top_k": 3
+      },
+      "response": {
+        "outcome": "historical_precedents",
+        "requested_mode": "hybrid",
+        "active_mode": "hybrid",
+        "degraded": false,
+        "matches": [
+          {
+            "ticket": {
+              "ticket_id": "T-1303",
+              "subject": "Charged twice for the same billing cycle",
+              "description": "Customer noticed two identical charges on their card statement for what should be a single monthly charge.",
+              "resolution_notes": "A retry mechanism for a previously failed payment double-charged after the original payment actually succeeded on the processor's side. Refunded the duplicate charge and added idempotency keys to the retry logic.",
+              "category": "billing",
+              "tags": [
+                "billing",
+                "duplicate-charge",
+                "payments"
+              ],
+              "created_at": "2025-10-28",
+              "status": "resolved"
+            },
+            "keyword_score": 0.6509075767541371,
+            "semantic_score": 0.8959254026412964,
+            "fusion_score": 0.03278688524590164,
+            "clause_coverage": 0.8716123104095459,
+            "identifier_coverage": null,
+            "evidence_reason": "Historical issue and retained clauses are similar; applicability is unverified.",
+            "applicability": "unverified",
+            "lexical_clause_coverage": 0.5343340815905715
+          }
+        ],
+        "related_history": [],
+        "policy_version": "informal-precedent-v6",
+        "result_semantics": "historical-precedent-v1",
+        "evidence_note": "Historical precedent for agent review only. Applicability is unverified; no root cause or fix is confirmed. Scores are not probabilities."
+      }
+    },
+    {
+      "id": "NT-4",
+      "input": {
+        "subject": "Our data warehouse integration with Snowflake is failing",
+        "description": "Customer set up a new integration to sync data into their Snowflake warehouse and it's failing with an unclear connection error. This is a newer integration type we haven't seen many tickets about yet.",
+        "mode": "keyword",
+        "top_k": 3
+      },
+      "response": {
+        "outcome": "related_history_only",
+        "requested_mode": "keyword",
+        "active_mode": "keyword",
+        "degraded": false,
+        "matches": [],
+        "related_history": [
+          {
+            "ticket": {
+              "ticket_id": "T-1105",
+              "subject": "Integration with HubSpot throwing authentication error",
+              "category": "sync",
+              "tags": [
+                "hubspot",
+                "integration",
+                "oauth"
+              ]
+            },
+            "keyword_score": 0.34255446188303174,
+            "semantic_score": null,
+            "clause_coverage": null,
+            "evidence_reason": "Weak or conflicting related history; insufficient clause relevance to show its resolution."
+          }
+        ],
+        "policy_version": "informal-precedent-v6",
+        "result_semantics": "historical-precedent-v1",
+        "evidence_note": "Historical precedent for agent review only. Applicability is unverified; no root cause or fix is confirmed. Scores are not probabilities."
+      }
+    },
+    {
+      "id": "NT-4",
+      "input": {
+        "subject": "Our data warehouse integration with Snowflake is failing",
+        "description": "Customer set up a new integration to sync data into their Snowflake warehouse and it's failing with an unclear connection error. This is a newer integration type we haven't seen many tickets about yet.",
+        "mode": "semantic",
+        "top_k": 3
+      },
+      "response": {
+        "outcome": "related_history_only",
+        "requested_mode": "semantic",
+        "active_mode": "semantic",
+        "degraded": false,
+        "matches": [],
+        "related_history": [
+          {
+            "ticket": {
+              "ticket_id": "T-1105",
+              "subject": "Integration with HubSpot throwing authentication error",
+              "category": "sync",
+              "tags": [
+                "hubspot",
+                "integration",
+                "oauth"
+              ]
+            },
+            "keyword_score": 0.34255446188303174,
+            "semantic_score": 0.48588430881500244,
+            "clause_coverage": 0.2650463283061981,
+            "evidence_reason": "Weak or conflicting related history; insufficient clause relevance to show its resolution."
+          }
+        ],
+        "policy_version": "informal-precedent-v6",
+        "result_semantics": "historical-precedent-v1",
+        "evidence_note": "Historical precedent for agent review only. Applicability is unverified; no root cause or fix is confirmed. Scores are not probabilities."
+      }
+    },
+    {
+      "id": "NT-4",
+      "input": {
+        "subject": "Our data warehouse integration with Snowflake is failing",
+        "description": "Customer set up a new integration to sync data into their Snowflake warehouse and it's failing with an unclear connection error. This is a newer integration type we haven't seen many tickets about yet.",
+        "mode": "hybrid",
+        "top_k": 3
+      },
+      "response": {
+        "outcome": "related_history_only",
+        "requested_mode": "hybrid",
+        "active_mode": "hybrid",
+        "degraded": false,
+        "matches": [],
+        "related_history": [
+          {
+            "ticket": {
+              "ticket_id": "T-1105",
+              "subject": "Integration with HubSpot throwing authentication error",
+              "category": "sync",
+              "tags": [
+                "hubspot",
+                "integration",
+                "oauth"
+              ]
+            },
+            "keyword_score": 0.34255446188303174,
+            "semantic_score": 0.48588430881500244,
+            "clause_coverage": 0.2650463283061981,
+            "evidence_reason": "Weak or conflicting related history; insufficient clause relevance to show its resolution."
+          }
+        ],
+        "policy_version": "informal-precedent-v6",
+        "result_semantics": "historical-precedent-v1",
+        "evidence_note": "Historical precedent for agent review only. Applicability is unverified; no root cause or fix is confirmed. Scores are not probabilities."
+      }
+    }
+  ],
+  "hybrid_expectation_failures": []
+}

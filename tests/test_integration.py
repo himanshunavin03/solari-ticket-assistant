@@ -43,3 +43,22 @@ def test_actual_model_429_with_unchanged_usage(real_model,mode):
         description='Normal integration traffic is now being rejected with HTTP 429 even though usage did not increase.',mode=mode))
     assert response.matches[0].ticket.ticket_id=='T-1702'
     assert response.matches[0].identifier_coverage is not None
+
+
+@pytest.mark.integration
+@pytest.mark.parametrize('index,expected',[(0,[]),(1,['T-1201']),(2,['T-1303']),(3,[])])
+def test_all_supplied_hybrid_examples_through_api(real_model,index,expected):
+    import json
+    from fastapi.testclient import TestClient
+    from backend.app import create_app
+    from backend.retrieval import DATA
+    ticket=json.loads((DATA/'new_tickets_example.json').read_text(encoding='utf-8'))['new_tickets'][index]
+    with TestClient(create_app(real_model)) as client:
+        response=client.post('/api/search',json={'subject':ticket['subject'],'description':ticket['description'],'mode':'hybrid'})
+        assert response.status_code==200
+        matches=response.json()['matches']
+        assert [m['ticket']['ticket_id'] for m in matches]==expected
+        originals={t.ticket_id:t.resolution_notes for t in real_model.tickets}
+        for match in matches:
+            assert match['applicability']=='unverified'
+            assert match['ticket']['resolution_notes']==originals[match['ticket']['ticket_id']]

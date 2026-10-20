@@ -1,7 +1,7 @@
 import pytest
 from backend.retrieval import ROOT
 from evaluation.run import run
-from evaluation.compare_revision import metrics
+from evaluation.metrics import metrics
 
 
 def test_original_results_cannot_be_overwritten():
@@ -22,3 +22,15 @@ def test_metrics_keep_related_context_out_of_supported_recall():
     assert result['precision_at_3']==pytest.approx(1/6)
     assert result['candidate_recall_at_3']==1
     assert result['false_acceptances']==1 and result['false_rejections']==1
+
+
+def test_shipped_v5_snapshot_matches_recorded_baseline():
+    import json
+    import hashlib
+    freeze=json.loads((ROOT/'evaluation/informal-freeze.json').read_text(encoding='utf-8'))
+    for name in ['evidence.py','retrieval.py']:
+        text=(ROOT/'evaluation/baseline_v5'/name).read_text(encoding='utf-8')
+        if name=='retrieval.py':
+            text=text.replace('from evaluation.baseline_v5.evidence import','from backend.evidence import')
+            text=text.replace('ROOT = Path(__file__).resolve().parents[2]','ROOT = Path(__file__).resolve().parents[1]')
+        assert hashlib.sha256(text.encode('utf-8')).hexdigest()==freeze['baseline_code_sha256'][name]
