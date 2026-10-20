@@ -1,19 +1,47 @@
+# Python environments and generated files
 .venv/
 .venv310/
-.runtime/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+*.egg-info/
+
+# Frontend dependencies and build output
 node_modules/
+.angular/
+dist/
+coverage/
+playwright-report/
+test-results/
+
+# Downloaded runtimes, models and caches
+.runtime/
+.cache/
+
+# Generated submission archives and logs
+artifacts/
+*.log
+
+# Secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.pfx
+*.p12
+
+# Operating-system metadata
+.DS_Store
+Thumbs.db
+Desktop.ini
+__MACOSX/
+
+# Temporary dependency backups
 node_modules.previous/
 package-lock.previous.json
-audit-initial.json
-dist/
-.angular/
-__pycache__/
-.pytest_cache/
-.cache/
-*.pyc
-*.log
-artifacts/
-.env
-**/__MACOSX/
-test-results/
-playwright-report/
