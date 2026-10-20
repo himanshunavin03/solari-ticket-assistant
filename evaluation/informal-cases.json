@@ -1,0 +1,129 @@
+{
+  "classification": "Exposed regression diagnosis; AI-authored synthetic labels, not blind evaluation. Frozen before policy change.",
+  "cases": [
+    {
+      "id": "reported",
+      "subject": "i charged twice",
+      "description": "i charged twice please validate this transaction",
+      "relevant_ids": [
+        "T-1303"
+      ]
+    },
+    {
+      "id": "informal-double",
+      "subject": "got billed two times",
+      "description": "got billed two times for the same month pls help",
+      "relevant_ids": [
+        "T-1303"
+      ]
+    },
+    {
+      "id": "informal-card",
+      "subject": "two payments taken",
+      "description": "my card got charged twice can you check this payment",
+      "relevant_ids": [
+        "T-1303"
+      ]
+    },
+    {
+      "id": "informal-reset",
+      "subject": "cant login",
+      "description": "changed my password but login still says incorrect password please help",
+      "relevant_ids": [
+        "T-1001"
+      ]
+    },
+    {
+      "id": "informal-rate",
+      "subject": "api 429",
+      "description": "integration keeps returning HTTP 429 please investigate",
+      "relevant_ids": [
+        "T-1702"
+      ]
+    },
+    {
+      "id": "informal-chart",
+      "subject": "chart blank",
+      "description": "revenue chart is just white with no bars can you check this",
+      "relevant_ids": [
+        "T-1201"
+      ]
+    },
+    {
+      "id": "informal-dashboard",
+      "subject": "new teammate cant see dashboards",
+      "description": "teammate can login but dashboards are missing please help",
+      "relevant_ids": [
+        "T-1501"
+      ]
+    },
+    {
+      "id": "informal-original-short",
+      "subject": "i charged twice",
+      "description": "i charged twice",
+      "relevant_ids": [
+        "T-1303"
+      ]
+    },
+    {
+      "id": "negative-refund",
+      "subject": "refund pending",
+      "description": "charged once and waiting for my refund please validate this transaction",
+      "relevant_ids": []
+    },
+    {
+      "id": "negative-negated-double",
+      "subject": "not charged twice",
+      "description": "i was not charged twice but my invoice never arrives please check this",
+      "relevant_ids": []
+    },
+    {
+      "id": "negative-hardware",
+      "subject": "charged twice",
+      "description": "i charged my phone twice but battery is dead please investigate",
+      "relevant_ids": []
+    },
+    {
+      "id": "negative-legitimate",
+      "subject": "two charges",
+      "description": "two separate purchases made two charges please check this transaction",
+      "relevant_ids": []
+    },
+    {
+      "id": "negative-unfamiliar",
+      "subject": "Snowflake connection broken",
+      "description": "Snowflake integration wont connect please investigate",
+      "relevant_ids": []
+    },
+    {
+      "id": "negative-email",
+      "subject": "reset email missing",
+      "description": "i asked to reset password but email never arrives please help",
+      "relevant_ids": []
+    },
+    {
+      "id": "negative-success-failure",
+      "subject": "password reset issue",
+      "description": "reset completed successfully but email never arrives can you check this",
+      "relevant_ids": []
+    },
+    {
+      "id": "negative-vague",
+      "subject": "please help",
+      "description": "please check this",
+      "relevant_ids": []
+    },
+    {
+      "id": "negative-negated-rate",
+      "subject": "no 429",
+      "description": "integration has no 429 errors but records vanished please investigate",
+      "relevant_ids": []
+    },
+    {
+      "id": "negative-parcel",
+      "subject": "parcel missing",
+      "description": "my office parcel never arrived please investigate",
+      "relevant_ids": []
+    }
+  ]
+}

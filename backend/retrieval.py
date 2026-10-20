@@ -10,7 +10,7 @@ from typing import Literal
 import numpy as np
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from sklearn.feature_extraction.text import TfidfVectorizer
-from backend.evidence import POLICY_VERSION, MAX_CLAUSES, evidence_level, split_clauses, technical_identifiers, keyword_clause_coverage
+from backend.evidence import POLICY_VERSION, MAX_CLAUSES, evidence_level, split_clauses, technical_identifiers, keyword_clause_coverage, query_evidence_text, content_tokens
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / 'case-study-1-support-ticket-similarity/starter_kit/data'
@@ -195,15 +195,18 @@ class Retriever:
     def search(self, request: SearchRequest) -> SearchResponse:
         if request.mode != 'keyword' and self.model is None:
             raise RuntimeError('Requested retrieval capability unavailable')
-        text = f'{request.subject}\n{request.description}'
+        subject = query_evidence_text(request.subject)
+        description = query_evidence_text(request.description)
+        text = f'{subject}\n{description}'
         keyword = (self.matrix @ self.vectorizer.transform([text]).T).toarray().ravel()
         semantic = None
         coverage = None
         identifier_coverage = [None] * len(self.tickets)
-        parts = split_clauses(request.description)
-        complete_context = 0 < len(parts) <= MAX_CLAUSES
+        parts = split_clauses(description)
+        complete_context = 0 < len(parts) <= MAX_CLAUSES and len(split_clauses(request.description)) <= MAX_CLAUSES
+        short_context = 2 <= len(content_tokens(text)) <= 12
         lexical_coverage = [keyword_clause_coverage(parts[:MAX_CLAUSES], historical, self.idf)
-            for historical in self.history_clauses] if request.mode=='keyword' else [None]*len(self.tickets)
+            for historical in self.history_clauses]
         if request.mode != 'keyword':
             with self.lock:
                 query = self.model.encode([text] + parts[:MAX_CLAUSES], normalize_embeddings=True, convert_to_numpy=True)
@@ -219,7 +222,7 @@ class Retriever:
         fusion = reciprocal_rank_fusion(keyword, semantic, self.tickets) if request.mode == 'hybrid' else None
         scores = keyword if request.mode == 'keyword' else semantic if request.mode == 'semantic' else fusion
         decisions = [evidence_level(float(keyword[i]), float(semantic[i]) if semantic is not None else None,
-            float(coverage[i]) if coverage is not None else None, complete_context, identifier_coverage[i], lexical_coverage[i]) for i in range(len(self.tickets))]
+            float(coverage[i]) if coverage is not None else None, complete_context, identifier_coverage[i], lexical_coverage[i], short_context) for i in range(len(self.tickets))]
         order = stable_order(scores, self.tickets)
         ranking = [i for i in order if decisions[i][0] == 'precedent'][:request.top_k]
         related = [i for i in order if decisions[i][0] == 'related'][:request.top_k]

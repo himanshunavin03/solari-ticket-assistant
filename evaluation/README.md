@@ -1,4 +1,10 @@
-# Current evaluation — historical precedent, applicability unverified
+# Current informal-request revision (v6)
+
+See [INFORMAL_REVISION.md](INFORMAL_REVISION.md) for exact rejection diagnosis, policy, frozen exposed cases, comparable before/after results and remaining failures. Hybrid informal Recall@3/MRR .625→.875; negative note presentations 0/10→0/10. All earlier artifacts below remain historical v5 measurements; their writer refuses v6. Current reports: `informal-baseline-results.json` / `informal-revised-results.json`.
+
+---
+
+# Preserved v5 evaluation — historical precedent, applicability unverified
 
 ## Changed semantics and preserved evidence
 

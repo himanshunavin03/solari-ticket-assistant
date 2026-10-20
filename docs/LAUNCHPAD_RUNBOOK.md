@@ -76,10 +76,10 @@ Tested here: Windows Python **3.10.11** and **3.11.9**, venv pip **25.0.1**, Nod
    $env:SOLARI_OFFLINE = '1'
    ./.venv/Scripts/python.exe -m pytest -q
    ./.venv/Scripts/python.exe -m scripts.inspect_data
-   ./.venv/Scripts/python.exe -m evaluation.review_precedents
+   ./.venv/Scripts/python.exe -m evaluation.review_informal --output "informal-check-$(Get-Date -Format yyyyMMdd-HHmmss)-results.json"
    ```
 
-   Expected: 62 passing tests for current source; a nonfatal dependency deprecation warning was observed here. Inspection: 40 valid records, no duplicate-content groups in supplied data. Repeats would be reported, never deleted. Current regression uses **unverified historical precedent**, not old supported-resolution semantics, and writes a separate `evaluation/precedent-regression-results.json`.
+   Expected: 75 passing tests for current source; a nonfatal dependency deprecation warning was observed here. Inspection: 40 valid records, no duplicate-content groups in supplied data. Repeats would be reported, never deleted. Current regression uses **unverified historical precedent**, not old supported-resolution semantics, and writes a new timestamped informal report without overwriting earlier results.
 
    Optional browser checks **before starting manual servers**:
 

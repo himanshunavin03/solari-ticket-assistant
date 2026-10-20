@@ -1,0 +1,9 @@
+{
+  "timestamp": "2026-10-20T02:20:21.415520+00:00",
+  "cases_sha256": "0c4de6ea2816277ce067336b2acbf0b594422d8a2ccadd5df613136bc7be4e92",
+  "baseline_code_sha256": {
+    "evidence.py": "8a7965bcd1dcdfdfefa140da56b4a3cfbf9688cebf17e01225cb6c1bee18b02b",
+    "retrieval.py": "2aa5727dcfabd66a0efe925aa91ccb0afc6b76fa97de722b1e8dc63d14a3b4b4"
+  },
+  "policy_design": "Remove generic polite request framing only, retain objects/symptoms/negation; short-context alternate route requires lexical corroboration and stronger all-clause alignment. No global threshold decrease. Labels frozen before scores, no tuning to eliminate all failures."
+}

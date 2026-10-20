@@ -13,6 +13,8 @@ from backend.evidence import POLICY_VERSION
 
 
 def run():
+    if POLICY_VERSION != 'historical-precedent-v5':
+        raise RuntimeError('Preserved v5 report: use evaluation.review_informal with a new output for the current policy')
     sources={'original_exposed':('cases.json','held_out'), 'previous_release_now_exposed':('release-cases.json','fresh'),
         'targeted_exposed':('precedent-cases.json','cases')}
     retriever=Retriever()

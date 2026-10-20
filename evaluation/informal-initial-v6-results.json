@@ -1,0 +1,2620 @@
+{
+  "timestamp": "2026-10-20T02:21:49.924469+00:00",
+  "policy": "informal-precedent-v6",
+  "result_semantics": "historical-precedent-v1",
+  "warning": "Metrics measure displayed historical resolution relevance for review, never verified root cause. All cases exposed; not directly equivalent to earlier supported-resolution metrics.",
+  "model": "sentence-transformers/all-MiniLM-L6-v2",
+  "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+  "dataset_sha256": "b9ebbe875f313dea5c988b56e810f00540978532baae100861061c5f02b2c95a",
+  "code_sha256": {
+    "evidence.py": "ea4aa3a400de78afc01246b9ebe609f5a04ad04ffd86f36ff304e76ab6f9559c",
+    "retrieval.py": "2675b3d9d90188aa836cc4ace3e786109212a14b6187b0bfc5b13e28581fc7ef"
+  },
+  "hardware": {
+    "python": "3.11.9",
+    "os": "Windows-10-10.0.26200-SP0",
+    "cpu": "Intel64 Family 6 Model 186 Stepping 2, GenuineIntel",
+    "logical_cpus": 20,
+    "torch_threads": 4
+  },
+  "versions": {
+    "numpy": "1.26.4",
+    "scikit-learn": "1.6.1",
+    "sentence-transformers": "3.4.1",
+    "transformers": "4.48.3",
+    "torch": "2.6.0"
+  },
+  "splits": {
+    "original_exposed": {
+      "cases_sha256": "cce755503a57d0548ab729566cc8b5212564b4a48fb4d8d6c72c4210600f4594",
+      "modes": {
+        "keyword": {
+          "metrics": {
+            "positive_count": 8,
+            "negative_count": 4,
+            "irrelevant_precedent_presentations": 0,
+            "positive_precedent_abstentions": 6,
+            "positive_with_irrelevant_precedents": 0,
+            "precedent_precision_at_3": 0.08333333333333333,
+            "precedent_recall_at_3": 0.25,
+            "precedent_mrr": 0.25,
+            "outcomes": {
+              "related_history_only": 8,
+              "historical_precedents": 2,
+              "no_relevant_history": 2
+            },
+            "warm_latency_ms": {
+              "median": 1.4555500238202512,
+              "p95": 2.0059000235050917,
+              "samples": 60
+            }
+          },
+          "cases": [
+            {
+              "id": "test-rate-limit",
+              "expected": [
+                "T-1702"
+              ],
+              "displayed_precedents": [],
+              "related_metadata": [
+                "T-1702"
+              ],
+              "outcome": "related_history_only",
+              "applicability": "unverified",
+              "scores": []
+            },
+            {
+              "id": "test-hubspot",
+              "expected": [
+                "T-1105"
+              ],
+              "displayed_precedents": [],
+              "related_metadata": [
+                "T-1105"
+              ],
+              "outcome": "related_history_only",
+              "applicability": "unverified",
+              "scores": []
+            },
+            {
+              "id": "test-sso",
+              "expected": [
+                "T-1002"
+              ],
+              "displayed_precedents": [],
+              "related_metadata": [
+                "T-1002"
+              ],
+              "outcome": "related_history_only",
+              "applicability": "unverified",
+              "scores": []
+            },
+            {
+              "id": "test-filter",
+              "expected": [
+                "T-1204"
+              ],
+              "displayed_precedents": [],
+              "related_metadata": [
+                "T-1204"
+              ],
+              "outcome": "related_history_only",
+              "applicability": "unverified",
+              "scores": []
+            },
+            {
+              "id": "test-queue",
+              "expected": [
+                "T-1604"
+              ],
+              "displayed_precedents": [
+                "T-1604"
+              ],
+              "related_metadata": [],
+              "outcome": "historical_precedents",
+              "applicability": "unverified",
+              "scores": [
+                {
+                  "id": "T-1604",
+                  "keyword": 0.5468395978588173,
+                  "semantic": null,
+                  "clause_coverage": null,
+                  "lexical_clause_coverage": 0.6048109499858658
+                }
+              ]
+            },
+            {
+              "id": "test-key",
+              "expected": [
+                "T-1705"
+              ],
+              "displayed_precedents": [],
+              "related_metadata": [
+                "T-1705"
+              ],
+              "outcome": "related_history_only",
+              "applicability": "unverified",
+              "scores": []
+            },
+            {
+              "id": "test-seats",
+              "expected": [
+                "T-1301"
+              ],
+              "displayed_precedents": [],
+              "related_metadata": [
+                "T-1301"
+              ],
+              "outcome": "related_history_only",
+              "applicability": "unverified",
+              "scores": []
+            },
+            {
+              "id": "test-export-access",
+              "expected": [
+                "T-1405"
+              ],
+              "displayed_precedents": [
+                "T-1405"
+              ],
+              "related_metadata": [],
+              "outcome": "historical_precedents",
+              "applicability": "unverified",
+              "scores": [
+                {
+                  "id": "T-1405",
+                  "keyword": 0.6387729988475354,
+                  "semantic": null,
+                  "clause_coverage": null,
+                  "lexical_clause_coverage": 0.6608587717681048
+                }
+              ]
+            },
+            {
+              "id": "test-snowflake",
+              "expected": [],
+              "displayed_precedents": [],
+              "related_metadata": [
+                "T-1105"
+              ],
+              "outcome": "related_history_only",
+              "applicability": "unverified",
+              "scores": []
+            },
+            {
+              "id": "test-aquarium",
+              "expected": [],
+              "displayed_precedents": [],
+              "related_metadata": [],
+              "outcome": "no_relevant_history",
+              "applicability": "unverified",
+              "scores": []
+            },
+            {
+              "id": "test-mobile",
+              "expected": [],
+              "displayed_precedents": [],
+              "related_metadata": [],
+              "outcome": "no_relevant_history",
+              "applicability": "unverified",
+              "scores": []
+            },
+            {
+              "id": "test-reset-email",
+              "expected": [],
+              "displayed_precedents": [],
+              "related_metadata": [
+                "T-1001"
+              ],
+              "outcome": "related_history_only",
+              "applicability": "unverified",
+              "scores": []
+            }
+          ]
+        },
+        "semantic": {
+          "metrics": {
+            "positive_count": 8,
+            "negative_count": 4,
+            "irrelevant_precedent_presentations": 0,
+            "positive_precedent_abstentions": 0,
+            "positive_with_irrelevant_precedents": 0,
+            "precedent_precision_at_3": 0.3333333333333333,
+            "precedent_recall_at_3": 1.0,
+            "precedent_mrr": 1.0,
+            "outcomes": {
+              "historical_precedents": 8,
+              "related_history_only": 2,
+              "no_relevant_history": 2
+            },
+            "warm_latency_ms": {
+              "median": 14.070450008148327,
+              "p95": 27.234300039708614,
+              "samples": 60
+            }
+          },
+          "cases": [
+            {
+              "id": "test-rate-limit",
+              "expected": [
+                "T-1702"
+              ],
+              "displayed_precedents": [
+                "T-1702"
+              ],
+              "related_metadata": [
+                "T-1703"
+              ],
+              "outcome": "historical_precedents",
+              "applicability": "unverified",
+              "scores": [
+                {
+                  "id": "T-1702",
+                  "keyword": 0.3339356716319666,
+                  "semantic": 0.6492605209350586,
+                  "clause_coverage": 0.5173237323760986,
+                  "lexical_clause_coverage": 0.2219136326662431
+                }
+              ]
+            },
+            {
+              "id": "test-hubspot",
+              "expected": [
+                "T-1105"
+              ],
+              "displayed_precedents": [
+                "T-1105"
+              ],
+              "related_metadata": [],
+              "outcome": "historical_precedents",
+              "applicability": "unverified",
+              "scores": [
+                {
+                  "id": "T-1105",
+                  "keyword": 0.33276275315410125,
+                  "semantic": 0.8945024013519287,
+                  "clause_coverage": 0.8730303049087524,
+                  "lexical_clause_coverage": 0.3973746103603476
+                }
+              ]
+            },
+            {
+              "id": "test-sso",
+              "expected": [
+                "T-1002"
+              ],
+              "displayed_precedents": [
+                "T-1002"
+              ],
+              "related_metadata": [],
+              "outcome": "historical_precedents",
+              "applicability": "unverified",
+              "scores": [
+                {
+                  "id": "T-1002",
+                  "keyword": 0.41812284845139297,
+                  "semantic": 0.8721190690994263,
+                  "clause_coverage": 0.8137992024421692,
+                  "lexical_clause_coverage": 0.23406905052530205
+                }
+              ]
+            },
+            {
+              "id": "test-filter",
+              "expected": [
+                "T-1204"
+              ],
+              "displayed_precedents": [
+                "T-1204"
+              ],
+              "related_metadata": [],
+              "outcome": "historical_precedents",
+              "applicability": "unverified",
+              "scores": [
+                {
+                  "id": "T-1204",
+                  "keyword": 0.5035214882108925,
+                  "semantic": 0.8268505334854126,
+                  "clause_coverage": 0.8289418816566467,
+                  "lexical_clause_coverage": 0.4854103620510967
+                }
+              ]
+            },
+            {
+              "id": "test-queue",
+              "expected": [
+                "T-1604"
+              ],
+              "displayed_precedents": [
+                "T-1604"
+              ],
+              "related_metadata": [],
+              "outcome": "historical_precedents",
+              "applicability": "unverified",
+              "scores": [
+                {
+                  "id": "T-1604",
+                  "keyword": 0.5468395978588173,
+                  "semantic": 0.7387553453445435,
+                  "clause_coverage": 0.8489277362823486,
+                  "lexical_clause_coverage": 0.6048109499858658
+                }
+              ]
+            },
+            {
+              "id": "test-key",
+              "expected": [
+                "T-1705"
+              ],
+              "displayed_precedents": [
+                "T-1705"
+              ],
+              "related_metadata": [],
+              "outcome": "historical_precedents",
+              "applicability": "unverified",
+              "scores": [
+                {
+                  "id": "T-1705",
+                  "keyword": 0.5791957474476466,
+                  "semantic": 0.748918890953064,
+                  "clause_coverage": 0.7782971858978271,
+                  "lexical_clause_coverage": 0.4851748294479765
+                }
+              ]
+            },
+            {
+              "id": "test-seats",
+              "expected": [
+                "T-1301"
+              ],
+              "displayed_precedents": [
+                "T-1301"
+              ],
+              "related_metadata": [],
+              "outcome": "historical_precedents",
+              "applicability": "unverified",
+              "scores": [
+                {
+                  "id": "T-1301",
+                  "keyword": 0.3813864427588546,
+                  "semantic": 0.8337884545326233,
+                  "clause_coverage": 0.7782599925994873,
+                  "lexical_clause_coverage": 0.4319576486509691
+                }
+              ]
+            },
+            {
+              "id": "test-export-access",
+              "expected": [
+                "T-1405"
+              ],
+              "displayed_precedents": [
+                "T-1405"
+              ],
+              "related_metadata": [],
+              "outcome": "historical_precedents",
+              "applicability": "unverified",
+              "scores": [
+                {
+                  "id": "T-1405",
+                  "keyword": 0.6387729988475354,
+                  "semantic": 0.8575566411018372,
+                  "clause_coverage": 0.7892565131187439,
+                  "lexical_clause_coverage": 0.6608587717681048
+                }
+              ]
+            },
+            {
+              "id": "test-snowflake",
+              "expected": [],
+              "displayed_precedents": [],
+              "related_metadata": [
+                "T-1105"
+              ],
+              "outcome": "related_history_only",
+              "applicability": "unverified",
+              "scores": []
+            },
+            {
+              "id": "test-aquarium",
+              "expected": [],
+              "displayed_precedents": [],
+              "related_metadata": [],
+              "outcome": "no_relevant_history",
+              "applicability": "unverified",
+              "scores": []
+            },
+            {
+              "id": "test-mobile",
+              "expected": [],
+              "displayed_precedents": [],
+              "related_metadata": [],
+              "outcome": "no_relevant_history",
+              "applicability": "unverified",
+              "scores": []
+            },
+            {
+              "id": "test-reset-email",
+              "expected": [],
+              "displayed_precedents": [],
+              "related_metadata": [
+                "T-1001",
+                "T-1004"
+              ],
+              "outcome": "related_history_only",
+              "applicability": "unverified",
+              "scores": []
+            }
+          ]
+        },
+        "hybrid": {
+          "metrics": {
+            "positive_count": 8,
+            "negative_count": 4,
+            "irrelevant_precedent_presentations": 0,
+            "positive_precedent_abstentions": 0,
+            "positive_with_irrelevant_precedents": 0,
+            "precedent_precision_at_3": 0.3333333333333333,
+            "precedent_recall_at_3": 1.0,
+            "precedent_mrr": 1.0,
+            "outcomes": {
+              "historical_precedents": 8,
+              "related_history_only": 2,
+              "no_relevant_history": 2
+            },
+            "warm_latency_ms": {
+              "median": 12.849800026742741,
+              "p95": 25.400100043043494,
+              "samples": 60
+            }
+          },
+          "cases": [
+            {
+              "id": "test-rate-limit",
+              "expected": [
+                "T-1702"
+              ],
+              "displayed_precedents": [
+                "T-1702"
+              ],
+              "related_metadata": [
+                "T-1703"
+              ],
+              "outcome": "historical_precedents",
+              "applicability": "unverified",
+              "scores": [
+                {
+                  "id": "T-1702",
+                  "keyword": 0.3339356716319666,
+                  "semantic": 0.6492605209350586,
+                  "clause_coverage": 0.5173237323760986,
+                  "lexical_clause_coverage": 0.2219136326662431
+                }
+              ]
+            },
+            {
+              "id": "test-hubspot",
+              "expected": [
+                "T-1105"
+              ],
+              "displayed_precedents": [
+                "T-1105"
+              ],
+              "related_metadata": [],
+              "outcome": "historical_precedents",
+              "applicability": "unverified",
+              "scores": [
+                {
+                  "id": "T-1105",
+                  "keyword": 0.33276275315410125,
+                  "semantic": 0.8945024013519287,
+                  "clause_coverage": 0.8730303049087524,
+                  "lexical_clause_coverage": 0.3973746103603476
+                }
+              ]
+            },
+            {
+              "id": "test-sso",
+              "expected": [
+                "T-1002"
+              ],
+              "displayed_precedents": [
+                "T-1002"
+              ],
+              "related_metadata": [],
+              "outcome": "historical_precedents",
+              "applicability": "unverified",
+              "scores": [
+                {
+                  "id": "T-1002",
+                  "keyword": 0.41812284845139297,
+                  "semantic": 0.8721190690994263,
+                  "clause_coverage": 0.8137992024421692,
+                  "lexical_clause_coverage": 0.23406905052530205
+                }
+              ]
+            },
+            {
+              "id": "test-filter",
+              "expected": [
+                "T-1204"
+              ],
+              "displayed_precedents": [
+                "T-1204"
+              ],
+              "related_metadata": [],
+              "outcome": "historical_precedents",
+              "applicability": "unverified",
+              "scores": [
+                {
+                  "id": "T-1204",
+                  "keyword": 0.5035214882108925,
+                  "semantic": 0.8268505334854126,
+                  "clause_coverage": 0.8289418816566467,
+                  "lexical_clause_coverage": 0.4854103620510967
+                }
+              ]
+            },
+            {
+              "id": "test-queue",
+              "expected": [
+                "T-1604"
+              ],
+              "displayed_precedents": [
+                "T-1604"
+              ],
+              "related_metadata": [],
+              "outcome": "historical_precedents",
+              "applicability": "unverified",
+              "scores": [
+                {
+                  "id": "T-1604",
+                  "keyword": 0.5468395978588173,
+                  "semantic": 0.7387553453445435,
+                  "clause_coverage": 0.8489277362823486,
+                  "lexical_clause_coverage": 0.6048109499858658
+                }
+              ]
+            },
+            {
+              "id": "test-key",
+              "expected": [
+                "T-1705"
+              ],
+              "displayed_precedents": [
+                "T-1705"
+              ],
+              "related_metadata": [],
+              "outcome": "historical_precedents",
+              "applicability": "unverified",
+              "scores": [
+                {
+                  "id": "T-1705",
+                  "keyword": 0.5791957474476466,
+                  "semantic": 0.748918890953064,
+                  "clause_coverage": 0.7782971858978271,
+                  "lexical_clause_coverage": 0.4851748294479765
+                }
+              ]
+            },
+            {
+              "id": "test-seats",
+              "expected": [
+                "T-1301"
+              ],
+              "displayed_precedents": [
+                "T-1301"
+              ],
+              "related_metadata": [],
+              "outcome": "historical_precedents",
+              "applicability": "unverified",
+              "scores": [
+                {
+                  "id": "T-1301",
+                  "keyword": 0.3813864427588546,
+                  "semantic": 0.8337884545326233,
+                  "clause_coverage": 0.7782599925994873,
+                  "lexical_clause_coverage": 0.4319576486509691
+                }
+              ]
+            },
+            {
+              "id": "test-export-access",
+              "expected": [
+                "T-1405"
+              ],
+              "displayed_precedents": [
+                "T-1405"
+              ],
+              "related_metadata": [],
+              "outcome": "historical_precedents",
+              "applicability": "unverified",
+              "scores": [
+                {
+                  "id": "T-1405",
+                  "keyword": 0.6387729988475354,
+                  "semantic": 0.8575566411018372,
+                  "clause_coverage": 0.7892565131187439,
+                  "lexical_clause_coverage": 0.6608587717681048
+                }
+              ]
+            },
+            {
+              "id": "test-snowflake",
+              "expected": [],
+              "displayed_precedents": [],
+              "related_metadata": [
+                "T-1105"
+              ],
+              "outcome": "related_history_only",
+              "applicability": "unverified",
+              "scores": []
+            },
+            {
+              "id": "test-aquarium",
+              "expected": [],
+              "displayed_precedents": [],
+              "related_metadata": [],
+              "outcome": "no_relevant_history",
+              "applicability": "unverified",
+              "scores": []
+            },
+            {
+              "id": "test-mobile",
+              "expected": [],
+              "displayed_precedents": [],
+              "related_metadata": [],
+              "outcome": "no_relevant_history",
+              "applicability": "unverified",
+              "scores": []
+            },
+            {
+              "id": "test-reset-email",
+              "expected": [],
+              "displayed_precedents": [],
+              "related_metadata": [
+                "T-1001",
+                "T-1004"
+              ],
+              "outcome": "related_history_only",
+              "applicability": "unverified",
+              "scores": []
+            }
+          ]
+        }
+      }
+    },
+    "previous_release_now_exposed": {
+      "cases_sha256": "e28d03d8763d979c85dd7a925395b53502de858530eaec87d5a266fb40e11125",
+      "modes": {
+        "keyword": {
+          "metrics": {
+            "positive_count": 8,
+            "negative_count": 4,
+            "irrelevant_precedent_presentations": 0,
+            "positive_precedent_abstentions": 5,
+            "positive_with_irrelevant_precedents": 0,
+            "precedent_precision_at_3": 0.125,
+            "precedent_recall_at_3": 0.375,
+            "precedent_mrr": 0.375,
+            "outcomes": {
+              "no_relevant_history": 3,
+              "related_history_only": 6,
+              "historical_precedents": 3
+            },
+            "warm_latency_ms": {
+              "median": 1.6228000167757273,
+              "p95": 2.0290000247769058,
+              "samples": 60
+            }
+          },
+          "cases": [
+            {
+              "id": "release-limit",
+              "expected": [
+                "T-1702"
+              ],
+              "displayed_precedents": [],
+              "related_metadata": [],
+              "outcome": "no_relevant_history",
+              "applicability": "unverified",
+              "scores": []
+            },
+            {
+              "id": "release-billing",
+              "expected": [
+                "T-1303"
+              ],
+              "displayed_precedents": [],
+              "related_metadata": [
+                "T-1303"
+              ],
+              "outcome": "related_history_only",
+              "applicability": "unverified",
+              "scores": []
+            },
+            {
+              "id": "release-sms",
+              "expected": [
+                "T-1003"
+              ],
+              "displayed_precedents": [],
+              "related_metadata": [
+                "T-1003"
+              ],
+              "outcome": "related_history_only",
+              "applicability": "unverified",
+              "scores": []
+            },
+            {
+              "id": "release-reset",
+              "expected": [
+                "T-1001"
+              ],
+              "displayed_precedents": [
+                "T-1001"
+              ],
+              "related_metadata": [],
+              "outcome": "historical_precedents",
+              "applicability": "unverified",
+              "scores": [
+                {
+                  "id": "T-1001",
+                  "keyword": 0.6288865544050125,
+                  "semantic": null,
+                  "clause_coverage": null,
+                  "lexical_clause_coverage": 0.8039606901255885
+                }
+              ]
+            },
+            {
+              "id": "release-spinner",
+              "expected": [
+                "T-1205"
+              ],
+              "displayed_precedents": [
+                "T-1205"
+              ],
+              "related_metadata": [],
+              "outcome": "historical_precedents",
+              "applicability": "unverified",
+              "scores": [
+                {
+                  "id": "T-1205",
+                  "keyword": 0.6041319342097954,
+                  "semantic": null,
+                  "clause_coverage": null,
+                  "lexical_clause_coverage": 0.5605118937560347
+                }
+              ]
+            },
+            {
+              "id": "release-layout",
+              "expected": [
+                "T-1202"
+              ],
+              "displayed_precedents": [],
+              "related_metadata": [
+                "T-1202"
+              ],
+              "outcome": "related_history_only",
+              "applicability": "unverified",
+              "scores": []
+            },
+            {
+              "id": "release-export",
+              "expected": [
+                "T-1402"
+              ],
+              "displayed_precedents": [
+                "T-1402"
+              ],
+              "related_metadata": [],
+              "outcome": "historical_precedents",
+              "applicability": "unverified",
+              "scores": [
+                {
+                  "id": "T-1402",
+                  "keyword": 0.6748116114046359,
+                  "semantic": null,
+                  "clause_coverage": null,
+                  "lexical_clause_coverage": 0.7565802783922547
+                }
+              ]
+            },
+            {
+              "id": "release-key",
+              "expected": [
+                "T-1705"
+              ],
+              "displayed_precedents": [],
+              "related_metadata": [
+                "T-1705"
+              ],
+              "outcome": "related_history_only",
+              "applicability": "unverified",
+              "scores": []
+            },
+            {
+              "id": "release-integration",
+              "expected": [],
+              "displayed_precedents": [],
+              "related_metadata": [],
+              "outcome": "no_relevant_history",
+              "applicability": "unverified",
+              "scores": []
+            },
+            {
+              "id": "release-mail",
+              "expected": [],
+              "displayed_precedents": [],
+              "related_metadata": [
+                "T-1001"
+              ],
+              "outcome": "related_history_only",
+              "applicability": "unverified",
+              "scores": []
+            },
+            {
+              "id": "release-code-channel",
+              "expected": [],
+              "displayed_precedents": [],
+              "related_metadata": [],
+              "outcome": "no_relevant_history",
+              "applicability": "unverified",
+              "scores": []
+            },
+            {
+              "id": "release-credit",
+              "expected": [],
+              "displayed_precedents": [],
+              "related_metadata": [
+                "T-1302"
+              ],
+              "outcome": "related_history_only",
+              "applicability": "unverified",
+              "scores": []
+            }
+          ]
+        },
+        "semantic": {
+          "metrics": {
+            "positive_count": 8,
+            "negative_count": 4,
+            "irrelevant_precedent_presentations": 0,
+            "positive_precedent_abstentions": 0,
+            "positive_with_irrelevant_precedents": 0,
+            "precedent_precision_at_3": 0.3333333333333333,
+            "precedent_recall_at_3": 1.0,
+            "precedent_mrr": 1.0,
+            "outcomes": {
+              "historical_precedents": 8,
+              "no_relevant_history": 1,
+              "related_history_only": 3
+            },
+            "warm_latency_ms": {
+              "median": 16.62810001289472,
+              "p95": 23.14279996789992,
+              "samples": 60
+            }
+          },
+          "cases": [
+            {
+              "id": "release-limit",
+              "expected": [
+                "T-1702"
+              ],
+              "displayed_precedents": [
+                "T-1702"
+              ],
+              "related_metadata": [
+                "T-1703"
+              ],
+              "outcome": "historical_precedents",
+              "applicability": "unverified",
+              "scores": [
+                {
+                  "id": "T-1702",
+                  "keyword": 0.1952166111896848,
+                  "semantic": 0.6188145875930786,
+                  "clause_coverage": 0.22841079533100128,
+                  "lexical_clause_coverage": 0.0
+                }
+              ]
+            },
+            {
+              "id": "release-billing",
+              "expected": [
+                "T-1303"
+              ],
+              "displayed_precedents": [
+                "T-1303"
+              ],
+              "related_metadata": [],
+              "outcome": "historical_precedents",
+              "applicability": "unverified",
+              "scores": [
+                {
+                  "id": "T-1303",
+                  "keyword": 0.48564881343508126,
+                  "semantic": 0.8772755265235901,
+                  "clause_coverage": 0.8121761679649353,
+                  "lexical_clause_coverage": 0.4383987745147238
+                }
+              ]
+            },
+            {
+              "id": "release-sms",
+              "expected": [
+                "T-1003"
+              ],
+              "displayed_precedents": [
+                "T-1003"
+              ],
+              "related_metadata": [],
+              "outcome": "historical_precedents",
+              "applicability": "unverified",
+              "scores": [
+                {
+                  "id": "T-1003",
+                  "keyword": 0.478451040673034,
+                  "semantic": 0.858204185962677,
+                  "clause_coverage": 0.7544254660606384,
+                  "lexical_clause_coverage": 0.48759501711196707
+                }
+              ]
+            },
+            {
+              "id": "release-reset",
+              "expected": [
+                "T-1001"
+              ],
+              "displayed_precedents": [
+                "T-1001"
+              ],
+              "related_metadata": [
+                "T-1004"
+              ],
+              "outcome": "historical_precedents",
+              "applicability": "unverified",
+              "scores": [
+                {
+                  "id": "T-1001",
+                  "keyword": 0.6288865544050125,
+                  "semantic": 0.8930715918540955,
+                  "clause_coverage": 0.6498090028762817,
+                  "lexical_clause_coverage": 0.8039606901255885
+                }
+              ]
+            },
+            {
+              "id": "release-spinner",
+              "expected": [
+                "T-1205"
+              ],
+              "displayed_precedents": [
+                "T-1205"
+              ],
+              "related_metadata": [],
+              "outcome": "historical_precedents",
+              "applicability": "unverified",
+              "scores": [
+                {
+                  "id": "T-1205",
+                  "keyword": 0.6041319342097954,
+                  "semantic": 0.9063748121261597,
+                  "clause_coverage": 0.9209640026092529,
+                  "lexical_clause_coverage": 0.5605118937560347
+                }
+              ]
+            },
+            {
+              "id": "release-layout",
+              "expected": [
+                "T-1202"
+              ],
+              "displayed_precedents": [
+                "T-1202"
+              ],
+              "related_metadata": [],
+              "outcome": "historical_precedents",
+              "applicability": "unverified",
+              "scores": [
+                {
+                  "id": "T-1202",
+                  "keyword": 0.5448458356871881,
+                  "semantic": 0.9088208675384521,
+                  "clause_coverage": 0.7009556293487549,
+                  "lexical_clause_coverage": 0.44469546418827144
+                }
+              ]
+            },
+            {
+              "id": "release-export",
+              "expected": [
+                "T-1402"
+              ],
+              "displayed_precedents": [
+                "T-1402"
+              ],
+              "related_metadata": [],
+              "outcome": "historical_precedents",
+              "applicability": "unverified",
+              "scores": [
+                {
+                  "id": "T-1402",
+                  "keyword": 0.6748116114046359,
+                  "semantic": 0.9138340950012207,
+                  "clause_coverage": 0.9574840664863586,
+                  "lexical_clause_coverage": 0.7565802783922547
+                }
+              ]
+            },
+            {
+              "id": "release-key",
+              "expected": [
+                "T-1705"
+              ],
+              "displayed_precedents": [
+                "T-1705"
+              ],
+              "related_metadata": [],
+              "outcome": "historical_precedents",
+              "applicability": "unverified",
+              "scores": [
+                {
+                  "id": "T-1705",
+                  "keyword": 0.7075054569204959,
+                  "semantic": 0.9113812446594238,
+                  "clause_coverage": 0.7921714782714844,
+                  "lexical_clause_coverage": 0.381044562536194
+                }
+              ]
+            },
+            {
+              "id": "release-integration",
+              "expected": [],
+              "displayed_precedents": [],
+              "related_metadata": [],
+              "outcome": "no_relevant_history",
+              "applicability": "unverified",
+              "scores": []
+            },
+            {
+              "id": "release-mail",
+              "expected": [],
+              "displayed_precedents": [],
+              "related_metadata": [
+                "T-1001"
+              ],
+              "outcome": "related_history_only",
+              "applicability": "unverified",
+              "scores": []
+            },
+            {
+              "id": "release-code-channel",
+              "expected": [],
+              "displayed_precedents": [],
+              "related_metadata": [
+                "T-1003"
+              ],
+              "outcome": "related_history_only",
+              "applicability": "unverified",
+              "scores": []
+            },
+            {
+              "id": "release-credit",
+              "expected": [],
+              "displayed_precedents": [],
+              "related_metadata": [
+                "T-1303",
+                "T-1302"
+              ],
+              "outcome": "related_history_only",
+              "applicability": "unverified",
+              "scores": []
+            }
+          ]
+        },
+        "hybrid": {
+          "metrics": {
+            "positive_count": 8,
+            "negative_count": 4,
+            "irrelevant_precedent_presentations": 0,
+            "positive_precedent_abstentions": 0,
+            "positive_with_irrelevant_precedents": 0,
+            "precedent_precision_at_3": 0.3333333333333333,
+            "precedent_recall_at_3": 1.0,
+            "precedent_mrr": 1.0,
+            "outcomes": {
+              "historical_precedents": 8,
+              "no_relevant_history": 1,
+              "related_history_only": 3
+            },
+            "warm_latency_ms": {
+              "median": 18.890250008553267,
+              "p95": 29.46759999031201,
+              "samples": 60
+            }
+          },
+          "cases": [
+            {
+              "id": "release-limit",
+              "expected": [
+                "T-1702"
+              ],
+              "displayed_precedents": [
+                "T-1702"
+              ],
+              "related_metadata": [
+                "T-1703"
+              ],
+              "outcome": "historical_precedents",
+              "applicability": "unverified",
+              "scores": [
+                {
+                  "id": "T-1702",
+                  "keyword": 0.1952166111896848,
+                  "semantic": 0.6188145875930786,
+                  "clause_coverage": 0.22841079533100128,
+                  "lexical_clause_coverage": 0.0
+                }
+              ]
+            },
+            {
+              "id": "release-billing",
+              "expected": [
+                "T-1303"
+              ],
+              "displayed_precedents": [
+                "T-1303"
+              ],
+              "related_metadata": [],
+              "outcome": "historical_precedents",
+              "applicability": "unverified",
+              "scores": [
+                {
+                  "id": "T-1303",
+                  "keyword": 0.48564881343508126,
+                  "semantic": 0.8772755265235901,
+                  "clause_coverage": 0.8121761679649353,
+                  "lexical_clause_coverage": 0.4383987745147238
+                }
+              ]
+            },
+            {
+              "id": "release-sms",
+              "expected": [
+                "T-1003"
+              ],
+              "displayed_precedents": [
+                "T-1003"
+              ],
+              "related_metadata": [],
+              "outcome": "historical_precedents",
+              "applicability": "unverified",
+              "scores": [
+                {
+                  "id": "T-1003",
+                  "keyword": 0.478451040673034,
+                  "semantic": 0.858204185962677,
+                  "clause_coverage": 0.7544254660606384,
+                  "lexical_clause_coverage": 0.48759501711196707
+                }
+              ]
+            },
+            {
+              "id": "release-reset",
+              "expected": [
+                "T-1001"
+              ],
+              "displayed_precedents": [
+                "T-1001"
+              ],
+              "related_metadata": [
+                "T-1004"
+              ],
+              "outcome": "historical_precedents",
+              "applicability": "unverified",
+              "scores": [
+                {
+                  "id": "T-1001",
+                  "keyword": 0.6288865544050125,
+                  "semantic": 0.8930715918540955,
+                  "clause_coverage": 0.6498090028762817,
+                  "lexical_clause_coverage": 0.8039606901255885
+                }
+              ]
+            },
+            {
+              "id": "release-spinner",
+              "expected": [
+                "T-1205"
+              ],
+              "displayed_precedents": [
+                "T-1205"
+              ],
+              "related_metadata": [],
+              "outcome": "historical_precedents",
+              "applicability": "unverified",
+              "scores": [
+                {
+                  "id": "T-1205",
+                  "keyword": 0.6041319342097954,
+                  "semantic": 0.9063748121261597,
+                  "clause_coverage": 0.9209640026092529,
+                  "lexical_clause_coverage": 0.5605118937560347
+                }
+              ]
+            },
+            {
+              "id": "release-layout",
+              "expected": [
+                "T-1202"
+              ],
+              "displayed_precedents": [
+                "T-1202"
+              ],
+              "related_metadata": [],
+              "outcome": "historical_precedents",
+              "applicability": "unverified",
+              "scores": [
+                {
+                  "id": "T-1202",
+                  "keyword": 0.5448458356871881,
+                  "semantic": 0.9088208675384521,
+                  "clause_coverage": 0.7009556293487549,
+                  "lexical_clause_coverage": 0.44469546418827144
+                }
+              ]
+            },
+            {
+              "id": "release-export",
+              "expected": [
+                "T-1402"
+              ],
+              "displayed_precedents": [
+                "T-1402"
+              ],
+              "related_metadata": [],
+              "outcome": "historical_precedents",
+              "applicability": "unverified",
+              "scores": [
+                {
+                  "id": "T-1402",
+                  "keyword": 0.6748116114046359,
+                  "semantic": 0.9138340950012207,
+                  "clause_coverage": 0.9574840664863586,
+                  "lexical_clause_coverage": 0.7565802783922547
+                }
+              ]
+            },
+            {
+              "id": "release-key",
+              "expected": [
+                "T-1705"
+              ],
+              "displayed_precedents": [
+                "T-1705"
+              ],
+              "related_metadata": [],
+              "outcome": "historical_precedents",
+              "applicability": "unverified",
+              "scores": [
+                {
+                  "id": "T-1705",
+                  "keyword": 0.7075054569204959,
+                  "semantic": 0.9113812446594238,
+                  "clause_coverage": 0.7921714782714844,
+                  "lexical_clause_coverage": 0.381044562536194
+                }
+              ]
+            },
+            {
+              "id": "release-integration",
+              "expected": [],
+              "displayed_precedents": [],
+              "related_metadata": [],
+              "outcome": "no_relevant_history",
+              "applicability": "unverified",
+              "scores": []
+            },
+            {
+              "id": "release-mail",
+              "expected": [],
+              "displayed_precedents": [],
+              "related_metadata": [
+                "T-1001"
+              ],
+              "outcome": "related_history_only",
+              "applicability": "unverified",
+              "scores": []
+            },
+            {
+              "id": "release-code-channel",
+              "expected": [],
+              "displayed_precedents": [],
+              "related_metadata": [
+                "T-1003"
+              ],
+              "outcome": "related_history_only",
+              "applicability": "unverified",
+              "scores": []
+            },
+            {
+              "id": "release-credit",
+              "expected": [],
+              "displayed_precedents": [],
+              "related_metadata": [
+                "T-1302",
+                "T-1303"
+              ],
+              "outcome": "related_history_only",
+              "applicability": "unverified",
+              "scores": []
+            }
+          ]
+        }
+      }
+    },
+    "targeted_exposed": {
+      "cases_sha256": "8fb37bd75d9024394da675016785f3cd2eedb0a687da9208fd6ebc67ba7e54dd",
+      "modes": {
+        "keyword": {
+          "metrics": {
+            "positive_count": 4,
+            "negative_count": 3,
+            "irrelevant_precedent_presentations": 0,
+            "positive_precedent_abstentions": 2,
+            "positive_with_irrelevant_precedents": 0,
+            "precedent_precision_at_3": 0.16666666666666666,
+            "precedent_recall_at_3": 0.5,
+            "precedent_mrr": 0.5,
+            "outcomes": {
+              "related_history_only": 4,
+              "historical_precedents": 2,
+              "no_relevant_history": 1
+            },
+            "warm_latency_ms": {
+              "median": 1.5115000423975289,
+              "p95": 1.602599979378283,
+              "samples": 35
+            }
+          },
+          "cases": [
+            {
+              "id": "short-email-contradiction",
+              "expected": [],
+              "displayed_precedents": [],
+              "related_metadata": [
+                "T-1001"
+              ],
+              "outcome": "related_history_only",
+              "applicability": "unverified",
+              "scores": []
+            },
+            {
+              "id": "short-still-fails",
+              "expected": [
+                "T-1001"
+              ],
+              "displayed_precedents": [],
+              "related_metadata": [
+                "T-1001"
+              ],
+              "outcome": "related_history_only",
+              "applicability": "unverified",
+              "scores": []
+            },
+            {
+              "id": "short-denied",
+              "expected": [
+                "T-1501"
+              ],
+              "displayed_precedents": [],
+              "related_metadata": [
+                "T-1501"
+              ],
+              "outcome": "related_history_only",
+              "applicability": "unverified",
+              "scores": []
+            },
+            {
+              "id": "keyword-billing",
+              "expected": [
+                "T-1303"
+              ],
+              "displayed_precedents": [
+                "T-1303"
+              ],
+              "related_metadata": [],
+              "outcome": "historical_precedents",
+              "applicability": "unverified",
+              "scores": [
+                {
+                  "id": "T-1303",
+                  "keyword": 0.3246911650139763,
+                  "semantic": null,
+                  "clause_coverage": null,
+                  "lexical_clause_coverage": 1.0
+                }
+              ]
+            },
+            {
+              "id": "keyword-429",
+              "expected": [
+                "T-1702"
+              ],
+              "displayed_precedents": [
+                "T-1702"
+              ],
+              "related_metadata": [],
+              "outcome": "historical_precedents",
+              "applicability": "unverified",
+              "scores": [
+                {
+                  "id": "T-1702",
+                  "keyword": 0.46351227311302684,
+                  "semantic": null,
+                  "clause_coverage": null,
+                  "lexical_clause_coverage": 1.0
+                }
+              ]
+            },
+            {
+              "id": "empty-fragments",
+              "expected": [],
+              "displayed_precedents": [],
+              "related_metadata": [],
+              "outcome": "no_relevant_history",
+              "applicability": "unverified",
+              "scores": []
+            },
+            {
+              "id": "contrasting-access",
+              "expected": [],
+              "displayed_precedents": [],
+              "related_metadata": [
+                "T-1001"
+              ],
+              "outcome": "related_history_only",
+              "applicability": "unverified",
+              "scores": []
+            }
+          ]
+        },
+        "semantic": {
+          "metrics": {
+            "positive_count": 4,
+            "negative_count": 3,
+            "irrelevant_precedent_presentations": 0,
+            "positive_precedent_abstentions": 0,
+            "positive_with_irrelevant_precedents": 1,
+            "precedent_precision_at_3": 0.3333333333333333,
+            "precedent_recall_at_3": 1.0,
+            "precedent_mrr": 1.0,
+            "outcomes": {
+              "related_history_only": 2,
+              "historical_precedents": 4,
+              "no_relevant_history": 1
+            },
+            "warm_latency_ms": {
+              "median": 13.892199960537255,
+              "p95": 19.64300003601238,
+              "samples": 35
+            }
+          },
+          "cases": [
+            {
+              "id": "short-email-contradiction",
+              "expected": [],
+              "displayed_precedents": [],
+              "related_metadata": [
+                "T-1001",
+                "T-1004"
+              ],
+              "outcome": "related_history_only",
+              "applicability": "unverified",
+              "scores": []
+            },
+            {
+              "id": "short-still-fails",
+              "expected": [
+                "T-1001"
+              ],
+              "displayed_precedents": [
+                "T-1001",
+                "T-1004"
+              ],
+              "related_metadata": [],
+              "outcome": "historical_precedents",
+              "applicability": "unverified",
+              "scores": [
+                {
+                  "id": "T-1001",
+                  "keyword": 0.3693741637105713,
+                  "semantic": 0.8095901608467102,
+                  "clause_coverage": 0.6840242147445679,
+                  "lexical_clause_coverage": 0.461987015741076
+                },
+                {
+                  "id": "T-1004",
+                  "keyword": 0.08844359940888225,
+                  "semantic": 0.6963279247283936,
+                  "clause_coverage": 0.6295791864395142,
+                  "lexical_clause_coverage": 0.28462166145830997
+                }
+              ]
+            },
+            {
+              "id": "short-denied",
+              "expected": [
+                "T-1501"
+              ],
+              "displayed_precedents": [
+                "T-1501"
+              ],
+              "related_metadata": [
+                "T-1503"
+              ],
+              "outcome": "historical_precedents",
+              "applicability": "unverified",
+              "scores": [
+                {
+                  "id": "T-1501",
+                  "keyword": 0.4725158045065291,
+                  "semantic": 0.835618793964386,
+                  "clause_coverage": 0.5889651775360107,
+                  "lexical_clause_coverage": 0.18847283922557495
+                }
+              ]
+            },
+            {
+              "id": "keyword-billing",
+              "expected": [
+                "T-1303"
+              ],
+              "displayed_precedents": [
+                "T-1303"
+              ],
+              "related_metadata": [],
+              "outcome": "historical_precedents",
+              "applicability": "unverified",
+              "scores": [
+                {
+                  "id": "T-1303",
+                  "keyword": 0.3246911650139763,
+                  "semantic": 0.80510413646698,
+                  "clause_coverage": 0.7887553572654724,
+                  "lexical_clause_coverage": 1.0
+                }
+              ]
+            },
+            {
+              "id": "keyword-429",
+              "expected": [
+                "T-1702"
+              ],
+              "displayed_precedents": [
+                "T-1702"
+              ],
+              "related_metadata": [
+                "T-1703"
+              ],
+              "outcome": "historical_precedents",
+              "applicability": "unverified",
+              "scores": [
+                {
+                  "id": "T-1702",
+                  "keyword": 0.46351227311302684,
+                  "semantic": 0.8553978204727173,
+                  "clause_coverage": 0.7407026290893555,
+                  "lexical_clause_coverage": 1.0
+                }
+              ]
+            },
+            {
+              "id": "empty-fragments",
+              "expected": [],
+              "displayed_precedents": [],
+              "related_metadata": [],
+              "outcome": "no_relevant_history",
+              "applicability": "unverified",
+              "scores": []
+            },
+            {
+              "id": "contrasting-access",
+              "expected": [],
+              "displayed_precedents": [],
+              "related_metadata": [
+                "T-1001",
+                "T-1004",
+                "T-1502"
+              ],
+              "outcome": "related_history_only",
+              "applicability": "unverified",
+              "scores": []
+            }
+          ]
+        },
+        "hybrid": {
+          "metrics": {
+            "positive_count": 4,
+            "negative_count": 3,
+            "irrelevant_precedent_presentations": 0,
+            "positive_precedent_abstentions": 0,
+            "positive_with_irrelevant_precedents": 1,
+            "precedent_precision_at_3": 0.3333333333333333,
+            "precedent_recall_at_3": 1.0,
+            "precedent_mrr": 1.0,
+            "outcomes": {
+              "related_history_only": 2,
+              "historical_precedents": 4,
+              "no_relevant_history": 1
+            },
+            "warm_latency_ms": {
+              "median": 12.4426000402309,
+              "p95": 17.883999971672893,
+              "samples": 35
+            }
+          },
+          "cases": [
+            {
+              "id": "short-email-contradiction",
+              "expected": [],
+              "displayed_precedents": [],
+              "related_metadata": [
+                "T-1001",
+                "T-1004"
+              ],
+              "outcome": "related_history_only",
+              "applicability": "unverified",
+              "scores": []
+            },
+            {
+              "id": "short-still-fails",
+              "expected": [
+                "T-1001"
+              ],
+              "displayed_precedents": [
+                "T-1001",
+                "T-1004"
+              ],
+              "related_metadata": [],
+              "outcome": "historical_precedents",
+              "applicability": "unverified",
+              "scores": [
+                {
+                  "id": "T-1001",
+                  "keyword": 0.3693741637105713,
+                  "semantic": 0.8095901608467102,
+                  "clause_coverage": 0.6840242147445679,
+                  "lexical_clause_coverage": 0.461987015741076
+                },
+                {
+                  "id": "T-1004",
+                  "keyword": 0.08844359940888225,
+                  "semantic": 0.6963279247283936,
+                  "clause_coverage": 0.6295791864395142,
+                  "lexical_clause_coverage": 0.28462166145830997
+                }
+              ]
+            },
+            {
+              "id": "short-denied",
+              "expected": [
+                "T-1501"
+              ],
+              "displayed_precedents": [
+                "T-1501"
+              ],
+              "related_metadata": [
+                "T-1503"
+              ],
+              "outcome": "historical_precedents",
+              "applicability": "unverified",
+              "scores": [
+                {
+                  "id": "T-1501",
+                  "keyword": 0.4725158045065291,
+                  "semantic": 0.835618793964386,
+                  "clause_coverage": 0.5889651775360107,
+                  "lexical_clause_coverage": 0.18847283922557495
+                }
+              ]
+            },
+            {
+              "id": "keyword-billing",
+              "expected": [
+                "T-1303"
+              ],
+              "displayed_precedents": [
+                "T-1303"
+              ],
+              "related_metadata": [],
+              "outcome": "historical_precedents",
+              "applicability": "unverified",
+              "scores": [
+                {
+                  "id": "T-1303",
+                  "keyword": 0.3246911650139763,
+                  "semantic": 0.80510413646698,
+                  "clause_coverage": 0.7887553572654724,
+                  "lexical_clause_coverage": 1.0
+                }
+              ]
+            },
+            {
+              "id": "keyword-429",
+              "expected": [
+                "T-1702"
+              ],
+              "displayed_precedents": [
+                "T-1702"
+              ],
+              "related_metadata": [
+                "T-1703"
+              ],
+              "outcome": "historical_precedents",
+              "applicability": "unverified",
+              "scores": [
+                {
+                  "id": "T-1702",
+                  "keyword": 0.46351227311302684,
+                  "semantic": 0.8553978204727173,
+                  "clause_coverage": 0.7407026290893555,
+                  "lexical_clause_coverage": 1.0
+                }
+              ]
+            },
+            {
+              "id": "empty-fragments",
+              "expected": [],
+              "displayed_precedents": [],
+              "related_metadata": [],
+              "outcome": "no_relevant_history",
+              "applicability": "unverified",
+              "scores": []
+            },
+            {
+              "id": "contrasting-access",
+              "expected": [],
+              "displayed_precedents": [],
+              "related_metadata": [
+                "T-1001",
+                "T-1004",
+                "T-1502"
+              ],
+              "outcome": "related_history_only",
+              "applicability": "unverified",
+              "scores": []
+            }
+          ]
+        }
+      }
+    },
+    "informal_exposed": {
+      "cases_sha256": "0c4de6ea2816277ce067336b2acbf0b594422d8a2ccadd5df613136bc7be4e92",
+      "modes": {
+        "keyword": {
+          "metrics": {
+            "positive_count": 8,
+            "negative_count": 10,
+            "irrelevant_precedent_presentations": 0,
+            "positive_precedent_abstentions": 5,
+            "positive_with_irrelevant_precedents": 0,
+            "precedent_precision_at_3": 0.125,
+            "precedent_recall_at_3": 0.375,
+            "precedent_mrr": 0.375,
+            "outcomes": {
+              "historical_precedents": 3,
+              "no_relevant_history": 11,
+              "related_history_only": 4
+            },
+            "warm_latency_ms": {
+              "median": 1.3592000177595764,
+              "p95": 1.525700034108013,
+              "samples": 90
+            }
+          },
+          "cases": [
+            {
+              "id": "reported",
+              "expected": [
+                "T-1303"
+              ],
+              "displayed_precedents": [
+                "T-1303"
+              ],
+              "related_metadata": [],
+              "outcome": "historical_precedents",
+              "applicability": "unverified",
+              "scores": [
+                {
+                  "id": "T-1303",
+                  "keyword": 0.2622349272759598,
+                  "semantic": null,
+                  "clause_coverage": null,
+                  "lexical_clause_coverage": 0.6666666666666666
+                }
+              ]
+            },
+            {
+              "id": "informal-double",
+              "expected": [
+                "T-1303"
+              ],
+              "displayed_precedents": [],
+              "related_metadata": [],
+              "outcome": "no_relevant_history",
+              "applicability": "unverified",
+              "scores": []
+            },
+            {
+              "id": "informal-card",
+              "expected": [
+                "T-1303"
+              ],
+              "displayed_precedents": [],
+              "related_metadata": [
+                "T-1303"
+              ],
+              "outcome": "related_history_only",
+              "applicability": "unverified",
+              "scores": []
+            },
+            {
+              "id": "informal-reset",
+              "expected": [
+                "T-1001"
+              ],
+              "displayed_precedents": [],
+              "related_metadata": [
+                "T-1001"
+              ],
+              "outcome": "related_history_only",
+              "applicability": "unverified",
+              "scores": []
+            },
+            {
+              "id": "informal-rate",
+              "expected": [
+                "T-1702"
+              ],
+              "displayed_precedents": [],
+              "related_metadata": [],
+              "outcome": "no_relevant_history",
+              "applicability": "unverified",
+              "scores": []
+            },
+            {
+              "id": "informal-chart",
+              "expected": [
+                "T-1201"
+              ],
+              "displayed_precedents": [
+                "T-1201"
+              ],
+              "related_metadata": [],
+              "outcome": "historical_precedents",
+              "applicability": "unverified",
+              "scores": [
+                {
+                  "id": "T-1201",
+                  "keyword": 0.5078938581061448,
+                  "semantic": null,
+                  "clause_coverage": null,
+                  "lexical_clause_coverage": 0.8157455784576486
+                }
+              ]
+            },
+            {
+              "id": "informal-dashboard",
+              "expected": [
+                "T-1501"
+              ],
+              "displayed_precedents": [],
+              "related_metadata": [],
+              "outcome": "no_relevant_history",
+              "applicability": "unverified",
+              "scores": []
+            },
+            {
+              "id": "informal-original-short",
+              "expected": [
+                "T-1303"
+              ],
+              "displayed_precedents": [
+                "T-1303"
+              ],
+              "related_metadata": [],
+              "outcome": "historical_precedents",
+              "applicability": "unverified",
+              "scores": [
+                {
+                  "id": "T-1303",
+                  "keyword": 0.2770615690073831,
+                  "semantic": null,
+                  "clause_coverage": null,
+                  "lexical_clause_coverage": 1.0
+                }
+              ]
+            },
+            {
+              "id": "negative-refund",
+              "expected": [],
+              "displayed_precedents": [],
+              "related_metadata": [],
+              "outcome": "no_relevant_history",
+              "applicability": "unverified",
+              "scores": []
+            },
+            {
+              "id": "negative-negated-double",
+              "expected": [],
+              "displayed_precedents": [],
+              "related_metadata": [],
+              "outcome": "no_relevant_history",
+              "applicability": "unverified",
+              "scores": []
+            },
+            {
+              "id": "negative-hardware",
+              "expected": [],
+              "displayed_precedents": [],
+              "related_metadata": [],
+              "outcome": "no_relevant_history",
+              "applicability": "unverified",
+              "scores": []
+            },
+            {
+              "id": "negative-legitimate",
+              "expected": [],
+              "displayed_precedents": [],
+              "related_metadata": [],
+              "outcome": "no_relevant_history",
+              "applicability": "unverified",
+              "scores": []
+            },
+            {
+              "id": "negative-unfamiliar",
+              "expected": [],
+              "displayed_precedents": [],
+              "related_metadata": [],
+              "outcome": "no_relevant_history",
+              "applicability": "unverified",
+              "scores": []
+            },
+            {
+              "id": "negative-email",
+              "expected": [],
+              "displayed_precedents": [],
+              "related_metadata": [
+                "T-1001"
+              ],
+              "outcome": "related_history_only",
+              "applicability": "unverified",
+              "scores": []
+            },
+            {
+              "id": "negative-success-failure",
+              "expected": [],
+              "displayed_precedents": [],
+              "related_metadata": [
+                "T-1001"
+              ],
+              "outcome": "related_history_only",
+              "applicability": "unverified",
+              "scores": []
+            },
+            {
+              "id": "negative-vague",
+              "expected": [],
+              "displayed_precedents": [],
+              "related_metadata": [],
+              "outcome": "no_relevant_history",
+              "applicability": "unverified",
+              "scores": []
+            },
+            {
+              "id": "negative-negated-rate",
+              "expected": [],
+              "displayed_precedents": [],
+              "related_metadata": [],
+              "outcome": "no_relevant_history",
+              "applicability": "unverified",
+              "scores": []
+            },
+            {
+              "id": "negative-parcel",
+              "expected": [],
+              "displayed_precedents": [],
+              "related_metadata": [],
+              "outcome": "no_relevant_history",
+              "applicability": "unverified",
+              "scores": []
+            }
+          ]
+        },
+        "semantic": {
+          "metrics": {
+            "positive_count": 8,
+            "negative_count": 10,
+            "irrelevant_precedent_presentations": 0,
+            "positive_precedent_abstentions": 1,
+            "positive_with_irrelevant_precedents": 0,
+            "precedent_precision_at_3": 0.29166666666666663,
+            "precedent_recall_at_3": 0.875,
+            "precedent_mrr": 0.875,
+            "outcomes": {
+              "historical_precedents": 7,
+              "related_history_only": 6,
+              "no_relevant_history": 5
+            },
+            "warm_latency_ms": {
+              "median": 12.200199998915195,
+              "p95": 18.551499990280718,
+              "samples": 90
+            }
+          },
+          "cases": [
+            {
+              "id": "reported",
+              "expected": [
+                "T-1303"
+              ],
+              "displayed_precedents": [
+                "T-1303"
+              ],
+              "related_metadata": [],
+              "outcome": "historical_precedents",
+              "applicability": "unverified",
+              "scores": [
+                {
+                  "id": "T-1303",
+                  "keyword": 0.2622349272759598,
+                  "semantic": 0.6426569223403931,
+                  "clause_coverage": 0.7235956788063049,
+                  "lexical_clause_coverage": 0.6666666666666666
+                }
+              ]
+            },
+            {
+              "id": "informal-double",
+              "expected": [
+                "T-1303"
+              ],
+              "displayed_precedents": [
+                "T-1303"
+              ],
+              "related_metadata": [],
+              "outcome": "historical_precedents",
+              "applicability": "unverified",
+              "scores": [
+                {
+                  "id": "T-1303",
+                  "keyword": 0.2042258851651192,
+                  "semantic": 0.7207825183868408,
+                  "clause_coverage": 0.7740142941474915,
+                  "lexical_clause_coverage": 0.0
+                }
+              ]
+            },
+            {
+              "id": "informal-card",
+              "expected": [
+                "T-1303"
+              ],
+              "displayed_precedents": [
+                "T-1303"
+              ],
+              "related_metadata": [],
+              "outcome": "historical_precedents",
+              "applicability": "unverified",
+              "scores": [
+                {
+                  "id": "T-1303",
+                  "keyword": 0.31914762083086634,
+                  "semantic": 0.6956740617752075,
+                  "clause_coverage": 0.7060979604721069,
+                  "lexical_clause_coverage": 0.38850954866436377
+                }
+              ]
+            },
+            {
+              "id": "informal-reset",
+              "expected": [
+                "T-1001"
+              ],
+              "displayed_precedents": [
+                "T-1001"
+              ],
+              "related_metadata": [
+                "T-1004"
+              ],
+              "outcome": "historical_precedents",
+              "applicability": "unverified",
+              "scores": [
+                {
+                  "id": "T-1001",
+                  "keyword": 0.275280769904011,
+                  "semantic": 0.6857219934463501,
+                  "clause_coverage": 0.6671006083488464,
+                  "lexical_clause_coverage": 0.47344828545375717
+                }
+              ]
+            },
+            {
+              "id": "informal-rate",
+              "expected": [
+                "T-1702"
+              ],
+              "displayed_precedents": [],
+              "related_metadata": [
+                "T-1703",
+                "T-1702"
+              ],
+              "outcome": "related_history_only",
+              "applicability": "unverified",
+              "scores": []
+            },
+            {
+              "id": "informal-chart",
+              "expected": [
+                "T-1201"
+              ],
+              "displayed_precedents": [
+                "T-1201"
+              ],
+              "related_metadata": [],
+              "outcome": "historical_precedents",
+              "applicability": "unverified",
+              "scores": [
+                {
+                  "id": "T-1201",
+                  "keyword": 0.5078938581061448,
+                  "semantic": 0.9154278635978699,
+                  "clause_coverage": 0.8792458772659302,
+                  "lexical_clause_coverage": 0.8157455784576486
+                }
+              ]
+            },
+            {
+              "id": "informal-dashboard",
+              "expected": [
+                "T-1501"
+              ],
+              "displayed_precedents": [
+                "T-1501"
+              ],
+              "related_metadata": [
+                "T-1503"
+              ],
+              "outcome": "historical_precedents",
+              "applicability": "unverified",
+              "scores": [
+                {
+                  "id": "T-1501",
+                  "keyword": 0.21527300053228243,
+                  "semantic": 0.813532829284668,
+                  "clause_coverage": 0.663262128829956,
+                  "lexical_clause_coverage": 0.0
+                }
+              ]
+            },
+            {
+              "id": "informal-original-short",
+              "expected": [
+                "T-1303"
+              ],
+              "displayed_precedents": [
+                "T-1303"
+              ],
+              "related_metadata": [],
+              "outcome": "historical_precedents",
+              "applicability": "unverified",
+              "scores": [
+                {
+                  "id": "T-1303",
+                  "keyword": 0.2770615690073831,
+                  "semantic": 0.6490886211395264,
+                  "clause_coverage": 0.7065706253051758,
+                  "lexical_clause_coverage": 1.0
+                }
+              ]
+            },
+            {
+              "id": "negative-refund",
+              "expected": [],
+              "displayed_precedents": [],
+              "related_metadata": [],
+              "outcome": "no_relevant_history",
+              "applicability": "unverified",
+              "scores": []
+            },
+            {
+              "id": "negative-negated-double",
+              "expected": [],
+              "displayed_precedents": [],
+              "related_metadata": [
+                "T-1303"
+              ],
+              "outcome": "related_history_only",
+              "applicability": "unverified",
+              "scores": []
+            },
+            {
+              "id": "negative-hardware",
+              "expected": [],
+              "displayed_precedents": [],
+              "related_metadata": [
+                "T-1303"
+              ],
+              "outcome": "related_history_only",
+              "applicability": "unverified",
+              "scores": []
+            },
+            {
+              "id": "negative-legitimate",
+              "expected": [],
+              "displayed_precedents": [],
+              "related_metadata": [
+                "T-1303"
+              ],
+              "outcome": "related_history_only",
+              "applicability": "unverified",
+              "scores": []
+            },
+            {
+              "id": "negative-unfamiliar",
+              "expected": [],
+              "displayed_precedents": [],
+              "related_metadata": [],
+              "outcome": "no_relevant_history",
+              "applicability": "unverified",
+              "scores": []
+            },
+            {
+              "id": "negative-email",
+              "expected": [],
+              "displayed_precedents": [],
+              "related_metadata": [
+                "T-1001"
+              ],
+              "outcome": "related_history_only",
+              "applicability": "unverified",
+              "scores": []
+            },
+            {
+              "id": "negative-success-failure",
+              "expected": [],
+              "displayed_precedents": [],
+              "related_metadata": [
+                "T-1001"
+              ],
+              "outcome": "related_history_only",
+              "applicability": "unverified",
+              "scores": []
+            },
+            {
+              "id": "negative-vague",
+              "expected": [],
+              "displayed_precedents": [],
+              "related_metadata": [],
+              "outcome": "no_relevant_history",
+              "applicability": "unverified",
+              "scores": []
+            },
+            {
+              "id": "negative-negated-rate",
+              "expected": [],
+              "displayed_precedents": [],
+              "related_metadata": [],
+              "outcome": "no_relevant_history",
+              "applicability": "unverified",
+              "scores": []
+            },
+            {
+              "id": "negative-parcel",
+              "expected": [],
+              "displayed_precedents": [],
+              "related_metadata": [],
+              "outcome": "no_relevant_history",
+              "applicability": "unverified",
+              "scores": []
+            }
+          ]
+        },
+        "hybrid": {
+          "metrics": {
+            "positive_count": 8,
+            "negative_count": 10,
+            "irrelevant_precedent_presentations": 0,
+            "positive_precedent_abstentions": 1,
+            "positive_with_irrelevant_precedents": 0,
+            "precedent_precision_at_3": 0.29166666666666663,
+            "precedent_recall_at_3": 0.875,
+            "precedent_mrr": 0.875,
+            "outcomes": {
+              "historical_precedents": 7,
+              "related_history_only": 6,
+              "no_relevant_history": 5
+            },
+            "warm_latency_ms": {
+              "median": 12.058599997544661,
+              "p95": 16.08860003761947,
+              "samples": 90
+            }
+          },
+          "cases": [
+            {
+              "id": "reported",
+              "expected": [
+                "T-1303"
+              ],
+              "displayed_precedents": [
+                "T-1303"
+              ],
+              "related_metadata": [],
+              "outcome": "historical_precedents",
+              "applicability": "unverified",
+              "scores": [
+                {
+                  "id": "T-1303",
+                  "keyword": 0.2622349272759598,
+                  "semantic": 0.6426569223403931,
+                  "clause_coverage": 0.7235956788063049,
+                  "lexical_clause_coverage": 0.6666666666666666
+                }
+              ]
+            },
+            {
+              "id": "informal-double",
+              "expected": [
+                "T-1303"
+              ],
+              "displayed_precedents": [
+                "T-1303"
+              ],
+              "related_metadata": [],
+              "outcome": "historical_precedents",
+              "applicability": "unverified",
+              "scores": [
+                {
+                  "id": "T-1303",
+                  "keyword": 0.2042258851651192,
+                  "semantic": 0.7207825183868408,
+                  "clause_coverage": 0.7740142941474915,
+                  "lexical_clause_coverage": 0.0
+                }
+              ]
+            },
+            {
+              "id": "informal-card",
+              "expected": [
+                "T-1303"
+              ],
+              "displayed_precedents": [
+                "T-1303"
+              ],
+              "related_metadata": [],
+              "outcome": "historical_precedents",
+              "applicability": "unverified",
+              "scores": [
+                {
+                  "id": "T-1303",
+                  "keyword": 0.31914762083086634,
+                  "semantic": 0.6956740617752075,
+                  "clause_coverage": 0.7060979604721069,
+                  "lexical_clause_coverage": 0.38850954866436377
+                }
+              ]
+            },
+            {
+              "id": "informal-reset",
+              "expected": [
+                "T-1001"
+              ],
+              "displayed_precedents": [
+                "T-1001"
+              ],
+              "related_metadata": [
+                "T-1004"
+              ],
+              "outcome": "historical_precedents",
+              "applicability": "unverified",
+              "scores": [
+                {
+                  "id": "T-1001",
+                  "keyword": 0.275280769904011,
+                  "semantic": 0.6857219934463501,
+                  "clause_coverage": 0.6671006083488464,
+                  "lexical_clause_coverage": 0.47344828545375717
+                }
+              ]
+            },
+            {
+              "id": "informal-rate",
+              "expected": [
+                "T-1702"
+              ],
+              "displayed_precedents": [],
+              "related_metadata": [
+                "T-1702",
+                "T-1703"
+              ],
+              "outcome": "related_history_only",
+              "applicability": "unverified",
+              "scores": []
+            },
+            {
+              "id": "informal-chart",
+              "expected": [
+                "T-1201"
+              ],
+              "displayed_precedents": [
+                "T-1201"
+              ],
+              "related_metadata": [],
+              "outcome": "historical_precedents",
+              "applicability": "unverified",
+              "scores": [
+                {
+                  "id": "T-1201",
+                  "keyword": 0.5078938581061448,
+                  "semantic": 0.9154278635978699,
+                  "clause_coverage": 0.8792458772659302,
+                  "lexical_clause_coverage": 0.8157455784576486
+                }
+              ]
+            },
+            {
+              "id": "informal-dashboard",
+              "expected": [
+                "T-1501"
+              ],
+              "displayed_precedents": [
+                "T-1501"
+              ],
+              "related_metadata": [
+                "T-1503"
+              ],
+              "outcome": "historical_precedents",
+              "applicability": "unverified",
+              "scores": [
+                {
+                  "id": "T-1501",
+                  "keyword": 0.21527300053228243,
+                  "semantic": 0.813532829284668,
+                  "clause_coverage": 0.663262128829956,
+                  "lexical_clause_coverage": 0.0
+                }
+              ]
+            },
+            {
+              "id": "informal-original-short",
+              "expected": [
+                "T-1303"
+              ],
+              "displayed_precedents": [
+                "T-1303"
+              ],
+              "related_metadata": [],
+              "outcome": "historical_precedents",
+              "applicability": "unverified",
+              "scores": [
+                {
+                  "id": "T-1303",
+                  "keyword": 0.2770615690073831,
+                  "semantic": 0.6490886211395264,
+                  "clause_coverage": 0.7065706253051758,
+                  "lexical_clause_coverage": 1.0
+                }
+              ]
+            },
+            {
+              "id": "negative-refund",
+              "expected": [],
+              "displayed_precedents": [],
+              "related_metadata": [],
+              "outcome": "no_relevant_history",
+              "applicability": "unverified",
+              "scores": []
+            },
+            {
+              "id": "negative-negated-double",
+              "expected": [],
+              "displayed_precedents": [],
+              "related_metadata": [
+                "T-1303"
+              ],
+              "outcome": "related_history_only",
+              "applicability": "unverified",
+              "scores": []
+            },
+            {
+              "id": "negative-hardware",
+              "expected": [],
+              "displayed_precedents": [],
+              "related_metadata": [
+                "T-1303"
+              ],
+              "outcome": "related_history_only",
+              "applicability": "unverified",
+              "scores": []
+            },
+            {
+              "id": "negative-legitimate",
+              "expected": [],
+              "displayed_precedents": [],
+              "related_metadata": [
+                "T-1303"
+              ],
+              "outcome": "related_history_only",
+              "applicability": "unverified",
+              "scores": []
+            },
+            {
+              "id": "negative-unfamiliar",
+              "expected": [],
+              "displayed_precedents": [],
+              "related_metadata": [],
+              "outcome": "no_relevant_history",
+              "applicability": "unverified",
+              "scores": []
+            },
+            {
+              "id": "negative-email",
+              "expected": [],
+              "displayed_precedents": [],
+              "related_metadata": [
+                "T-1001"
+              ],
+              "outcome": "related_history_only",
+              "applicability": "unverified",
+              "scores": []
+            },
+            {
+              "id": "negative-success-failure",
+              "expected": [],
+              "displayed_precedents": [],
+              "related_metadata": [
+                "T-1001"
+              ],
+              "outcome": "related_history_only",
+              "applicability": "unverified",
+              "scores": []
+            },
+            {
+              "id": "negative-vague",
+              "expected": [],
+              "displayed_precedents": [],
+              "related_metadata": [],
+              "outcome": "no_relevant_history",
+              "applicability": "unverified",
+              "scores": []
+            },
+            {
+              "id": "negative-negated-rate",
+              "expected": [],
+              "displayed_precedents": [],
+              "related_metadata": [],
+              "outcome": "no_relevant_history",
+              "applicability": "unverified",
+              "scores": []
+            },
+            {
+              "id": "negative-parcel",
+              "expected": [],
+              "displayed_precedents": [],
+              "related_metadata": [],
+              "outcome": "no_relevant_history",
+              "applicability": "unverified",
+              "scores": []
+            }
+          ]
+        }
+      }
+    }
+  }
+}
